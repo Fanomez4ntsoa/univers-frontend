@@ -9,7 +9,7 @@
 ## 📍 Position actuelle
 ```
 Phase 1 — Setup & Auth     █████████████████████ 100% — terminé ✅
-Phase 2 — CRM Dashboard    ██████░░░░░░░░░░░░░░░  30% — en cours
+Phase 2 — CRM Dashboard    █████████░░░░░░░░░░░░  45% — en cours
 Phase 3 — Client Portal    ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 Phase 4 — Ecosystem        ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 ```
@@ -50,7 +50,7 @@ Phase 4 — Ecosystem        ░░░░░░░░░░░░░░░░░
 | Page | Fichier Emergent de référence | Branche | État |
 |---|---|---|---|
 | **Prospects** | `src/pages/client/crm-batiment/ProspectsPage.jsx` | `feature/crm-prospects` | ✅ Terminé + testé |
-| **Clients** | `src/pages/client/crm-batiment/ClientsPage.jsx` | `feature/crm-clients` | 📋 À faire |
+| **Clients** | `src/pages/client/crm-batiment/ClientsPage.jsx` | `feature/crm-clients` | ✅ Terminé + testé |
 | **Devis** | `src/pages/client/crm-batiment/DevisPage.jsx` | `feature/crm-quotes` | 📋 À faire |
 | **Factures** | `src/pages/client/crm-batiment/FacturesPage.jsx` | `feature/crm-invoices` | 📋 À faire |
 | **Chantiers** | `src/pages/client/crm-batiment/ChantiersPage.jsx` | `feature/crm-chantiers` | 📋 À faire |
@@ -65,11 +65,11 @@ Phase 4 — Ecosystem        ░░░░░░░░░░░░░░░░░
 - [x] Statuts visuels (badges colorés)
 
 #### Clients
-- [ ] Liste avec compteurs (total_quotes, total_invoices, total_revenue)
-- [ ] Détail client enrichi (onglets : devis, factures, chantiers, notes)
-- [ ] Formulaire création/édition
-- [ ] Ajout de notes
-- [ ] Génération portal token
+- [x] Liste avec compteurs (total_quotes, total_invoices, total_revenue)
+- [x] Détail client enrichi (onglets : devis, factures, chantiers, notes)
+- [x] Formulaire création/édition
+- [x] Ajout de notes
+- [x] Génération portal token
 
 #### Devis
 - [ ] Liste avec filtres (status)
@@ -160,5 +160,5 @@ Phase 4 — Ecosystem        ░░░░░░░░░░░░░░░░░
 
 ---
 
-*Dernière mise à jour : 1 Avril 2026 — Prospects terminé*
+*Dernière mise à jour : 1 Avril 2026 — Clients terminé*
 *Rédigé par : Fanomezantsoa + Claude*
