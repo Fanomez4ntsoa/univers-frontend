@@ -9,7 +9,7 @@
 ## 📍 Position actuelle
 ```
 Phase 1 — Setup & Auth     █████████████████████ 100% — terminé ✅
-Phase 2 — CRM Dashboard    ████████████░░░░░░░░░  60% — en cours
+Phase 2 — CRM Dashboard    ███████████████░░░░░░  75% — en cours
 Phase 3 — Client Portal    ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 Phase 4 — Ecosystem        ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 ```
@@ -52,7 +52,7 @@ Phase 4 — Ecosystem        ░░░░░░░░░░░░░░░░░
 | **Prospects** | `src/pages/client/crm-batiment/ProspectsPage.jsx` | `feature/crm-prospects` | ✅ Terminé + testé |
 | **Clients** | `src/pages/client/crm-batiment/ClientsPage.jsx` | `feature/crm-clients` | ✅ Terminé + testé |
 | **Devis** | `src/pages/client/crm-batiment/DevisPage.jsx` | `feature/crm-quotes` | ✅ Terminé + testé |
-| **Factures** | `src/pages/client/crm-batiment/FacturesPage.jsx` | `feature/crm-invoices` | 📋 À faire |
+| **Factures** | `src/pages/client/crm-batiment/FacturesPage.jsx` | `feature/crm-invoices` | ✅ Terminé + testé |
 | **Chantiers** | `src/pages/client/crm-batiment/ChantiersPage.jsx` | `feature/crm-chantiers` | 📋 À faire |
 | **Settings** | `src/pages/client/crm-batiment/` (paramètres) | `feature/crm-settings` | 📋 À faire |
 
@@ -79,11 +79,11 @@ Phase 4 — Ecosystem        ░░░░░░░░░░░░░░░░░
 - [x] Statuts immutables (accepted/invoiced → pas d'édition)
 
 #### Factures
-- [ ] Liste avec filtres (status)
-- [ ] Détail avec devis lié
-- [ ] Action : mark-paid
-- [ ] Action : cancel (bloqué si paid)
-- [ ] Affichage amount_paid / amount_due
+- [x] Liste avec filtres (status)
+- [x] Détail avec devis lié
+- [x] Action : mark-paid
+- [x] Action : cancel (bloqué si paid)
+- [x] Affichage amount_paid / amount_due
 
 #### Chantiers
 - [ ] Liste standard
@@ -160,5 +160,5 @@ Phase 4 — Ecosystem        ░░░░░░░░░░░░░░░░░
 
 ---
 
-*Dernière mise à jour : 1 Avril 2026 — Devis terminé*
+*Dernière mise à jour : 1 Avril 2026 — Factures terminé*
 *Rédigé par : Fanomezantsoa + Claude*
