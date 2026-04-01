@@ -8,7 +8,7 @@
 
 ## 📍 Position actuelle
 ```
-Phase 1 — Setup & Auth     ██████████░░░░░░░░░░░  50% — en cours
+Phase 1 — Setup & Auth     █████████████████████ 100% — terminé
 Phase 2 — CRM Dashboard    ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 Phase 3 — Client Portal    ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 Phase 4 — Ecosystem        ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
@@ -26,10 +26,10 @@ Phase 4 — Ecosystem        ░░░░░░░░░░░░░░░░░
 | Config `src/lib/axios.ts` | — | `main` | ✅ Terminé |
 | `.env` VITE_CORE + VITE_BATI | — | `main` | ✅ Terminé |
 | Types TypeScript (`auth.ts` + `crm.ts`) | — | `main` | ✅ Terminé |
-| **Login Page** | `src/pages/ecosystem/social/LoginPage.jsx` | `feature/auth-login` | 📋 À faire |
-| **Auth Guard** (routes protégées) | `src/App.js` (vérifier logique auth) | `feature/auth-login` | 📋 À faire |
+| **Login Page** | `src/pages/ecosystem/social/LoginPage.jsx` | `feature/auth-login` | ✅ Terminé |
+| **Auth Guard** (routes protégées) | `src/App.js` (vérifier logique auth) | `feature/auth-login` | ✅ Terminé |
 
-### Prochaine branche : `feature/auth-login`
+### Prochaine branche : `feature/crm-layout`
 
 ---
 
