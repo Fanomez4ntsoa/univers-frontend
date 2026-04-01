@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query'
-import { coreAPI } from '../lib/axios'
+import { coreAPI } from '../../../shared/lib/axios'
 import type { User, LoginResponse } from '../types/auth'
 
 interface LoginPayload {
