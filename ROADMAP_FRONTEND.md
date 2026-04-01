@@ -8,7 +8,7 @@
 
 ## 📍 Position actuelle
 ```
-Phase 1 — Setup & Auth     ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
+Phase 1 — Setup & Auth     ██████████░░░░░░░░░░░  50% — en cours
 Phase 2 — CRM Dashboard    ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 Phase 3 — Client Portal    ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 Phase 4 — Ecosystem        ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
@@ -20,11 +20,12 @@ Phase 4 — Ecosystem        ░░░░░░░░░░░░░░░░░
 
 | Tâche | Fichier Emergent de référence | Branche | État |
 |---|---|---|---|
-| Init Vite + React 18 | — | `main` | 📋 À faire |
-| TailwindCSS + Shadcn/UI | `tailwind.config.js` | `main` | 📋 À faire |
-| TanStack Query + Axios | `src/services/` | `main` | 📋 À faire |
-| Config `src/lib/axios.js` | — | `main` | 📋 À faire |
-| `.env` VITE_CORE + VITE_BATI | — | `main` | 📋 À faire |
+| Init Vite + React 18 + TypeScript | — | `main` | ✅ Terminé |
+| TailwindCSS + Shadcn/UI | `tailwind.config.js` | `main` | ✅ Terminé |
+| TanStack Query + Axios | `src/services/` | `main` | ✅ Terminé |
+| Config `src/lib/axios.ts` | — | `main` | ✅ Terminé |
+| `.env` VITE_CORE + VITE_BATI | — | `main` | ✅ Terminé |
+| Types TypeScript (`auth.ts` + `crm.ts`) | — | `main` | ✅ Terminé |
 | **Login Page** | `src/pages/ecosystem/social/LoginPage.jsx` | `feature/auth-login` | 📋 À faire |
 | **Auth Guard** (routes protégées) | `src/App.js` (vérifier logique auth) | `feature/auth-login` | 📋 À faire |
 
