@@ -1,6 +1,6 @@
 # CLAUDE.md — AbracadaBati Frontend
 
-> **Lire aussi : ROADMAP_FRONTEND.md** contient l'état d'avancement complet du développement frontend. À consulter avant chaque nouvelle page ou composant.
+> **Lire aussi : ROADMAP_FRONTEND.md** — contient l'état d'avancement complet du développement frontend. À consulter avant chaque nouvelle page ou composant.
 
 > **Lis ce fichier entièrement avant de faire quoi que ce soit.**
 > Il contient toutes les décisions d'architecture, les règles du projet,
@@ -14,7 +14,7 @@
 
 1. **Vérifier d'abord** ce que le projet Emergent (`AbracadaBati`) a déjà fait
 2. **Extraire** ce qui est pertinent (pages, composants, structure)
-3. **Adapter** à notre stack Vite + React + TanStack Query
+3. **Adapter** à notre stack Vite + React + TypeScript + TanStack Query
 4. **Enrichir** seulement si nécessaire
 
 > Ne jamais inventer un composant, une page, ou une structure sans avoir
@@ -45,7 +45,7 @@ abracadabati-frontend     (ce repo — port 5173)
 
 | Couche | Technologie |
 |---|---|
-| Framework | Vite + React 18 |
+| Framework | Vite + React 18 + **TypeScript** |
 | Styling | TailwindCSS + Shadcn/UI |
 | Animations | Framer Motion |
 | Icônes | Lucide React |
@@ -112,7 +112,7 @@ abracadabati-frontend     (ce repo — port 5173)
 Hauteur standard : `h-11` (44px)
 
 ### Cards
-```jsx
+```tsx
 // Standard
 <div className="bg-white border border-gray-200 rounded-xl shadow-sm 
                 hover:shadow-md hover:border-gray-300 p-5 
@@ -120,7 +120,7 @@ Hauteur standard : `h-11` (44px)
 ```
 
 ### Animations standards
-```javascript
+```typescript
 // Framer Motion — fade up (utilisé sur toutes les pages)
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -143,7 +143,7 @@ Transitions hover : `duration-200 ease-out`
 | Tablet | ≥ 640px | `sm:` |
 | Desktop | ≥ 1024px | `lg:` |
 | Large | ≥ 1280px | `xl:` |
-```jsx
+```tsx
 // Patterns responsives standards
 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
 <div className="px-4 sm:px-6 lg:px-8">
@@ -152,12 +152,12 @@ Transitions hover : `duration-200 ease-out`
 ```
 
 ### Container
-```jsx
+```tsx
 <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
 ```
 
 ### Icônes — Lucide React
-```jsx
+```tsx
 import { Building2, Wrench, FileText, Users, 
          BarChart3, Calendar, CreditCard } from 'lucide-react'
 // Tailles : 16px (sm), 20px (md), 24px (lg)
@@ -185,8 +185,8 @@ import { Building2, Wrench, FileText, Users,
 4. Si 401 → vider localStorage → rediriger /login
 ```
 
-### src/lib/axios.js
-```javascript
+### src/lib/axios.ts
+```typescript
 import axios from 'axios'
 
 export const coreAPI = axios.create({
@@ -220,51 +220,247 @@ batiAPI.interceptors.response.use(
 ## 🏗️ Architecture des dossiers
 ```
 src/
+├── types/               # Interfaces TypeScript — correspondent aux réponses API
+│   ├── auth.ts          # User, LoginResponse
+│   └── crm.ts           # Prospect, Client, Quote, Invoice, Chantier, CompanySettings
 ├── components/
 │   ├── ui/              # Shadcn/UI — ne jamais modifier
 │   ├── layout/          # CRMLayout, Sidebar, TopBar
 │   └── crm/             # Composants réutilisables CRM
-│       ├── StatusBadge.jsx
-│       ├── EmptyState.jsx
-│       └── ConfirmDialog.jsx
+│       ├── StatusBadge.tsx
+│       ├── EmptyState.tsx
+│       └── ConfirmDialog.tsx
 ├── pages/
 │   ├── auth/
-│   │   └── LoginPage.jsx
+│   │   └── LoginPage.tsx
 │   └── crm/
-│       ├── ProspectsPage.jsx
-│       ├── ClientsPage.jsx
-│       ├── QuotesPage.jsx
-│       ├── InvoicesPage.jsx
-│       ├── ChantiersPage.jsx
-│       └── SettingsPage.jsx
+│       ├── ProspectsPage.tsx
+│       ├── ClientsPage.tsx
+│       ├── QuotesPage.tsx
+│       ├── InvoicesPage.tsx
+│       ├── ChantiersPage.tsx
+│       └── SettingsPage.tsx
 ├── hooks/
 │   └── crm/
-│       ├── useProspects.js
-│       ├── useClients.js
-│       ├── useQuotes.js
-│       ├── useInvoices.js
-│       ├── useChantiers.js
-│       └── useSettings.js
+│       ├── useProspects.ts
+│       ├── useClients.ts
+│       ├── useQuotes.ts
+│       ├── useInvoices.ts
+│       ├── useChantiers.ts
+│       └── useSettings.ts
 ├── lib/
-│   ├── axios.js         # Config Axios — voir ci-dessus
-│   └── utils.js         # Helpers (formatDate, formatCurrency...)
-└── App.jsx              # Routes principales
+│   ├── axios.ts         # Config Axios — voir ci-dessus
+│   └── utils.ts         # Helpers (formatDate, formatCurrency...)
+└── App.tsx              # Routes principales
 ```
 
 ### Règles d'architecture
 - **Page** → reçoit les données via un hook, affiche, délègue les actions
 - **Hook** → toute la logique TanStack Query (fetch, mutation, cache)
 - **Composant** → UI pure, pas d'appels API directs
-- **lib/axios.js** → seul endroit où on configure Axios
+- **lib/axios.ts** → seul endroit où on configure Axios
+- **types/** → toutes les interfaces, jamais de `any`
+
+### Types TypeScript — src/types/auth.ts
+```typescript
+export interface User {
+  id: string
+  email: string
+  username: string
+  display_name: string
+  role: string
+  user_type: 'particulier' | 'professionnel'
+  is_active: boolean
+}
+
+export interface LoginResponse {
+  token: string
+  user: User
+}
+```
+
+### Types TypeScript — src/types/crm.ts
+```typescript
+export interface Prospect {
+  id: number
+  owner_id: number
+  name: string
+  email: string | null
+  phone: string | null
+  city: string | null
+  source: string | null
+  status: 'new' | 'contacted' | 'qualified' | 'converted' | 'lost'
+  pipeline_stage: 'prospect' | 'devis' | 'negociation' | 'signe' | 'perdu'
+  notes: string | null
+  created_at: string
+  updated_at: string
+}
+
+export interface Client {
+  id: number
+  owner_id: number
+  prospect_id: number | null
+  name: string
+  email: string | null
+  phone: string | null
+  address: string | null
+  city: string | null
+  company_name: string | null
+  siret: string | null
+  total_quotes: number
+  total_invoices: number
+  total_revenue: string
+  portal_token: string | null
+  created_at: string
+  updated_at: string
+}
+
+export interface QuoteItem {
+  description: string
+  quantity: number
+  unit: string
+  unit_price: number
+  discount_amount: number
+  subtotal: number
+  tva_amount: number
+  total: number
+}
+
+export interface Quote {
+  id: number
+  owner_id: number
+  client_id: number
+  quote_number: string
+  title: string
+  items: QuoteItem[]
+  subtotal: string
+  tax_amount: string
+  total: string
+  status: 'draft' | 'sent' | 'accepted' | 'refused' | 'expired' | 'invoiced'
+  signed: boolean
+  signed_by: string | null
+  signature_url: string | null
+  valid_until: string
+  notes: string | null
+  created_at: string
+  updated_at: string
+  client?: Pick<Client, 'id' | 'name' | 'email'>
+}
+
+export interface Invoice {
+  id: number
+  owner_id: number
+  client_id: number
+  quote_id: number | null
+  invoice_number: string
+  items: QuoteItem[]
+  subtotal: string
+  tax_amount: string
+  total: string
+  amount_paid: string
+  amount_due: string
+  status: 'draft' | 'sent' | 'pending' | 'paid' | 'overdue' | 'cancelled'
+  due_date: string | null
+  payment_date: string | null
+  sent_at: string | null
+  paid_at: string | null
+  created_at: string
+  updated_at: string
+  client?: Pick<Client, 'id' | 'name' | 'email'>
+  quote?: Quote | null
+}
+
+export interface ChantierDocument {
+  id: number
+  name: string
+  file_url: string
+  file_type: string
+  created_at: string
+}
+
+export interface ChantierComment {
+  id: number
+  content: string
+  created_at: string
+}
+
+export interface ChantierTimeEntry {
+  id: number
+  worker_name: string
+  hours: string
+  date: string
+  description: string | null
+}
+
+export interface ChantierCost {
+  id: number
+  description: string
+  amount: string
+  category: string
+  date: string
+}
+
+export interface Chantier {
+  id: number
+  owner_id: number
+  client_id: number
+  client_name: string
+  quote_id: number | null
+  quote_number: string | null
+  chantier_type: 'renovation' | 'construction' | 'extension' | 'plomberie' |
+                 'electricite' | 'peinture' | 'toiture' | 'carrelage' |
+                 'maconnerie' | 'autre'
+  address: string | null
+  city: string | null
+  status: 'to_plan' | 'planned' | 'started' | 'in_progress' | 'completed' | 'cancelled'
+  pipeline_stage: string
+  actual_start_date: string | null
+  actual_end_date: string | null
+  quote_amount: string
+  estimated_cost: string
+  total_hours: string
+  actual_cost: string | null
+  margin: string | null
+  rentability: string | null
+  rentability_level: 'low' | 'medium' | 'high'
+  created_at: string
+  updated_at: string
+  documents?: ChantierDocument[]
+  comments?: ChantierComment[]
+  time_entries?: ChantierTimeEntry[]
+  costs?: ChantierCost[]
+}
+
+export interface CompanySettings {
+  id: number
+  user_id: number
+  company_name: string
+  siret: string
+  tva_number: string | null
+  address: string
+  city: string
+  postal_code: string
+  phone: string
+  email: string
+  website: string | null
+  logo_url: string | null
+  cgv_text: string
+  payment_terms: string
+  bank_details: string | null
+  quote_counter: number
+  invoice_counter: number
+}
+```
 
 ### Pattern hook TanStack Query
-```javascript
-// hooks/crm/useProspects.js
+```typescript
+// hooks/crm/useProspects.ts
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { batiAPI } from '../../lib/axios'
+import type { Prospect } from '../../types/crm'
 
 export const useProspects = () => {
-  return useQuery({
+  return useQuery<Prospect[]>({
     queryKey: ['prospects'],
     queryFn: async () => {
       const { data } = await batiAPI.get('/api/batiment/prospects')
@@ -276,14 +472,15 @@ export const useProspects = () => {
 export const useCreateProspect = () => {
   const queryClient = useQueryClient()
   return useMutation({
-    mutationFn: (payload) => batiAPI.post('/api/batiment/prospects', payload),
-    onSuccess: () => queryClient.invalidateQueries(['prospects'])
+    mutationFn: (payload: Partial<Prospect>) =>
+      batiAPI.post('/api/batiment/prospects', payload),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['prospects'] })
   })
 }
 ```
 
 ### Structure d'une page
-```jsx
+```tsx
 export default function ProspectsPage() {
   // 1. Hooks TanStack Query
   const { data: prospects, isLoading, isError } = useProspects()
@@ -292,7 +489,7 @@ export default function ProspectsPage() {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   // 3. Handlers — appellent les mutations
-  const handleCreate = (data) => createProspect.mutate(data)
+  const handleCreate = (data: Partial<Prospect>) => createProspect.mutate(data)
 
   // 4. Render avec états loading/error/empty
   if (isLoading) return <PageSkeleton />
@@ -300,9 +497,9 @@ export default function ProspectsPage() {
 
   return (
     <div data-testid="prospects-page">
-      {prospects.length === 0
+      {prospects?.length === 0
         ? <EmptyState />
-        : <ProspectsList data={prospects} />
+        : <ProspectsList data={prospects ?? []} />
       }
     </div>
   )
@@ -408,6 +605,7 @@ avant de merger vers `main`.
 - [ ] États loading / error / empty gérés
 - [ ] Actions fonctionnelles (create, update, delete)
 - [ ] Pas d'erreur dans la console navigateur
+- [ ] Pas d'erreur TypeScript (`npm run build` passe sans erreur)
 
 ---
 
@@ -420,6 +618,8 @@ avant de merger vers `main`.
 - ❌ Pas de merge sans validation de Fanomezantsoa
 - ❌ Pas de `Vous/Votre` — tutoiement obligatoire
 - ❌ Pas de modification des fichiers `src/components/ui/`
+- ❌ Pas de `any` en TypeScript — typer correctement ou utiliser `unknown`
+- ❌ Pas de fichiers `.jsx` ou `.js` — tout en `.tsx` et `.ts`
 
 ---
 
@@ -434,5 +634,5 @@ avant de merger vers `main`.
 
 ---
 
-*Dernière mise à jour : 31 Mars 2026 — Initialisation du projet*
+*Dernière mise à jour : 1 Avril 2026 — Migration TypeScript*
 *Rédigé par : Fanomezantsoa + Claude*
