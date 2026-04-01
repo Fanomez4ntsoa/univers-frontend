@@ -9,7 +9,7 @@
 ## 📍 Position actuelle
 ```
 Phase 1 — Setup & Auth     █████████████████████ 100% — terminé ✅
-Phase 2 — CRM Dashboard    ███░░░░░░░░░░░░░░░░░░  15% — en cours
+Phase 2 — CRM Dashboard    ██████░░░░░░░░░░░░░░░  30% — en cours
 Phase 3 — Client Portal    ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 Phase 4 — Ecosystem        ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 ```
@@ -49,7 +49,7 @@ Phase 4 — Ecosystem        ░░░░░░░░░░░░░░░░░
 
 | Page | Fichier Emergent de référence | Branche | État |
 |---|---|---|---|
-| **Prospects** | `src/pages/client/crm-batiment/ProspectsPage.jsx` | `feature/crm-prospects` | 📋 À faire |
+| **Prospects** | `src/pages/client/crm-batiment/ProspectsPage.jsx` | `feature/crm-prospects` | ✅ Terminé + testé |
 | **Clients** | `src/pages/client/crm-batiment/ClientsPage.jsx` | `feature/crm-clients` | 📋 À faire |
 | **Devis** | `src/pages/client/crm-batiment/DevisPage.jsx` | `feature/crm-quotes` | 📋 À faire |
 | **Factures** | `src/pages/client/crm-batiment/FacturesPage.jsx` | `feature/crm-invoices` | 📋 À faire |
@@ -59,10 +59,10 @@ Phase 4 — Ecosystem        ░░░░░░░░░░░░░░░░░
 ### Détail par page — ce qu'il faut implémenter
 
 #### Prospects
-- [ ] Liste avec filtres (status, pipeline_stage)
-- [ ] Formulaire création/édition
-- [ ] Action : convertir en client
-- [ ] Statuts visuels (badges colorés)
+- [x] Liste avec filtres (status, pipeline_stage)
+- [x] Formulaire création/édition
+- [x] Action : convertir en client
+- [x] Statuts visuels (badges colorés)
 
 #### Clients
 - [ ] Liste avec compteurs (total_quotes, total_invoices, total_revenue)
@@ -160,5 +160,5 @@ Phase 4 — Ecosystem        ░░░░░░░░░░░░░░░░░
 
 ---
 
-*Dernière mise à jour : 1 Avril 2026 — Layout CRM terminé*
+*Dernière mise à jour : 1 Avril 2026 — Prospects terminé*
 *Rédigé par : Fanomezantsoa + Claude*
