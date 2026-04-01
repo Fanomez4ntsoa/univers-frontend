@@ -9,14 +9,9 @@ import ClientsPage from './pages/crm/ClientsPage'
 import QuotesPage from './pages/crm/QuotesPage'
 import InvoicesPage from './pages/crm/InvoicesPage'
 import ChantiersPage from './pages/crm/ChantiersPage'
+import SettingsPage from './pages/crm/SettingsPage'
 
 const queryClient = new QueryClient()
-
-const Placeholder = ({ title }: { title: string }) => (
-  <div className="flex items-center justify-center h-64">
-    <h1 className="text-xl font-semibold text-slate-400">{title} — bientôt disponible</h1>
-  </div>
-)
 
 function App() {
   return (
@@ -35,7 +30,7 @@ function App() {
               <Route path="/quotes" element={<QuotesPage />} />
               <Route path="/invoices" element={<InvoicesPage />} />
               <Route path="/chantiers" element={<ChantiersPage />} />
-              <Route path="/settings" element={<Placeholder title="Paramètres" />} />
+              <Route path="/settings" element={<SettingsPage />} />
             </Route>
           </Route>
 
