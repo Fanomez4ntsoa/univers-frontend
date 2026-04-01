@@ -40,6 +40,12 @@ export default function ChantiersList({ data, onSelectChantier }: ChantiersListP
 
   return (
     <div className="space-y-6">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-end gap-3">
+        <Button onClick={handleCreate} className="bg-[#1E40AF] hover:bg-blue-800 rounded-lg text-white cursor-pointer">
+          <Plus className="w-5 h-5 mr-2" /> Nouveau chantier
+        </Button>
+      </div>
+
       <ChantierFilters search={search} onSearchChange={setSearch} statusFilter={statusFilter} onStatusChange={setStatusFilter} typeFilter={typeFilter} onTypeChange={setTypeFilter} />
 
       <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">

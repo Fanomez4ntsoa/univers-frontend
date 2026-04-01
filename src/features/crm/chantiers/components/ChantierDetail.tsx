@@ -184,7 +184,7 @@ function TimeTab({ chantierId, entries }: { chantierId: number; entries: { id: n
 function CostsTab({ chantierId, costs }: { chantierId: number; costs: { id: number; description: string; amount: string; category: string; date: string }[] }) {
   const [desc, setDesc] = useState('')
   const [amount, setAmount] = useState('')
-  const [category, setCategory] = useState('materiel')
+  const [category, setCategory] = useState('materials')
   const [date, setDate] = useState(new Date().toISOString().split('T')[0])
   const addCost = useAddCost()
   const handleSubmit = (e: FormEvent) => {
@@ -198,8 +198,8 @@ function CostsTab({ chantierId, costs }: { chantierId: number; costs: { id: numb
         <Input value={desc} onChange={(e) => setDesc(e.target.value)} placeholder="Description" className="h-10 rounded-lg text-sm w-40" />
         <Input type="number" min={0} step={0.01} value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="€" className="h-10 rounded-lg text-sm w-24" />
         <select value={category} onChange={(e) => setCategory(e.target.value)} className="h-10 px-2 bg-white border border-slate-200 rounded-lg text-sm">
-          <option value="materiel">Matériel</option><option value="main_oeuvre">Main d'œuvre</option>
-          <option value="location">Location</option><option value="autre">Autre</option>
+          <option value="materials">Matériaux</option><option value="tools">Outillage</option>
+          <option value="transport">Transport</option><option value="other">Autre</option>
         </select>
         <Input type="date" value={date} onChange={(e) => setDate(e.target.value)} className="h-10 rounded-lg text-sm" />
         <Button type="submit" size="sm" className="bg-[#1E40AF] text-white rounded-lg cursor-pointer"><Euro className="w-4 h-4 mr-1" />Ajouter</Button>
