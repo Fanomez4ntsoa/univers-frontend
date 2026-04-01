@@ -8,8 +8,8 @@
 
 ## 📍 Position actuelle
 ```
-Phase 1 — Setup & Auth     █████████████████████ 100% — terminé
-Phase 2 — CRM Dashboard    ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
+Phase 1 — Setup & Auth     █████████████████████ 100% — terminé ✅
+Phase 2 — CRM Dashboard    ███░░░░░░░░░░░░░░░░░░  15% — en cours
 Phase 3 — Client Portal    ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 Phase 4 — Ecosystem        ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 ```
@@ -41,9 +41,9 @@ Phase 4 — Ecosystem        ░░░░░░░░░░░░░░░░░
 
 | Tâche | Fichier Emergent de référence | Branche | État |
 |---|---|---|---|
-| CRMLayout (sidebar + topbar) | `src/pages/client/ClientLayout.jsx` | `feature/crm-layout` | 📋 À faire |
-| Sidebar avec navigation CRM | `src/components/layout/EspaceProNav.jsx` | `feature/crm-layout` | 📋 À faire |
-| TopBar (user info + logout) | `src/components/layout/UnifiedHeader.jsx` | `feature/crm-layout` | 📋 À faire |
+| CRMLayout (sidebar + topbar) | `src/pages/client/ClientLayout.jsx` | `feature/crm-layout` | ✅ Terminé + testé |
+| Sidebar avec navigation CRM | `src/components/layout/EspaceProNav.jsx` | `feature/crm-layout` | ✅ Terminé + testé |
+| TopBar (user info + logout) | `src/components/layout/UnifiedHeader.jsx` | `feature/crm-layout` | ✅ Terminé + testé |
 
 ### 2.2 Pages CRM
 
@@ -160,5 +160,5 @@ Phase 4 — Ecosystem        ░░░░░░░░░░░░░░░░░
 
 ---
 
-*Dernière mise à jour : 31 Mars 2026 — Initialisation*
+*Dernière mise à jour : 1 Avril 2026 — Layout CRM terminé*
 *Rédigé par : Fanomezantsoa + Claude*
