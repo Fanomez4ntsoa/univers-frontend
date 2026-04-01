@@ -4,6 +4,7 @@ import { Toaster } from 'sonner'
 import LoginPage from './pages/auth/LoginPage'
 import AuthGuard from './features/auth/components/AuthGuard'
 import CRMLayout from './features/crm/layout/components/CRMLayout'
+import ProspectsPage from './pages/crm/ProspectsPage'
 
 const queryClient = new QueryClient()
 
@@ -25,7 +26,7 @@ function App() {
           <Route element={<AuthGuard />}>
             <Route element={<CRMLayout />}>
               <Route index element={<Navigate to="/prospects" replace />} />
-              <Route path="/prospects" element={<Placeholder title="Prospects" />} />
+              <Route path="/prospects" element={<ProspectsPage />} />
               <Route path="/clients" element={<Placeholder title="Clients" />} />
               <Route path="/quotes" element={<Placeholder title="Devis" />} />
               <Route path="/invoices" element={<Placeholder title="Factures" />} />
