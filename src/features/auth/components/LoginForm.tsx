@@ -27,8 +27,8 @@ export default function LoginForm() {
       { email, password },
       {
         onSuccess: (data) => {
-          toast.success(`Bienvenue ${data.user.display_name || data.user.username} !`)
-          navigate('/dashboard')
+          toast.success(`Bienvenue ${data.profile.display_name} !`)
+          navigate('/prospects')
         },
         onError: (error) => {
           const axiosError = error as AxiosError<{ message?: string }>
