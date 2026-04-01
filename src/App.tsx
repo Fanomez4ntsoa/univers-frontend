@@ -3,8 +3,15 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Toaster } from 'sonner'
 import LoginPage from './pages/auth/LoginPage'
 import AuthGuard from './features/auth/components/AuthGuard'
+import CRMLayout from './features/crm/layout/components/CRMLayout'
 
 const queryClient = new QueryClient()
+
+const Placeholder = ({ title }: { title: string }) => (
+  <div className="flex items-center justify-center h-64">
+    <h1 className="text-xl font-semibold text-slate-400">{title} — bientôt disponible</h1>
+  </div>
+)
 
 function App() {
   return (
@@ -14,16 +21,20 @@ function App() {
           {/* Public */}
           <Route path="/login" element={<LoginPage />} />
 
-          {/* Protected */}
+          {/* Protected — CRM */}
           <Route element={<AuthGuard />}>
-            <Route path="/dashboard" element={
-              <div className="flex items-center justify-center min-h-screen bg-slate-50">
-                <h1 className="text-2xl font-bold text-[#1E40AF]">Dashboard — bientôt disponible</h1>
-              </div>
-            } />
+            <Route element={<CRMLayout />}>
+              <Route index element={<Navigate to="/prospects" replace />} />
+              <Route path="/prospects" element={<Placeholder title="Prospects" />} />
+              <Route path="/clients" element={<Placeholder title="Clients" />} />
+              <Route path="/quotes" element={<Placeholder title="Devis" />} />
+              <Route path="/invoices" element={<Placeholder title="Factures" />} />
+              <Route path="/chantiers" element={<Placeholder title="Chantiers" />} />
+              <Route path="/settings" element={<Placeholder title="Paramètres" />} />
+            </Route>
           </Route>
 
-          {/* Default redirect */}
+          {/* Fallback */}
           <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
       </BrowserRouter>
