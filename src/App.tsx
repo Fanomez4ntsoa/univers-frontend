@@ -7,6 +7,7 @@ import CRMLayout from './features/crm/layout/components/CRMLayout'
 import ProspectsPage from './pages/crm/ProspectsPage'
 import ClientsPage from './pages/crm/ClientsPage'
 import QuotesPage from './pages/crm/QuotesPage'
+import InvoicesPage from './pages/crm/InvoicesPage'
 
 const queryClient = new QueryClient()
 
@@ -31,7 +32,7 @@ function App() {
               <Route path="/prospects" element={<ProspectsPage />} />
               <Route path="/clients" element={<ClientsPage />} />
               <Route path="/quotes" element={<QuotesPage />} />
-              <Route path="/invoices" element={<Placeholder title="Factures" />} />
+              <Route path="/invoices" element={<InvoicesPage />} />
               <Route path="/chantiers" element={<Placeholder title="Chantiers" />} />
               <Route path="/settings" element={<Placeholder title="Paramètres" />} />
             </Route>
