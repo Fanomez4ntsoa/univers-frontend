@@ -9,7 +9,7 @@
 ## 📍 Position actuelle
 ```
 Phase 1 — Setup & Auth     █████████████████████ 100% — terminé ✅
-Phase 2 — CRM Dashboard    ██████████████████░░░  90% — en cours
+Phase 2 — CRM Dashboard    █████████████████████ 100% — terminé ✅
 Phase 3 — Client Portal    ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 Phase 4 — Ecosystem        ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 ```
@@ -54,7 +54,7 @@ Phase 4 — Ecosystem        ░░░░░░░░░░░░░░░░░
 | **Devis** | `src/pages/client/crm-batiment/DevisPage.jsx` | `feature/crm-quotes` | ✅ Terminé + testé |
 | **Factures** | `src/pages/client/crm-batiment/FacturesPage.jsx` | `feature/crm-invoices` | ✅ Terminé + testé |
 | **Chantiers** | `src/pages/client/crm-batiment/ChantiersPage.jsx` | `feature/crm-chantiers` | ✅ Terminé + testé |
-| **Settings** | `src/pages/client/crm-batiment/` (paramètres) | `feature/crm-settings` | 📋 À faire |
+| **Settings** | `src/pages/client/crm-batiment/` (paramètres) | `feature/crm-settings` | ✅ Terminé + testé |
 
 ### Détail par page — ce qu'il faut implémenter
 
@@ -92,9 +92,9 @@ Phase 4 — Ecosystem        ░░░░░░░░░░░░░░░░░
 - [x] Indicateur rentabilité (margin%, rentability_level)
 
 #### Settings
-- [ ] Formulaire paramètres artisan
-- [ ] Logo upload
-- [ ] Infos légales (SIRET, TVA, CGV)
+- [x] Formulaire paramètres artisan
+- [x] Logo upload
+- [x] Infos légales (SIRET, TVA, CGV)
 
 ---
 
@@ -160,5 +160,5 @@ Phase 4 — Ecosystem        ░░░░░░░░░░░░░░░░░
 
 ---
 
-*Dernière mise à jour : 1 Avril 2026 — Chantiers terminé*
+*Dernière mise à jour : 1 Avril 2026 — Phase 2 CRM Dashboard terminée*
 *Rédigé par : Fanomezantsoa + Claude*
