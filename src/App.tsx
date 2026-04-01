@@ -5,6 +5,7 @@ import LoginPage from './pages/auth/LoginPage'
 import AuthGuard from './features/auth/components/AuthGuard'
 import CRMLayout from './features/crm/layout/components/CRMLayout'
 import ProspectsPage from './pages/crm/ProspectsPage'
+import ClientsPage from './pages/crm/ClientsPage'
 
 const queryClient = new QueryClient()
 
@@ -27,7 +28,7 @@ function App() {
             <Route element={<CRMLayout />}>
               <Route index element={<Navigate to="/prospects" replace />} />
               <Route path="/prospects" element={<ProspectsPage />} />
-              <Route path="/clients" element={<Placeholder title="Clients" />} />
+              <Route path="/clients" element={<ClientsPage />} />
               <Route path="/quotes" element={<Placeholder title="Devis" />} />
               <Route path="/invoices" element={<Placeholder title="Factures" />} />
               <Route path="/chantiers" element={<Placeholder title="Chantiers" />} />
