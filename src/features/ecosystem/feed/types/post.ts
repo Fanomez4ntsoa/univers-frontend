@@ -9,7 +9,7 @@ export interface PostAuthor {
 export interface PostComment {
   id: number
   user_id: number
-  author: PostAuthor
+  user: PostAuthor
   content: string
   created_at: string
 }
@@ -17,7 +17,7 @@ export interface PostComment {
 export interface Post {
   id: number
   user_id: number
-  author: PostAuthor
+  user: PostAuthor
   content: string
   post_type: PostType
   media_urls: string[]

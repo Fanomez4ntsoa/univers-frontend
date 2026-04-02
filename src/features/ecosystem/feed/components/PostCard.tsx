@@ -35,14 +35,14 @@ export default function PostCard({ post, onLike, onEdit, onDelete }: PostCardPro
     <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-5 transition-all duration-200">
       {/* Header */}
       <div className="flex items-center gap-3 mb-3">
-        <Avatar name={post.author.display_name} url={post.author.avatar_url} />
+        <Avatar name={post.user.display_name} url={post.user.avatar_url} />
         <div className="flex-1">
           <div className="flex items-center gap-2">
-            <span className="font-medium text-slate-900">{post.author.display_name}</span>
-            {post.author.is_verified && <span className="text-xs bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded-full">Vérifié</span>}
+            <span className="font-medium text-slate-900">{post.user.display_name}</span>
+            {post.user.is_verified && <span className="text-xs bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded-full">Vérifié</span>}
             {typeBadge && <span className={`text-xs px-2 py-0.5 rounded-full ${typeBadge.color}`}>{typeBadge.label}</span>}
           </div>
-          <p className="text-xs text-slate-400">@{post.author.username} · {fmtDate(post.created_at)}</p>
+          <p className="text-xs text-slate-400">@{post.user.username} · {fmtDate(post.created_at)}</p>
         </div>
       </div>
 

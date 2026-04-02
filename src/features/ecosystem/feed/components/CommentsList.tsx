@@ -29,10 +29,10 @@ export default function CommentsList({ postId }: CommentsListProps) {
       ) : (
         (comments ?? []).map((c: PostComment) => (
           <div key={c.id} className="flex gap-2">
-            <Avatar name={c.author.display_name} url={c.author.avatar_url} />
+            <Avatar name={c.user.display_name} url={c.user.avatar_url} />
             <div className="flex-1 bg-slate-50 rounded-lg px-3 py-2">
               <div className="flex items-center gap-2">
-                <span className="text-sm font-medium text-slate-900">{c.author.display_name}</span>
+                <span className="text-sm font-medium text-slate-900">{c.user.display_name}</span>
                 <span className="text-xs text-slate-400">{fmtDate(c.created_at)}</span>
               </div>
               <p className="text-sm text-slate-600 mt-0.5">{c.content}</p>
