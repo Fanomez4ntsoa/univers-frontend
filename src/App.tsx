@@ -4,6 +4,7 @@ import { Toaster } from 'sonner'
 import LoginPage from './pages/auth/LoginPage'
 import AuthGuard from './features/auth/components/AuthGuard'
 import CRMLayout from './features/crm/layout/components/CRMLayout'
+import EcosystemLayout from './features/ecosystem/layout/components/EcosystemLayout'
 import ProspectsPage from './pages/crm/ProspectsPage'
 import ClientsPage from './pages/crm/ClientsPage'
 import QuotesPage from './pages/crm/QuotesPage'
@@ -16,6 +17,12 @@ import PortalQuotePage from './pages/portal/PortalQuotePage'
 import PortalInvoicePage from './pages/portal/PortalInvoicePage'
 
 const queryClient = new QueryClient()
+
+const Placeholder = ({ title }: { title: string }) => (
+  <div className="flex items-center justify-center h-64">
+    <h1 className="text-xl font-semibold text-slate-400">{title} — bientôt disponible</h1>
+  </div>
+)
 
 function App() {
   return (
@@ -35,8 +42,16 @@ function App() {
               <Route path="/invoices" element={<InvoicesPage />} />
               <Route path="/chantiers" element={<ChantiersPage />} />
               <Route path="/settings" element={<SettingsPage />} />
-              <Route path="/feed" element={<FeedPage />} />
             </Route>
+          </Route>
+
+          {/* Public — Ecosystem */}
+          <Route element={<EcosystemLayout />}>
+            <Route path="/feed" element={<FeedPage />} />
+            <Route path="/discover" element={<Placeholder title="Découvrir" />} />
+            <Route path="/shops" element={<Placeholder title="Boutiques" />} />
+            <Route path="/listings" element={<Placeholder title="Annonces" />} />
+            <Route path="/jobs" element={<Placeholder title="Emplois" />} />
           </Route>
 
           {/* Public — Client Portal */}

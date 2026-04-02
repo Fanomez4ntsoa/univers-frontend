@@ -10,7 +10,7 @@ export const useFeed = () => {
     queryKey: FEED_KEY,
     queryFn: async () => {
       const { data } = await batiAPI.get('/api/ecosystem/feed')
-      return data
+      return data.data as Post[]
     },
   })
 }
@@ -20,7 +20,7 @@ export const usePosts = () => {
     queryKey: POSTS_KEY,
     queryFn: async () => {
       const { data } = await batiAPI.get('/api/ecosystem/posts')
-      return data
+      return data.data as Post[]
     },
   })
 }
