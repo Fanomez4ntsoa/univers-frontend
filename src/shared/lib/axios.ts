@@ -12,6 +12,16 @@ export const portalAPI = axios.create({
   baseURL: import.meta.env.VITE_BATI_API_URL,
 })
 
+export const ecosystemAPI = axios.create({
+  baseURL: import.meta.env.VITE_BATI_API_URL,
+})
+
+ecosystemAPI.interceptors.request.use((config) => {
+  const token = localStorage.getItem('token')
+  if (token) config.headers.Authorization = `Bearer ${token}`
+  return config
+})
+
 batiAPI.interceptors.request.use((config) => {
   const token = localStorage.getItem('token')
   if (token) config.headers.Authorization = `Bearer ${token}`
