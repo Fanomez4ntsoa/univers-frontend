@@ -114,7 +114,6 @@ Hauteur standard : `h-11` (44px)
 
 ### Cards
 ```tsx
-// Standard
 <div className="bg-white border border-gray-200 rounded-xl shadow-sm 
                 hover:shadow-md hover:border-gray-300 p-5 
                 transition-all duration-200">
@@ -122,14 +121,11 @@ Hauteur standard : `h-11` (44px)
 
 ### Animations standards
 ```typescript
-// Framer Motion — fade up (utilisé sur toutes les pages)
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.5, ease: 'easeOut' }
 }
-
-// Stagger container
 const stagger = {
   animate: { transition: { staggerChildren: 0.1 } }
 }
@@ -144,24 +140,10 @@ Transitions hover : `duration-200 ease-out`
 | Tablet | ≥ 640px | `sm:` |
 | Desktop | ≥ 1024px | `lg:` |
 | Large | ≥ 1280px | `xl:` |
-```tsx
-// Patterns responsives standards
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-<div className="px-4 sm:px-6 lg:px-8">
-<div className="hidden lg:block">  {/* Desktop uniquement */}
-<div className="lg:hidden">        {/* Mobile/Tablet uniquement */}
-```
 
 ### Container
 ```tsx
 <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-```
-
-### Icônes — Lucide React
-```tsx
-import { Building2, Wrench, FileText, Users, 
-         BarChart3, Calendar, CreditCard } from 'lucide-react'
-// Tailles : 16px (sm), 20px (md), 24px (lg)
 ```
 
 ### Tone of voice — Tutoiement obligatoire
@@ -176,13 +158,9 @@ import { Building2, Wrench, FileText, Users,
 ```
 1. POST http://localhost:8000/api/auth/login
    ← reçoit { token, user, profile }
-
 2. localStorage.setItem('token', token)
-
 3. Chaque requête vers abracadabativ2 :
    Authorization: Bearer <token>
-   Accept: application/json
-
 4. Si 401 → vider localStorage → rediriger /login
 ```
 
@@ -222,127 +200,62 @@ batiAPI.interceptors.response.use(
 
 ### Philosophie
 Même logique que le backend DDD — chaque domaine métier est isolé.
-Un module frontend = un dossier feature/ autonome.
-```
-Backend DDD :              Frontend FSD :
-app/Modules/CRM/       →   src/features/crm/
-  Controllers/         →     components/
-  Services/            →     hooks/
-  Requests/            →     types/
-```
 
 ### Structure des dossiers
 ```
 src/
-├── features/                    ← tout ce qui est métier
+├── features/
 │   ├── auth/
 │   │   ├── components/
-│   │   │   └── LoginForm.tsx
 │   │   ├── hooks/
-│   │   │   └── useAuth.ts
 │   │   └── types/
-│   │       └── auth.ts
-│   └── crm/
-│       ├── prospects/
-│       │   ├── components/
-│       │   │   ├── ProspectsList.tsx
-│       │   │   ├── ProspectCard.tsx
-│       │   │   ├── ProspectForm.tsx
-│       │   │   └── ProspectFilters.tsx
-│       │   ├── hooks/
-│       │   │   └── useProspects.ts
-│       │   └── types/
-│       │       └── prospect.ts
-│       ├── clients/
-│       │   ├── components/
-│       │   ├── hooks/
-│       │   └── types/
-│       ├── quotes/
-│       ├── invoices/
-│       ├── chantiers/
-│       └── settings/
-├── shared/                      ← partagé entre plusieurs features
+│   ├── crm/
+│   │   ├── prospects/
+│   │   ├── clients/
+│   │   ├── quotes/
+│   │   ├── invoices/
+│   │   ├── chantiers/
+│   │   └── settings/
+│   ├── portal/
+│   │   ├── components/
+│   │   ├── hooks/
+│   │   └── types/
+│   ├── ecosystem/
+│   │   ├── feed/
+│   │   ├── shops/
+│   │   ├── listings/
+│   │   ├── jobs/
+│   │   └── social/
+│   ├── matching/
+│   │   ├── components/
+│   │   ├── hooks/
+│   │   └── types/
+│   └── subscription/
+│       ├── components/
+│       ├── hooks/
+│       └── types/
+├── shared/
 │   ├── components/
-│   │   ├── StatusBadge.tsx
-│   │   ├── EmptyState.tsx
-│   │   ├── PageSkeleton.tsx
-│   │   └── ConfirmDialog.tsx
 │   ├── lib/
-│   │   ├── axios.ts
-│   │   └── utils.ts
-│   └── ui/                      # Shadcn/UI — ne jamais modifier
-├── pages/                       ← orchestration uniquement
+│   └── ui/
+├── pages/
 │   ├── auth/
-│   │   └── LoginPage.tsx
-│   └── crm/
-│       ├── ProspectsPage.tsx
-│       ├── ClientsPage.tsx
-│       ├── QuotesPage.tsx
-│       ├── InvoicesPage.tsx
-│       ├── ChantiersPage.tsx
-│       └── SettingsPage.tsx
+│   ├── crm/
+│   ├── portal/
+│   ├── ecosystem/
+│   ├── matching/
+│   └── subscription/
 └── App.tsx
 ```
 
-### Règles strictes — Responsabilité unique
+### Règles strictes
+- **Page** → orchestration pure, max 50 lignes
+- **Hook** → toute la logique TanStack Query
+- **Composant** → UI pure, props in / JSX out
+- **Feature** → autonome, max 200 lignes par fichier
+- Une feature n'importe **jamais** depuis une autre feature
 
-**Page** → orchestration pure, max 50 lignes
-```tsx
-// ✅ Correct
-export default function ProspectsPage() {
-  const { data, isLoading } = useProspects()
-  if (isLoading) return <PageSkeleton />
-  return <ProspectsList data={data ?? []} />
-}
-
-// ❌ Incorrect — logique métier dans la page
-export default function ProspectsPage() {
-  const [prospects, setProspects] = useState([])
-  useEffect(() => {
-    axios.get('/api/batiment/prospects').then(...)
-  }, [])
-}
-```
-
-**Feature** → autonome, max 200 lignes par fichier
-```
-features/crm/prospects/ → tout ce qui concerne les prospects
-Si un composant est utilisé par 2+ features → il va dans shared/
-Une feature n'importe JAMAIS depuis une autre feature directement
-```
-
-**Hook** → toute la logique TanStack Query
-```typescript
-// ✅ Correct — hook typé
-export const useProspects = () => {
-  return useQuery<Prospect[]>({
-    queryKey: ['prospects'],
-    queryFn: async () => {
-      const { data } = await batiAPI.get('/api/batiment/prospects')
-      return data
-    }
-  })
-}
-```
-
-**Composant** → UI pure, props in / JSX out
-```tsx
-// ✅ Correct
-interface ProspectCardProps {
-  prospect: Prospect
-  onEdit: (id: number) => void
-}
-export function ProspectCard({ prospect, onEdit }: ProspectCardProps) {
-  return <div>...</div>
-}
-
-// ❌ Incorrect — appel API dans un composant
-export function ProspectCard() {
-  const { data } = useQuery(...)  // ← non, ça va dans le hook
-}
-```
-
-### Ce qui est interdit — Anti fourre-tout
+### Ce qui est interdit
 - ❌ Page de plus de 50 lignes sans extraire des composants
 - ❌ Appel axios direct dans une Page ou un Composant
 - ❌ useQuery / useMutation dans un Composant
@@ -356,36 +269,42 @@ export function ProspectCard() {
 
 ### Core (port 8000)
 ```
-POST /api/auth/login    → Connexion → { token, user, profile }
-POST /api/auth/logout   → Déconnexion
-GET  /api/me            → Profil connecté
+POST /api/auth/login    → { token, user, profile }
+POST /api/auth/logout
+GET  /api/me
 ```
 
 ### Bati (port 8001) — Bearer token obligatoire
 ```
-/api/batiment/prospects/*
-/api/batiment/clients/*
-/api/batiment/quotes/*
-/api/batiment/invoices/*
-/api/batiment/chantiers/*
-/api/batiment/settings/company
+/api/batiment/*         → CRM (prospects, clients, quotes, invoices, chantiers, settings)
+/api/portal/{token}/*   → Client Portal (public)
+/api/ecosystem/*        → Ecosystem Social
+/api/matching/*         → Matching
+/api/subscription/*     → Stripe
+/api/stripe/webhook     → Webhook (public)
 ```
 
-> Référence complète : voir CLAUDE.md de `abracadabativ2`
+> Référence complète des endpoints : voir CLAUDE.md de `abracadabativ2`
 
 ---
 
 ## 📁 Pages — État d'avancement
 
-### 🔄 À faire (Phase 1 CRM)
-- [ ] Login page
-- [ ] CRMLayout + Sidebar + TopBar
-- [ ] ProspectsPage : liste + formulaire + conversion
-- [ ] ClientsPage : liste + détail + notes
-- [ ] QuotesPage : liste + création + send/sign
-- [ ] InvoicesPage : liste + détail + mark-paid
-- [ ] ChantiersPage : liste + kanban pipeline + détail
-- [ ] SettingsPage : formulaire paramètres artisan
+### ✅ Terminé
+- Login + Auth Guard *(testé navigateur)*
+- CRMLayout + Sidebar + TopBar *(testé navigateur)*
+- ProspectsPage *(testé navigateur)*
+- ClientsPage *(testé navigateur)*
+- QuotesPage *(testé navigateur)*
+- InvoicesPage *(testé navigateur)*
+- ChantiersPage *(testé navigateur)*
+- SettingsPage *(testé navigateur)*
+
+### 🔄 À faire
+- Phase 3 — Client Portal
+- Phase 4 — Ecosystem Social
+- Phase 5 — Matching
+- Phase 6 — Stripe / Abonnement
 
 ---
 
@@ -401,7 +320,6 @@ VITE_BATI_API_URL=http://localhost:8001
 ```bash
 cd ~/project/abracadabati-frontend
 npm run dev
-# → http://localhost:5173
 ```
 
 ---
@@ -414,7 +332,7 @@ npm run dev
 ### Nomenclature
 | Type | Préfixe | Exemple |
 |---|---|---|
-| Nouvelle page | `feature/` | `feature/crm-prospects` |
+| Nouvelle page | `feature/` | `feature/portal-client` |
 | Correction bug | `fix/` | `fix/login-redirect` |
 | UI/Style | `ui/` | `ui/sidebar-layout` |
 | Documentation | `docs/` | `docs/update-claude-md` |
@@ -437,19 +355,15 @@ git commit -m "[FEAT]: description claire"
 
 ## 🧪 Testing — Règles obligatoires
 
-### Principe
-Chaque page terminée doit être testée **visuellement dans le navigateur**
-avant de merger vers `main`.
-
 ### Checklist minimum par page
 - [ ] Affichage correct sur mobile (< 640px)
 - [ ] Affichage correct sur tablet (640px - 1024px)
 - [ ] Affichage correct sur desktop (> 1024px)
-- [ ] Données chargées depuis l'API réelle (pas de mock)
+- [ ] Données chargées depuis l'API réelle
 - [ ] États loading / error / empty gérés
-- [ ] Actions fonctionnelles (create, update, delete)
-- [ ] Pas d'erreur dans la console navigateur
-- [ ] Pas d'erreur TypeScript (`npm run build` passe sans erreur)
+- [ ] Actions fonctionnelles
+- [ ] Pas d'erreur console navigateur
+- [ ] `npm run build` passe sans erreur TypeScript
 
 ---
 
@@ -465,7 +379,7 @@ avant de merger vers `main`.
 - ❌ Pas de `any` en TypeScript — typer ou `unknown`
 - ❌ Pas de fichiers `.jsx` ou `.js` — tout en `.tsx` et `.ts`
 - ❌ Pas de logique métier dans les Pages
-- ❌ Pas d'import entre features — passer par shared/
+- ❌ Pas d'import entre features — passer par `shared/`
 
 ---
 
@@ -480,5 +394,5 @@ avant de merger vers `main`.
 
 ---
 
-*Dernière mise à jour : 1 Avril 2026 — Architecture FSD ajoutée*
+*Dernière mise à jour : 2 Avril 2026 — Phase 2 CRM terminée — Phases 3-6 planifiées*
 *Rédigé par : Fanomezantsoa + Claude*

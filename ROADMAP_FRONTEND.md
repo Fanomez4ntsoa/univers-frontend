@@ -2,7 +2,7 @@
 
 > **Lire ce fichier avant chaque nouvelle page ou composant.**
 > Il trace l'état exact du développement frontend et indique quoi faire ensuite.
-> Référence UI/UX : `~/project/AbracadaBati/frontend/src/pages/client/crm-batiment/`
+> Référence UI/UX : `~/project/AbracadaBati/frontend/src/`
 
 ---
 
@@ -12,113 +12,100 @@ Phase 1 — Setup & Auth     █████████████████
 Phase 2 — CRM Dashboard    █████████████████████ 100% — terminé ✅
 Phase 3 — Client Portal    ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 Phase 4 — Ecosystem        ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
+Phase 5 — Matching         ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
+Phase 6 — Stripe           ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 ```
 
 ---
 
 ## ✅ PHASE 1 — Setup & Auth
 
-| Tâche | Fichier Emergent de référence | Branche | État |
-|---|---|---|---|
-| Init Vite + React 18 + TypeScript | — | `main` | ✅ Terminé |
-| TailwindCSS + Shadcn/UI | `tailwind.config.js` | `main` | ✅ Terminé |
-| TanStack Query + Axios | `src/services/` | `main` | ✅ Terminé |
-| Config `src/lib/axios.ts` | — | `main` | ✅ Terminé |
-| `.env` VITE_CORE + VITE_BATI | — | `main` | ✅ Terminé |
-| Types TypeScript (`auth.ts` + `crm.ts`) | — | `main` | ✅ Terminé |
-| **Login Page** | `src/pages/ecosystem/social/LoginPage.jsx` | `feature/auth-login` | ✅ Terminé |
-| **Auth Guard** (routes protégées) | `src/App.js` (vérifier logique auth) | `feature/auth-login` | ✅ Terminé |
-
-### Prochaine branche : `feature/crm-layout`
+| Tâche | Branche | État |
+|---|---|---|
+| Init Vite + React 18 + TypeScript | `main` | ✅ Terminé |
+| TailwindCSS + Shadcn/UI | `main` | ✅ Terminé |
+| TanStack Query + Axios | `main` | ✅ Terminé |
+| Config `src/lib/axios.ts` | `main` | ✅ Terminé |
+| Types TypeScript (`auth.ts` + `crm.ts`) | `main` | ✅ Terminé |
+| Login Page + Auth Guard | `feature/auth-login` | ✅ Terminé + testé |
 
 ---
 
-## 📋 PHASE 2 — CRM Dashboard
+## ✅ PHASE 2 — CRM Dashboard
 
-> **Débloquer après** : Phase 1 complète + login fonctionnel
-
-### 2.1 Layout & Navigation
-
-| Tâche | Fichier Emergent de référence | Branche | État |
-|---|---|---|---|
-| CRMLayout (sidebar + topbar) | `src/pages/client/ClientLayout.jsx` | `feature/crm-layout` | ✅ Terminé + testé |
-| Sidebar avec navigation CRM | `src/components/layout/EspaceProNav.jsx` | `feature/crm-layout` | ✅ Terminé + testé |
-| TopBar (user info + logout) | `src/components/layout/UnifiedHeader.jsx` | `feature/crm-layout` | ✅ Terminé + testé |
-
-### 2.2 Pages CRM
-
-| Page | Fichier Emergent de référence | Branche | État |
-|---|---|---|---|
-| **Prospects** | `src/pages/client/crm-batiment/ProspectsPage.jsx` | `feature/crm-prospects` | ✅ Terminé + testé |
-| **Clients** | `src/pages/client/crm-batiment/ClientsPage.jsx` | `feature/crm-clients` | ✅ Terminé + testé |
-| **Devis** | `src/pages/client/crm-batiment/DevisPage.jsx` | `feature/crm-quotes` | ✅ Terminé + testé |
-| **Factures** | `src/pages/client/crm-batiment/FacturesPage.jsx` | `feature/crm-invoices` | ✅ Terminé + testé |
-| **Chantiers** | `src/pages/client/crm-batiment/ChantiersPage.jsx` | `feature/crm-chantiers` | ✅ Terminé + testé |
-| **Settings** | `src/pages/client/crm-batiment/` (paramètres) | `feature/crm-settings` | ✅ Terminé + testé |
-
-### Détail par page — ce qu'il faut implémenter
-
-#### Prospects
-- [x] Liste avec filtres (status, pipeline_stage)
-- [x] Formulaire création/édition
-- [x] Action : convertir en client
-- [x] Statuts visuels (badges colorés)
-
-#### Clients
-- [x] Liste avec compteurs (total_quotes, total_invoices, total_revenue)
-- [x] Détail client enrichi (onglets : devis, factures, chantiers, notes)
-- [x] Formulaire création/édition
-- [x] Ajout de notes
-- [x] Génération portal token
-
-#### Devis
-- [x] Liste avec filtres (status)
-- [x] Formulaire création avec lignes dynamiques + calcul auto
-- [x] Actions : send, sign (canvas signature), duplicate
-- [x] Conversion en facture
-- [x] Statuts immutables (accepted/invoiced → pas d'édition)
-
-#### Factures
-- [x] Liste avec filtres (status)
-- [x] Détail avec devis lié
-- [x] Action : mark-paid
-- [x] Action : cancel (bloqué si paid)
-- [x] Affichage amount_paid / amount_due
-
-#### Chantiers
-- [x] Liste standard
-- [x] Vue Kanban pipeline (drag & drop entre stages)
-- [x] Détail enrichi (documents, commentaires, temps, coûts)
-- [x] Indicateur rentabilité (margin%, rentability_level)
-
-#### Settings
-- [x] Formulaire paramètres artisan
-- [x] Logo upload
-- [x] Infos légales (SIRET, TVA, CGV)
+| Page | Branche | État |
+|---|---|---|
+| CRMLayout + Sidebar + TopBar | `feature/crm-layout` | ✅ Terminé + testé |
+| ProspectsPage | `feature/crm-prospects` | ✅ Terminé + testé |
+| ClientsPage | `feature/crm-clients` | ✅ Terminé + testé |
+| QuotesPage | `feature/crm-quotes` | ✅ Terminé + testé |
+| InvoicesPage | `feature/crm-invoices` | ✅ Terminé + testé |
+| ChantiersPage | `feature/crm-chantiers` | ✅ Terminé + testé |
+| SettingsPage | `feature/crm-settings` | ✅ Terminé + testé |
 
 ---
 
 ## 📋 PHASE 3 — Client Portal
 
-> **Débloquer après** : Phase 2 complète
+> **Débloquer après** : Phase 2 complète ✅
+> Backend disponible : `GET|POST /api/portal/{token}/*`
 
 | Page | Fichier Emergent de référence | Branche | État |
 |---|---|---|---|
-| Vue publique devis (signature) | `src/pages/public/PublicQuoteSignPage.jsx` | `feature/portal-quote` | 📋 À faire |
-| Portail client (token) | `src/pages/public/ClientPortalPage.jsx` | `feature/portal-client` | 📋 À faire |
+| Vue publique devis + signature | `src/pages/public/PublicQuoteSignPage.jsx` | `feature/portal-quote` | 📋 À faire |
+| Portail client (dashboard token) | `src/pages/public/ClientPortalPage.jsx` | `feature/portal-client` | 📋 À faire |
+
+### Ce qu'il faut implémenter :
+- Page publique accessible via `portal_token` (pas de login requis)
+- Afficher les devis du client + statuts
+- Canvas signature pour signer un devis
+- Afficher les factures du client
+
+### Prochaine branche : `feature/portal-quote`
 
 ---
 
 ## 📋 PHASE 4 — Ecosystem Social
 
 > **Débloquer après** : Phase 3 complète
+> Backend disponible : `/api/ecosystem/*`
 
 | Page | Fichier Emergent de référence | Branche | État |
 |---|---|---|---|
 | Feed / Posts | `src/pages/ecosystem/social/FeedPage.jsx` | `feature/ecosystem-feed` | 📋 À faire |
+| Créer un post | `src/pages/ecosystem/social/CreatePostPage.jsx` | `feature/ecosystem-feed` | 📋 À faire |
 | Profil artisan | `src/pages/ecosystem/social/ProfilePage.jsx` | `feature/ecosystem-profile` | 📋 À faire |
-| Marketplace artisans | `src/pages/ecosystem/marketplace/ArtisansPage.jsx` | `feature/ecosystem-marketplace` | 📋 À faire |
+| Découvrir artisans + follow | `src/pages/ecosystem/social/DiscoverPage.jsx` | `feature/ecosystem-profile` | 📋 À faire |
+| Boutique artisan | `src/pages/ecosystem/marketplace/ShopDetailPage.jsx` | `feature/ecosystem-shops` | 📋 À faire |
+| Listings / Petites annonces | `src/pages/ecosystem/listings/MarketplacePage.jsx` | `feature/ecosystem-listings` | 📋 À faire |
 | Jobs & Events | `src/pages/ecosystem/social/JobsPage.jsx` | `feature/ecosystem-jobs` | 📋 À faire |
+
+---
+
+## 📋 PHASE 5 — Matching
+
+> **Débloquer après** : Phase 4 complète
+> Backend disponible : `/api/matching/*`
+
+| Page | Fichier Emergent de référence | Branche | État |
+|---|---|---|---|
+| Mes demandes (particulier) | `src/pages/features/CRMBatimentPage.jsx` | `feature/matching-requests` | 📋 À faire |
+| Créer une demande | — | `feature/matching-requests` | 📋 À faire |
+| Demandes disponibles (artisan) | — | `feature/matching-available` | 📋 À faire |
+| Soumettre un devis artisan | — | `feature/matching-available` | 📋 À faire |
+
+---
+
+## 📋 PHASE 6 — Stripe / Abonnement
+
+> **Débloquer après** : Phase 5 complète
+> Backend disponible : `/api/subscription/*`
+
+| Page | Fichier Emergent de référence | Branche | État |
+|---|---|---|---|
+| Page abonnement Pro | `src/pages/client/BillingPage.jsx` | `feature/subscription` | 📋 À faire |
+| Checkout Stripe | — | `feature/subscription` | 📋 À faire |
+| Statut abonnement | — | `feature/subscription` | 📋 À faire |
 
 ---
 
@@ -134,31 +121,16 @@ Phase 4 — Ecosystem        ░░░░░░░░░░░░░░░░░
 ```
 
 > ⚠️ Ne jamais commencer une Phase sans que la précédente soit complète.
-> Le Login doit fonctionner avant de toucher au CRM.
-> Le CRM doit être stable avant de toucher au Portal.
-
----
-
-## 📐 Rappel ordre de priorité par page CRM
-```
-1. Layout + Sidebar      ← base de tout, à faire en premier
-2. Prospects             ← le plus simple, bon point d'entrée
-3. Clients               ← dépend des prospects (conversion)
-4. Devis                 ← dépend des clients
-5. Factures              ← dépend des devis
-6. Chantiers             ← dépend des clients + devis
-7. Settings              ← indépendant, à faire en dernier
-```
 
 ---
 
 ## 📂 Référence Emergent
 - Chemin local : `~/project/AbracadaBati/frontend/src/`
 - Pages CRM : `src/pages/client/crm-batiment/`
-- Composants UI : `src/components/ui/`
-- Layouts : `src/components/layout/`
+- Pages publiques : `src/pages/public/`
+- Ecosystem : `src/pages/ecosystem/`
 
 ---
 
-*Dernière mise à jour : 1 Avril 2026 — Phase 2 CRM Dashboard terminée*
+*Dernière mise à jour : 2 Avril 2026 — Phase 2 terminée — Phases 3-6 planifiées*
 *Rédigé par : Fanomezantsoa + Claude*
