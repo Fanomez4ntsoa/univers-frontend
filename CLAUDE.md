@@ -298,7 +298,7 @@ GET  /api/me
 ```
 /api/batiment/*         → CRM (prospects, clients, quotes, invoices, chantiers, settings)
 /api/portal/{token}/*   → Client Portal (public)
-/api/ecosystem/*        → Ecosystem Social
+/api/ecosystem/*        → Ecosystem Social (GET = public, POST/PUT/DELETE = auth)
 /api/matching/*         → Matching
 /api/subscription/*     → Stripe
 /api/stripe/webhook     → Webhook (public)
@@ -321,9 +321,11 @@ GET  /api/me
 - SettingsPage *(testé navigateur)*
 - Vue publique devis + signature *(testé navigateur)*
 - Portail client dashboard *(testé navigateur)*
+- EcosystemLayout *(testé navigateur)*
+- FeedPage — posts + likes + commentaires *(testé navigateur)*
 
 ### 🔄 À faire
-- Phase 4 — Ecosystem Social
+- Phase 4 — Ecosystem Social (profil, boutiques, annonces, emplois)
 - Phase 5 — Matching
 - Phase 6 — Stripe / Abonnement
 
@@ -415,5 +417,5 @@ git commit -m "[FEAT]: description claire"
 
 ---
 
-*Dernière mise à jour : 2 Avril 2026 — EcosystemLayout séparé — Phase 4 en cours*
+*Dernière mise à jour : 2 Avril 2026 — Phase 4 Feed terminé + routes ecosystem publiques*
 *Rédigé par : Fanomezantsoa + Claude*
