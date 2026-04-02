@@ -1,11 +1,14 @@
 import { useState } from 'react'
-import { Rss, Users } from 'lucide-react'
+import { Rss, Users, LogIn } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { Button } from '../../shared/ui/button'
 import { useFeed, usePosts } from '../../features/ecosystem/feed/hooks/useFeed'
 import PostsList from '../../features/ecosystem/feed/components/PostsList'
 import PageSkeleton from '../../shared/components/PageSkeleton'
 
 export default function FeedPage() {
-  const [tab, setTab] = useState<'feed' | 'all'>('feed')
+  const isLoggedIn = !!localStorage.getItem('token')
+  const [tab, setTab] = useState<'feed' | 'all'>(isLoggedIn ? 'feed' : 'all')
   const feedQuery = useFeed()
   const postsQuery = usePosts()
 
@@ -29,7 +32,21 @@ export default function FeedPage() {
           </button>
         </div>
       </div>
-      <PostsList posts={data ?? []} isFeed={tab === 'feed'} />
+
+      {tab === 'feed' && !isLoggedIn ? (
+        <div className="bg-white rounded-xl border border-slate-200 p-12 text-center">
+          <Users className="w-12 h-12 text-slate-300 mx-auto mb-4" />
+          <h3 className="text-lg font-semibold text-slate-700 mb-2">Connecte-toi pour voir ton feed personnalisé</h3>
+          <p className="text-sm text-slate-500 mb-4">Suis des artisans et retrouve leurs publications ici</p>
+          <Link to="/login">
+            <Button className="bg-[#1E40AF] hover:bg-blue-800 rounded-lg text-white cursor-pointer">
+              <LogIn className="w-4 h-4 mr-2" /> Se connecter
+            </Button>
+          </Link>
+        </div>
+      ) : (
+        <PostsList posts={data ?? []} isFeed={tab === 'feed'} />
+      )}
     </div>
   )
 }

@@ -6,12 +6,14 @@ const FEED_KEY = ['feed']
 const POSTS_KEY = ['posts']
 
 export const useFeed = () => {
+  const token = localStorage.getItem('token')
   return useQuery<Post[]>({
     queryKey: FEED_KEY,
     queryFn: async () => {
       const { data } = await ecosystemAPI.get('/api/ecosystem/feed')
       return data.data as Post[]
     },
+    enabled: !!token,
   })
 }
 
