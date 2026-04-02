@@ -14,6 +14,9 @@ import SettingsPage from './pages/crm/SettingsPage'
 import FeedPage from './pages/ecosystem/FeedPage'
 import DiscoverPage from './pages/ecosystem/DiscoverPage'
 import ProfilePage from './pages/ecosystem/ProfilePage'
+import ShopsPage from './pages/ecosystem/ShopsPage'
+import ShopDetailPage from './pages/ecosystem/ShopDetailPage'
+import MyShopPage from './pages/ecosystem/MyShopPage'
 import PortalPage from './pages/portal/PortalPage'
 import PortalQuotePage from './pages/portal/PortalQuotePage'
 import PortalInvoicePage from './pages/portal/PortalInvoicePage'
@@ -44,6 +47,7 @@ function App() {
               <Route path="/invoices" element={<InvoicesPage />} />
               <Route path="/chantiers" element={<ChantiersPage />} />
               <Route path="/settings" element={<SettingsPage />} />
+              <Route path="/my-shop" element={<MyShopPage />} />
             </Route>
           </Route>
 
@@ -52,7 +56,8 @@ function App() {
             <Route path="/feed" element={<FeedPage />} />
             <Route path="/discover" element={<DiscoverPage />} />
             <Route path="/profile/:id" element={<ProfilePage />} />
-            <Route path="/shops" element={<Placeholder title="Boutiques" />} />
+            <Route path="/shops" element={<ShopsPage />} />
+            <Route path="/shops/:slug" element={<ShopDetailPage />} />
             <Route path="/listings" element={<Placeholder title="Annonces" />} />
             <Route path="/jobs" element={<Placeholder title="Emplois" />} />
           </Route>
