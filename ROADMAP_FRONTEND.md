@@ -11,7 +11,7 @@
 Phase 1 — Setup & Auth     █████████████████████ 100% — terminé ✅
 Phase 2 — CRM Dashboard    █████████████████████ 100% — terminé ✅
 Phase 3 — Client Portal    █████████████████████ 100% — terminé ✅
-Phase 4 — Ecosystem        █████░░░░░░░░░░░░░░░░  25% — Feed ✅
+Phase 4 — Ecosystem        ██████████░░░░░░░░░░░  50% — Feed + Profile ✅
 Phase 5 — Matching         ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 Phase 6 — Stripe           ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 ```
@@ -69,8 +69,8 @@ Phase 6 — Stripe           ░░░░░░░░░░░░░░░░░
 |---|---|---|---|
 | **EcosystemLayout** (header + nav publique) | `src/components/ecosystem/EcosystemLayout.jsx` | `feature/ecosystem-feed` | ✅ Terminé + testé |
 | Feed / Posts | `src/pages/ecosystem/social/FeedPage.jsx` | `feature/ecosystem-feed` | ✅ Terminé + testé |
-| Profil artisan | `src/pages/ecosystem/social/ProfilePage.jsx` | `feature/ecosystem-profile` | 📋 À faire |
-| Découvrir artisans + follow | `src/pages/ecosystem/social/DiscoverPage.jsx` | `feature/ecosystem-profile` | 📋 À faire |
+| Profil artisan | `src/pages/ecosystem/social/ProfilePage.jsx` | `feature/ecosystem-profile` | ✅ Terminé + testé |
+| Découvrir artisans + follow | `src/pages/ecosystem/social/DiscoverPage.jsx` | `feature/ecosystem-profile` | ✅ Terminé + testé |
 | Boutique artisan | `src/pages/ecosystem/marketplace/ShopDetailPage.jsx` | `feature/ecosystem-shops` | 📋 À faire |
 | Listings / Petites annonces | `src/pages/ecosystem/listings/MarketplacePage.jsx` | `feature/ecosystem-listings` | 📋 À faire |
 | Jobs & Events | `src/pages/ecosystem/social/JobsPage.jsx` | `feature/ecosystem-jobs` | 📋 À faire |
@@ -127,5 +127,5 @@ Phase 6 — Stripe           ░░░░░░░░░░░░░░░░░
 
 ---
 
-*Dernière mise à jour : 2 Avril 2026 — Ecosystem Feed terminé*
+*Dernière mise à jour : 2 Avril 2026 — Ecosystem Profile terminé*
 *Rédigé par : Fanomezantsoa + Claude*

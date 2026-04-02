@@ -337,9 +337,11 @@ GET  /api/me
 - Portail client dashboard *(testé navigateur)*
 - EcosystemLayout *(testé navigateur)*
 - FeedPage — posts + likes + commentaires *(testé navigateur)*
+- DiscoverPage — grille artisans + follow *(testé navigateur)*
+- ProfilePage — profil public artisan *(testé navigateur)*
 
 ### 🔄 À faire
-- Phase 4 — Ecosystem Social (profil, boutiques, annonces, emplois)
+- Phase 4 — Ecosystem Social (boutiques, annonces, emplois)
 - Phase 5 — Matching
 - Phase 6 — Stripe / Abonnement
 
@@ -431,5 +433,5 @@ git commit -m "[FEAT]: description claire"
 
 ---
 
-*Dernière mise à jour : 2 Avril 2026 — Ecosystem Feed terminé + requireAuth helper*
+*Dernière mise à jour : 2 Avril 2026 — Ecosystem Profile terminé*
 *Rédigé par : Fanomezantsoa + Claude*
