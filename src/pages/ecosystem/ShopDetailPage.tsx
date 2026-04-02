@@ -8,7 +8,7 @@ export default function ShopDetailPage() {
   const { data, isLoading, isError } = useShop(slug)
 
   if (isLoading) return <PageSkeleton />
-  if (isError || !data) return <div className="text-center py-16"><p className="text-red-500">Boutique introuvable</p></div>
+  if (isError || !data?.shop) return <div className="text-center py-16"><p className="text-red-500">Boutique introuvable</p></div>
 
-  return <ShopDetail shop={data} />
+  return <ShopDetail shop={data.shop} products={data.products ?? []} />
 }

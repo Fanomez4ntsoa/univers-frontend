@@ -5,10 +5,11 @@ import type { Shop, ShopProduct } from '../types/shop'
 import ProductCard from './ProductCard'
 
 interface ShopDetailProps {
-  shop: Shop & { products: ShopProduct[] }
+  shop: Shop
+  products: ShopProduct[]
 }
 
-export default function ShopDetail({ shop }: ShopDetailProps) {
+export default function ShopDetail({ shop, products }: ShopDetailProps) {
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -41,14 +42,14 @@ export default function ShopDetail({ shop }: ShopDetailProps) {
 
         {/* Right — Products */}
         <div className="lg:col-span-2">
-          <h2 className="text-lg font-semibold text-slate-900 mb-4">Produits ({(shop.products ?? []).length})</h2>
-          {(shop.products ?? []).length === 0 ? (
+          <h2 className="text-lg font-semibold text-slate-900 mb-4">Produits ({(products ?? []).length})</h2>
+          {(products ?? []).length === 0 ? (
             <div className="bg-white rounded-xl border border-slate-200 p-8 text-center">
               <p className="text-sm text-slate-400">Aucun produit dans cette boutique</p>
             </div>
           ) : (
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-              {(shop.products ?? []).map((p) => <ProductCard key={p.id} product={p} />)}
+              {(products ?? []).map((p) => <ProductCard key={p.id} product={p} />)}
             </div>
           )}
         </div>

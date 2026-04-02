@@ -29,4 +29,9 @@ export interface ShopProduct {
   created_at: string
 }
 
+export interface ShopDetailResponse {
+  shop: Shop
+  products: ShopProduct[]
+}
+
 export type MyShop = Shop

@@ -1,7 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { ecosystemAPI } from '../../../../shared/lib/axios'
 import { batiAPI } from '../../../../shared/lib/axios'
-import type { Shop, ShopProduct, MyShop } from '../types/shop'
+import type { Shop, ShopProduct, ShopDetailResponse, MyShop } from '../types/shop'
 
 export const useShops = () => {
   return useQuery<Shop[]>({
@@ -14,7 +14,7 @@ export const useShops = () => {
 }
 
 export const useShop = (slug: string | undefined) => {
-  return useQuery<Shop & { products: ShopProduct[] }>({
+  return useQuery<ShopDetailResponse>({
     queryKey: ['shop', slug],
     queryFn: async () => {
       const { data } = await ecosystemAPI.get(`/api/ecosystem/shops/${slug}`)
