@@ -21,7 +21,8 @@ function fmtDate(d: string) {
 
 export default function PortalQuoteDetail({ quote, token }: PortalQuoteDetailProps) {
   const [signOpen, setSignOpen] = useState(false)
-  const canSign = quote.status === 'sent' && !quote.signed
+  if (!quote) return null
+  const canSign = (quote.status ?? '') === 'sent' && !quote.signed
 
   return (
     <div className="space-y-6">
@@ -31,8 +32,8 @@ export default function PortalQuoteDetail({ quote, token }: PortalQuoteDetailPro
           <Button variant="ghost" size="icon" className="cursor-pointer"><ArrowLeft className="w-5 h-5" /></Button>
         </Link>
         <div className="flex-1">
-          <h1 className="text-2xl font-bold text-slate-900">{quote.quote_number}</h1>
-          <p className="text-slate-500 text-sm">{quote.title}</p>
+          <h1 className="text-2xl font-bold text-slate-900">{quote.quote_number ?? ''}</h1>
+          <p className="text-slate-500 text-sm">{quote.title ?? ''}</p>
           {quote.company_name && <p className="text-sm text-[#1E40AF] font-medium">{quote.company_name}</p>}
         </div>
       </div>
@@ -50,7 +51,7 @@ export default function PortalQuoteDetail({ quote, token }: PortalQuoteDetailPro
 
       {/* Validity */}
       <div className="bg-amber-50 rounded-xl border border-amber-200 p-4 flex items-center gap-2 text-sm text-amber-700">
-        <Calendar className="w-4 h-4" /> Valide jusqu'au {fmtDate(quote.valid_until)}
+        <Calendar className="w-4 h-4" /> Valide jusqu'au {quote.valid_until ? fmtDate(quote.valid_until) : '—'}
       </div>
 
       {/* Items */}
@@ -66,7 +67,7 @@ export default function PortalQuoteDetail({ quote, token }: PortalQuoteDetailPro
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-100">
-            {quote.items.map((item, i) => (
+            {(quote.items ?? []).map((item, i) => (
               <tr key={i}>
                 <td className="px-4 py-3 text-slate-900">{item.description}</td>
                 <td className="px-4 py-3 text-right text-slate-600">{item.quantity}</td>
@@ -78,9 +79,9 @@ export default function PortalQuoteDetail({ quote, token }: PortalQuoteDetailPro
           </tbody>
         </table>
         <div className="border-t border-slate-200 p-4 space-y-2">
-          <div className="flex justify-between text-sm"><span className="text-slate-600">Sous-total HT</span><span>{fmt(quote.subtotal)}</span></div>
-          <div className="flex justify-between text-sm"><span className="text-slate-600">TVA</span><span>{fmt(quote.tax_amount)}</span></div>
-          <div className="flex justify-between text-base font-bold border-t border-slate-200 pt-2"><span>Total TTC</span><span className="text-[#1E40AF]">{fmt(quote.total)}</span></div>
+          <div className="flex justify-between text-sm"><span className="text-slate-600">Sous-total HT</span><span>{fmt(quote.subtotal ?? '0')}</span></div>
+          <div className="flex justify-between text-sm"><span className="text-slate-600">TVA</span><span>{fmt(quote.tax_amount ?? '0')}</span></div>
+          <div className="flex justify-between text-base font-bold border-t border-slate-200 pt-2"><span>Total TTC</span><span className="text-[#1E40AF]">{fmt(quote.total ?? '0')}</span></div>
         </div>
       </div>
 

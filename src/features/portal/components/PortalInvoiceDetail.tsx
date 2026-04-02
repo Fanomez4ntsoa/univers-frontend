@@ -27,7 +27,8 @@ function getPaymentColor(paid: string, total: string): string {
 }
 
 export default function PortalInvoiceDetail({ invoice, token }: PortalInvoiceDetailProps) {
-  const payColor = getPaymentColor(invoice.amount_paid, invoice.total)
+  if (!invoice) return null
+  const payColor = getPaymentColor(invoice.amount_paid ?? '0', invoice.total ?? '0')
 
   return (
     <div className="space-y-6">
@@ -54,15 +55,15 @@ export default function PortalInvoiceDetail({ invoice, token }: PortalInvoiceDet
       {/* Stats */}
       <div className="grid grid-cols-3 gap-4">
         <div className="bg-white rounded-xl border border-slate-200 p-4 text-center">
-          <p className="text-xl font-bold text-[#1E40AF]">{fmt(invoice.total)}</p>
+          <p className="text-xl font-bold text-[#1E40AF]">{fmt(invoice.total ?? '0')}</p>
           <p className="text-xs text-slate-500 mt-1">Total TTC</p>
         </div>
         <div className="bg-white rounded-xl border border-slate-200 p-4 text-center">
-          <p className={`text-xl font-bold ${payColor}`}>{fmt(invoice.amount_paid)}</p>
+          <p className={`text-xl font-bold ${payColor}`}>{fmt(invoice.amount_paid ?? '0')}</p>
           <p className="text-xs text-slate-500 mt-1">Payé</p>
         </div>
         <div className="bg-white rounded-xl border border-slate-200 p-4 text-center">
-          <p className={`text-xl font-bold ${parseFloat(invoice.amount_due) > 0 ? 'text-red-500' : 'text-slate-400'}`}>{fmt(invoice.amount_due)}</p>
+          <p className={`text-xl font-bold ${parseFloat(invoice.amount_due ?? '0') > 0 ? 'text-red-500' : 'text-slate-400'}`}>{fmt(invoice.amount_due ?? '0')}</p>
           <p className="text-xs text-slate-500 mt-1">Reste dû</p>
         </div>
       </div>
@@ -87,7 +88,7 @@ export default function PortalInvoiceDetail({ invoice, token }: PortalInvoiceDet
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-100">
-            {invoice.items.map((item, i) => (
+            {(invoice.items ?? []).map((item, i) => (
               <tr key={i}>
                 <td className="px-4 py-3 text-slate-900">{item.description}</td>
                 <td className="px-4 py-3 text-right text-slate-600">{item.quantity}</td>
@@ -99,9 +100,9 @@ export default function PortalInvoiceDetail({ invoice, token }: PortalInvoiceDet
           </tbody>
         </table>
         <div className="border-t border-slate-200 p-4 space-y-2">
-          <div className="flex justify-between text-sm"><span className="text-slate-600">Sous-total HT</span><span>{fmt(invoice.subtotal)}</span></div>
-          <div className="flex justify-between text-sm"><span className="text-slate-600">TVA</span><span>{fmt(invoice.tax_amount)}</span></div>
-          <div className="flex justify-between text-base font-bold border-t border-slate-200 pt-2"><span>Total TTC</span><span className="text-[#1E40AF]">{fmt(invoice.total)}</span></div>
+          <div className="flex justify-between text-sm"><span className="text-slate-600">Sous-total HT</span><span>{fmt(invoice.subtotal ?? '0')}</span></div>
+          <div className="flex justify-between text-sm"><span className="text-slate-600">TVA</span><span>{fmt(invoice.tax_amount ?? '0')}</span></div>
+          <div className="flex justify-between text-base font-bold border-t border-slate-200 pt-2"><span>Total TTC</span><span className="text-[#1E40AF]">{fmt(invoice.total ?? '0')}</span></div>
         </div>
       </div>
     </div>
