@@ -10,6 +10,9 @@ import QuotesPage from './pages/crm/QuotesPage'
 import InvoicesPage from './pages/crm/InvoicesPage'
 import ChantiersPage from './pages/crm/ChantiersPage'
 import SettingsPage from './pages/crm/SettingsPage'
+import PortalPage from './pages/portal/PortalPage'
+import PortalQuotePage from './pages/portal/PortalQuotePage'
+import PortalInvoicePage from './pages/portal/PortalInvoicePage'
 
 const queryClient = new QueryClient()
 
@@ -33,6 +36,11 @@ function App() {
               <Route path="/settings" element={<SettingsPage />} />
             </Route>
           </Route>
+
+          {/* Public — Client Portal */}
+          <Route path="/portal/:token" element={<PortalPage />} />
+          <Route path="/portal/:token/quotes/:id" element={<PortalQuotePage />} />
+          <Route path="/portal/:token/invoices/:id" element={<PortalInvoicePage />} />
 
           {/* Fallback */}
           <Route path="*" element={<Navigate to="/login" replace />} />
