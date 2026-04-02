@@ -6,6 +6,7 @@ import type { Post } from '../types/post'
 import { useLikePost, useDeletePost } from '../hooks/useFeed'
 import PostCard from './PostCard'
 import PostForm from './PostForm'
+import { requireAuth } from '../../../../shared/lib/requireAuth'
 
 interface PostsListProps {
   posts: Post[]
@@ -26,7 +27,7 @@ export default function PostsList({ posts, isFeed }: PostsListProps) {
   }
 
   const handleEdit = (post: Post) => { setEditingPost(post); setFormOpen(true) }
-  const handleCreate = () => { setEditingPost(null); setFormOpen(true) }
+  const handleCreate = () => requireAuth(() => { setEditingPost(null); setFormOpen(true) })
 
   const visible = posts.slice(0, visibleCount)
 

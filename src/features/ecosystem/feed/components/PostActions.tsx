@@ -1,5 +1,6 @@
 import { Heart, MessageCircle, Edit, Trash2 } from 'lucide-react'
 import { Button } from '../../../../shared/ui/button'
+import { requireAuth } from '../../../../shared/lib/requireAuth'
 
 interface PostActionsProps {
   likesCount: number
@@ -27,8 +28,8 @@ export default function PostActions({ likesCount, commentsCount, isLiked, isOwne
       </div>
       {isOwner && (
         <div className="flex items-center gap-1">
-          <Button variant="ghost" size="icon-sm" onClick={onEdit} title="Modifier"><Edit className="w-4 h-4" /></Button>
-          <Button variant="ghost" size="icon-sm" onClick={onDelete} title="Supprimer" className="text-red-500"><Trash2 className="w-4 h-4" /></Button>
+          <Button variant="ghost" size="icon-sm" onClick={() => requireAuth(onEdit)} title="Modifier"><Edit className="w-4 h-4" /></Button>
+          <Button variant="ghost" size="icon-sm" onClick={() => requireAuth(onDelete)} title="Supprimer" className="text-red-500"><Trash2 className="w-4 h-4" /></Button>
         </div>
       )}
     </div>

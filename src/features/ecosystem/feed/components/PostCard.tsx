@@ -4,6 +4,7 @@ import { POST_TYPE_CONFIG } from '../types/post'
 import PostActions from './PostActions'
 import CommentsList from './CommentsList'
 import { getStoredUser } from '../../../auth/hooks/useAuth'
+import { requireAuth } from '../../../../shared/lib/requireAuth'
 
 interface PostCardProps {
   post: Post
@@ -62,7 +63,7 @@ export default function PostCard({ post, onLike, onEdit, onDelete }: PostCardPro
         commentsCount={post.comments_count}
         isLiked={post.is_liked}
         isOwner={isOwner}
-        onLike={() => onLike(post.id)}
+        onLike={() => requireAuth(() => onLike(post.id))}
         onComment={() => setShowComments(!showComments)}
         onEdit={() => onEdit(post)}
         onDelete={() => onDelete(post.id)}

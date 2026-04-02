@@ -4,6 +4,7 @@ import { Button } from '../../../../shared/ui/button'
 import { Input } from '../../../../shared/ui/input'
 import { toast } from 'sonner'
 import { useAddComment } from '../hooks/useFeed'
+import { requireAuth } from '../../../../shared/lib/requireAuth'
 
 interface CommentFormProps {
   postId: number
@@ -15,10 +16,10 @@ export default function CommentForm({ postId }: CommentFormProps) {
 
   const handleSubmit = () => {
     if (!content.trim()) return
-    addComment.mutate(
+    requireAuth(() => addComment.mutate(
       { postId, content },
       { onSuccess: () => { setContent(''); toast.success('Commentaire ajouté') }, onError: () => toast.error('Erreur') }
-    )
+    ))
   }
 
   return (
