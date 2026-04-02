@@ -12,7 +12,7 @@ export default function PortalInvoicePage() {
 
   return (
     <Shell>
-      <PortalInvoiceDetail invoice={data} token={token!} />
+      <PortalInvoiceDetail data={data} token={token!} />
     </Shell>
   )
 }

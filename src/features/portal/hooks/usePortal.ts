@@ -1,6 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { portalAPI } from '../../../shared/lib/axios'
-import type { PortalDashboard, PortalQuote, PortalInvoice } from '../types/portal'
+import type { PortalDashboard, PortalQuote, PortalQuoteResponse, PortalInvoice, PortalInvoiceResponse } from '../types/portal'
 
 export const usePortalDashboard = (token: string) => {
   return useQuery<PortalDashboard>({
@@ -25,7 +25,7 @@ export const usePortalQuotes = (token: string) => {
 }
 
 export const usePortalQuote = (token: string, id: number | null) => {
-  return useQuery<PortalQuote>({
+  return useQuery<PortalQuoteResponse>({
     queryKey: ['portal', token, 'quote', id],
     queryFn: async () => {
       const { data } = await portalAPI.get(`/api/portal/${token}/quotes/${id}`)
@@ -60,7 +60,7 @@ export const usePortalInvoices = (token: string) => {
 }
 
 export const usePortalInvoice = (token: string, id: number | null) => {
-  return useQuery<PortalInvoice>({
+  return useQuery<PortalInvoiceResponse>({
     queryKey: ['portal', token, 'invoice', id],
     queryFn: async () => {
       const { data } = await portalAPI.get(`/api/portal/${token}/invoices/${id}`)

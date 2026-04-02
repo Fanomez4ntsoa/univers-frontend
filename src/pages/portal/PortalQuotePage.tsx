@@ -12,7 +12,7 @@ export default function PortalQuotePage() {
 
   return (
     <Shell>
-      <PortalQuoteDetail quote={data} token={token!} />
+      <PortalQuoteDetail data={data} token={token!} />
     </Shell>
   )
 }

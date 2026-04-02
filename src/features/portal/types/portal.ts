@@ -50,8 +50,27 @@ export interface PortalQuote {
   valid_until: string
   notes: string | null
   created_at: string
+}
+
+export interface PortalCompany {
+  company_name: string
+  siret: string | null
+  phone: string | null
+  address: string | null
+  city: string | null
+  postal_code: string | null
+  logo_url: string | null
   cgv_text: string | null
-  company_name: string | null
+}
+
+export interface PortalQuoteResponse {
+  quote: PortalQuote
+  company: PortalCompany
+}
+
+export interface PortalInvoiceResponse {
+  invoice: PortalInvoice
+  company: PortalCompany
 }
 
 export interface PortalInvoice {

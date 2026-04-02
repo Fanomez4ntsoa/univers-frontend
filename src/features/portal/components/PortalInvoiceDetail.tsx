@@ -1,10 +1,10 @@
 import { ArrowLeft, Calendar, CheckCircle, CreditCard } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Button } from '../../../shared/ui/button'
-import type { PortalInvoice } from '../types/portal'
+import type { PortalInvoiceResponse } from '../types/portal'
 
 interface PortalInvoiceDetailProps {
-  invoice: PortalInvoice
+  data: PortalInvoiceResponse
   token: string
 }
 
@@ -26,8 +26,10 @@ function getPaymentColor(paid: string, total: string): string {
   return 'text-[#F97316]'
 }
 
-export default function PortalInvoiceDetail({ invoice, token }: PortalInvoiceDetailProps) {
-  if (!invoice) return null
+export default function PortalInvoiceDetail({ data: response, token }: PortalInvoiceDetailProps) {
+  if (!response?.invoice) return null
+
+  const { invoice } = response
   const payColor = getPaymentColor(invoice.amount_paid ?? '0', invoice.total ?? '0')
 
   return (
@@ -38,7 +40,7 @@ export default function PortalInvoiceDetail({ invoice, token }: PortalInvoiceDet
           <Button variant="ghost" size="icon" className="cursor-pointer"><ArrowLeft className="w-5 h-5" /></Button>
         </Link>
         <div className="flex-1">
-          <h1 className="text-2xl font-bold text-slate-900">{invoice.invoice_number}</h1>
+          <h1 className="text-2xl font-bold text-slate-900">{invoice.invoice_number ?? ''}</h1>
         </div>
       </div>
 

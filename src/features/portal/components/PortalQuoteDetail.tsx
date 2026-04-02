@@ -2,11 +2,11 @@ import { useState } from 'react'
 import { ArrowLeft, CheckCircle, Calendar, PenTool } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Button } from '../../../shared/ui/button'
-import type { PortalQuote } from '../types/portal'
+import type { PortalQuoteResponse } from '../types/portal'
 import PortalSignatureModal from './PortalSignatureModal'
 
 interface PortalQuoteDetailProps {
-  quote: PortalQuote
+  data: PortalQuoteResponse
   token: string
 }
 
@@ -19,9 +19,11 @@ function fmtDate(d: string) {
   return new Date(d).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
 }
 
-export default function PortalQuoteDetail({ quote, token }: PortalQuoteDetailProps) {
+export default function PortalQuoteDetail({ data: response, token }: PortalQuoteDetailProps) {
   const [signOpen, setSignOpen] = useState(false)
-  if (!quote) return null
+  if (!response?.quote) return null
+
+  const { quote, company } = response
   const canSign = (quote.status ?? '') === 'sent' && !quote.signed
 
   return (
@@ -34,7 +36,7 @@ export default function PortalQuoteDetail({ quote, token }: PortalQuoteDetailPro
         <div className="flex-1">
           <h1 className="text-2xl font-bold text-slate-900">{quote.quote_number ?? ''}</h1>
           <p className="text-slate-500 text-sm">{quote.title ?? ''}</p>
-          {quote.company_name && <p className="text-sm text-[#1E40AF] font-medium">{quote.company_name}</p>}
+          {company?.company_name && <p className="text-sm text-[#1E40AF] font-medium">{company.company_name}</p>}
         </div>
       </div>
 
@@ -94,10 +96,10 @@ export default function PortalQuoteDetail({ quote, token }: PortalQuoteDetailPro
       )}
 
       {/* CGV */}
-      {quote.cgv_text && (
+      {company?.cgv_text && (
         <div className="bg-white rounded-xl border border-slate-200 p-5">
           <h3 className="text-sm font-semibold text-slate-700 mb-2">Conditions générales de vente</h3>
-          <div className="text-xs text-slate-500 max-h-40 overflow-y-auto whitespace-pre-wrap">{quote.cgv_text}</div>
+          <div className="text-xs text-slate-500 max-h-40 overflow-y-auto whitespace-pre-wrap">{company.cgv_text}</div>
         </div>
       )}
 
