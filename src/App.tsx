@@ -10,6 +10,7 @@ import QuotesPage from './pages/crm/QuotesPage'
 import InvoicesPage from './pages/crm/InvoicesPage'
 import ChantiersPage from './pages/crm/ChantiersPage'
 import SettingsPage from './pages/crm/SettingsPage'
+import FeedPage from './pages/ecosystem/FeedPage'
 import PortalPage from './pages/portal/PortalPage'
 import PortalQuotePage from './pages/portal/PortalQuotePage'
 import PortalInvoicePage from './pages/portal/PortalInvoicePage'
@@ -34,6 +35,7 @@ function App() {
               <Route path="/invoices" element={<InvoicesPage />} />
               <Route path="/chantiers" element={<ChantiersPage />} />
               <Route path="/settings" element={<SettingsPage />} />
+              <Route path="/feed" element={<FeedPage />} />
             </Route>
           </Route>
 
