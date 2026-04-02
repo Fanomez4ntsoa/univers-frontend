@@ -13,6 +13,11 @@ export interface UserProfile {
   following_count: number
 }
 
+export interface UserProfileResponse {
+  user: UserProfile
+  posts: { id: number; content: string; likes_count: number; comments_count: number; created_at: string }[]
+}
+
 export interface FollowStats {
   id: number
   username: string

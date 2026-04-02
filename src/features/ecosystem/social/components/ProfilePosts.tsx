@@ -1,8 +1,15 @@
 import { Rss } from 'lucide-react'
-import type { Post } from '../../feed/types/post'
+
+interface PostSummary {
+  id: number
+  content: string
+  likes_count: number
+  comments_count: number
+  created_at: string
+}
 
 interface ProfilePostsProps {
-  posts: Post[]
+  posts: PostSummary[]
 }
 
 function fmtDate(d: string) {

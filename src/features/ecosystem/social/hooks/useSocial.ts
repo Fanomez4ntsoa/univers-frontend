@@ -1,6 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { ecosystemAPI } from '../../../../shared/lib/axios'
-import type { UserProfile, DiscoverUser, FollowStats } from '../types/social'
+import type { UserProfile, UserProfileResponse, DiscoverUser, FollowStats } from '../types/social'
 
 export const useDiscover = () => {
   return useQuery<DiscoverUser[]>({
@@ -13,7 +13,7 @@ export const useDiscover = () => {
 }
 
 export const useUserProfile = (id: number | null) => {
-  return useQuery<UserProfile>({
+  return useQuery<UserProfileResponse>({
     queryKey: ['user-profile', id],
     queryFn: async () => {
       const { data } = await ecosystemAPI.get(`/api/ecosystem/users/${id}`)

@@ -6,15 +6,15 @@ import PageSkeleton from '../../shared/components/PageSkeleton'
 
 export default function ProfilePage() {
   const { id } = useParams<{ id: string }>()
-  const { data: profile, isLoading, isError } = useUserProfile(Number(id))
+  const { data, isLoading, isError } = useUserProfile(Number(id))
 
   if (isLoading) return <PageSkeleton />
-  if (isError || !profile) return <div className="text-center py-16"><p className="text-red-500">Profil introuvable</p></div>
+  if (isError || !data?.user) return <div className="text-center py-16"><p className="text-red-500">Profil introuvable</p></div>
 
   return (
     <div className="space-y-6 max-w-3xl mx-auto">
-      <ProfileHeader profile={profile} />
-      <ProfilePosts posts={[]} />
+      <ProfileHeader profile={data.user} />
+      <ProfilePosts posts={data.posts ?? []} />
     </div>
   )
 }
