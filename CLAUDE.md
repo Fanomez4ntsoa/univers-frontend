@@ -299,9 +299,10 @@ GET  /api/me
 - InvoicesPage *(testé navigateur)*
 - ChantiersPage *(testé navigateur)*
 - SettingsPage *(testé navigateur)*
+- Vue publique devis + signature *(testé navigateur)*
+- Portail client dashboard *(testé navigateur)*
 
 ### 🔄 À faire
-- Phase 3 — Client Portal
 - Phase 4 — Ecosystem Social
 - Phase 5 — Matching
 - Phase 6 — Stripe / Abonnement
@@ -394,5 +395,5 @@ git commit -m "[FEAT]: description claire"
 
 ---
 
-*Dernière mise à jour : 2 Avril 2026 — Phase 2 CRM terminée — Phases 3-6 planifiées*
+*Dernière mise à jour : 2 Avril 2026 — Phase 3 Client Portal terminée*
 *Rédigé par : Fanomezantsoa + Claude*
