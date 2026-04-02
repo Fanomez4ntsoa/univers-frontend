@@ -55,14 +55,6 @@ Phase 6 — Stripe           ░░░░░░░░░░░░░░░░░
 | Vue publique devis + signature | `src/pages/public/PublicQuoteSignPage.jsx` | `feature/portal-quote` | ✅ Terminé + testé |
 | Portail client (dashboard token) | `src/pages/public/ClientPortalPage.jsx` | `feature/portal-quote` | ✅ Terminé + testé |
 
-### Ce qu'il faut implémenter :
-- Page publique accessible via `portal_token` (pas de login requis)
-- Afficher les devis du client + statuts
-- Canvas signature pour signer un devis
-- Afficher les factures du client
-
-### Prochaine branche : `feature/portal-quote`
-
 ---
 
 ## 📋 PHASE 4 — Ecosystem Social
@@ -77,7 +69,6 @@ Phase 6 — Stripe           ░░░░░░░░░░░░░░░░░
 |---|---|---|---|
 | **EcosystemLayout** (header + nav publique) | `src/components/ecosystem/EcosystemLayout.jsx` | `feature/ecosystem-feed` | ✅ Terminé + testé |
 | Feed / Posts | `src/pages/ecosystem/social/FeedPage.jsx` | `feature/ecosystem-feed` | ✅ Terminé + testé |
-| Créer un post | `src/pages/ecosystem/social/CreatePostPage.jsx` | `feature/ecosystem-feed` | ✅ Terminé + testé |
 | Profil artisan | `src/pages/ecosystem/social/ProfilePage.jsx` | `feature/ecosystem-profile` | 📋 À faire |
 | Découvrir artisans + follow | `src/pages/ecosystem/social/DiscoverPage.jsx` | `feature/ecosystem-profile` | 📋 À faire |
 | Boutique artisan | `src/pages/ecosystem/marketplace/ShopDetailPage.jsx` | `feature/ecosystem-shops` | 📋 À faire |
@@ -136,5 +127,5 @@ Phase 6 — Stripe           ░░░░░░░░░░░░░░░░░
 
 ---
 
-*Dernière mise à jour : 2 Avril 2026 — Phase 4 Feed terminé + routes ecosystem publiques*
+*Dernière mise à jour : 2 Avril 2026 — Ecosystem Feed terminé*
 *Rédigé par : Fanomezantsoa + Claude*

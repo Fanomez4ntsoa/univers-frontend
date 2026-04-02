@@ -283,6 +283,20 @@ Public           → /login, /portal/:token
 - ❌ Logique métier dans une Page
 - ❌ Plus de 200 lignes dans un seul fichier
 
+### Helper partagé — requireAuth
+`src/shared/lib/requireAuth.ts` — à utiliser pour toutes les actions sensibles dans l'Ecosystem.
+Vérifie le token en interne. Si absent → toast erreur. Ne redirige pas.
+```typescript
+import { toast } from 'sonner'
+export const requireAuth = (action: () => void): void => {
+  if (!localStorage.getItem('token')) {
+    toast.error('Connecte-toi pour effectuer cette action')
+    return
+  }
+  action()
+}
+```
+
 ---
 
 ## 🔌 API consommée
@@ -417,5 +431,5 @@ git commit -m "[FEAT]: description claire"
 
 ---
 
-*Dernière mise à jour : 2 Avril 2026 — Phase 4 Feed terminé + routes ecosystem publiques*
+*Dernière mise à jour : 2 Avril 2026 — Ecosystem Feed terminé + requireAuth helper*
 *Rédigé par : Fanomezantsoa + Claude*
