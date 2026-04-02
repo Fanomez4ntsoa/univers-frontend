@@ -248,6 +248,26 @@ src/
 └── App.tsx
 ```
 
+### Les 3 layouts — distinction importante
+Fidèle à Emergent, le projet a 3 espaces distincts :
+```
+CRMLayout        → /prospects, /clients, /quotes...
+                   Protégé par AuthGuard
+                   Sidebar CRM + TopBar
+
+EcosystemLayout  → /feed, /discover, /shops, /listings, /jobs
+                   PUBLIC — sans AuthGuard
+                   Header bleu + navigation Ecosystem
+                   Actions sensibles → vérifier token en interne
+
+Public           → /login, /portal/:token
+                   Sans layout
+```
+
+> ⚠️ L'Ecosystem est public — accessible sans être connecté.
+> Les actions (like, commenter, poster) vérifient `localStorage.getItem('token')`
+> en interne. Si absent → toast "Connecte-toi pour effectuer cette action"
+
 ### Règles strictes
 - **Page** → orchestration pure, max 50 lignes
 - **Hook** → toute la logique TanStack Query
@@ -395,5 +415,5 @@ git commit -m "[FEAT]: description claire"
 
 ---
 
-*Dernière mise à jour : 2 Avril 2026 — Phase 3 Client Portal terminée*
+*Dernière mise à jour : 2 Avril 2026 — EcosystemLayout séparé — Phase 4 en cours*
 *Rédigé par : Fanomezantsoa + Claude*

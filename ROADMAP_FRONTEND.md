@@ -11,7 +11,7 @@
 Phase 1 — Setup & Auth     █████████████████████ 100% — terminé ✅
 Phase 2 — CRM Dashboard    █████████████████████ 100% — terminé ✅
 Phase 3 — Client Portal    █████████████████████ 100% — terminé ✅
-Phase 4 — Ecosystem        ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
+Phase 4 — Ecosystem        ░░░░░░░░░░░░░░░░░░░░░  10% — EcosystemLayout ✅
 Phase 5 — Matching         ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 Phase 6 — Stripe           ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 ```
@@ -67,13 +67,17 @@ Phase 6 — Stripe           ░░░░░░░░░░░░░░░░░
 
 ## 📋 PHASE 4 — Ecosystem Social
 
-> **Débloquer après** : Phase 3 complète
+> **Débloquer après** : Phase 3 complète ✅
 > Backend disponible : `/api/ecosystem/*`
+>
+> ⚠️ L'Ecosystem est **public** — routes sans AuthGuard, fidèle à Emergent.
+> Layout séparé du CRM : `EcosystemLayout` avec sa propre navigation.
 
 | Page | Fichier Emergent de référence | Branche | État |
 |---|---|---|---|
-| Feed / Posts | `src/pages/ecosystem/social/FeedPage.jsx` | `feature/ecosystem-feed` | 📋 À faire |
-| Créer un post | `src/pages/ecosystem/social/CreatePostPage.jsx` | `feature/ecosystem-feed` | 📋 À faire |
+| **EcosystemLayout** (header + nav publique) | `src/components/ecosystem/EcosystemLayout.jsx` | `feature/ecosystem-feed` | ✅ Terminé + testé |
+| Feed / Posts | `src/pages/ecosystem/social/FeedPage.jsx` | `feature/ecosystem-feed` | 🔄 En cours |
+| Créer un post | `src/pages/ecosystem/social/CreatePostPage.jsx` | `feature/ecosystem-feed` | 🔄 En cours |
 | Profil artisan | `src/pages/ecosystem/social/ProfilePage.jsx` | `feature/ecosystem-profile` | 📋 À faire |
 | Découvrir artisans + follow | `src/pages/ecosystem/social/DiscoverPage.jsx` | `feature/ecosystem-profile` | 📋 À faire |
 | Boutique artisan | `src/pages/ecosystem/marketplace/ShopDetailPage.jsx` | `feature/ecosystem-shops` | 📋 À faire |
@@ -132,5 +136,5 @@ Phase 6 — Stripe           ░░░░░░░░░░░░░░░░░
 
 ---
 
-*Dernière mise à jour : 2 Avril 2026 — Phase 3 Client Portal terminée*
+*Dernière mise à jour : 2 Avril 2026 — EcosystemLayout créé — Phase 4 en cours*
 *Rédigé par : Fanomezantsoa + Claude*
