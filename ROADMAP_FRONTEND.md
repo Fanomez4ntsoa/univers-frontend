@@ -10,7 +10,7 @@
 ```
 Phase 1 — Setup & Auth     █████████████████████ 100% — terminé ✅
 Phase 2 — CRM Dashboard    █████████████████████ 100% — terminé ✅
-Phase 3 — Client Portal    ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
+Phase 3 — Client Portal    █████████████████████ 100% — terminé ✅
 Phase 4 — Ecosystem        ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 Phase 5 — Matching         ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 Phase 6 — Stripe           ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
@@ -52,8 +52,8 @@ Phase 6 — Stripe           ░░░░░░░░░░░░░░░░░
 
 | Page | Fichier Emergent de référence | Branche | État |
 |---|---|---|---|
-| Vue publique devis + signature | `src/pages/public/PublicQuoteSignPage.jsx` | `feature/portal-quote` | 📋 À faire |
-| Portail client (dashboard token) | `src/pages/public/ClientPortalPage.jsx` | `feature/portal-client` | 📋 À faire |
+| Vue publique devis + signature | `src/pages/public/PublicQuoteSignPage.jsx` | `feature/portal-quote` | ✅ Terminé + testé |
+| Portail client (dashboard token) | `src/pages/public/ClientPortalPage.jsx` | `feature/portal-quote` | ✅ Terminé + testé |
 
 ### Ce qu'il faut implémenter :
 - Page publique accessible via `portal_token` (pas de login requis)
@@ -132,5 +132,5 @@ Phase 6 — Stripe           ░░░░░░░░░░░░░░░░░
 
 ---
 
-*Dernière mise à jour : 2 Avril 2026 — Phase 2 terminée — Phases 3-6 planifiées*
+*Dernière mise à jour : 2 Avril 2026 — Phase 3 Client Portal terminée*
 *Rédigé par : Fanomezantsoa + Claude*
