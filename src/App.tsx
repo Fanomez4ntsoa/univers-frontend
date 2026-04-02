@@ -12,6 +12,8 @@ import InvoicesPage from './pages/crm/InvoicesPage'
 import ChantiersPage from './pages/crm/ChantiersPage'
 import SettingsPage from './pages/crm/SettingsPage'
 import FeedPage from './pages/ecosystem/FeedPage'
+import DiscoverPage from './pages/ecosystem/DiscoverPage'
+import ProfilePage from './pages/ecosystem/ProfilePage'
 import PortalPage from './pages/portal/PortalPage'
 import PortalQuotePage from './pages/portal/PortalQuotePage'
 import PortalInvoicePage from './pages/portal/PortalInvoicePage'
@@ -48,7 +50,8 @@ function App() {
           {/* Public — Ecosystem */}
           <Route element={<EcosystemLayout />}>
             <Route path="/feed" element={<FeedPage />} />
-            <Route path="/discover" element={<Placeholder title="Découvrir" />} />
+            <Route path="/discover" element={<DiscoverPage />} />
+            <Route path="/profile/:id" element={<ProfilePage />} />
             <Route path="/shops" element={<Placeholder title="Boutiques" />} />
             <Route path="/listings" element={<Placeholder title="Annonces" />} />
             <Route path="/jobs" element={<Placeholder title="Emplois" />} />
