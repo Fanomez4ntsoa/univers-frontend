@@ -339,9 +339,10 @@ GET  /api/me
 - FeedPage — posts + likes + commentaires *(testé navigateur)*
 - DiscoverPage — grille artisans + follow *(testé navigateur)*
 - ProfilePage — profil public artisan *(testé navigateur)*
+- ShopsPage + ShopDetailPage + MyShopPage *(testé navigateur)*
 
 ### 🔄 À faire
-- Phase 4 — Ecosystem Social (boutiques, annonces, emplois)
+- Phase 4 — Ecosystem Social (annonces, emplois)
 - Phase 5 — Matching
 - Phase 6 — Stripe / Abonnement
 
@@ -433,5 +434,5 @@ git commit -m "[FEAT]: description claire"
 
 ---
 
-*Dernière mise à jour : 2 Avril 2026 — Ecosystem Profile terminé*
+*Dernière mise à jour : 2 Avril 2026 — Ecosystem Shops terminé*
 *Rédigé par : Fanomezantsoa + Claude*
