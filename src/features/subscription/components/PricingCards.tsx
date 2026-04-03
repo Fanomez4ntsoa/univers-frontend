@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Check, Star } from 'lucide-react'
 import { Button } from '../../../shared/ui/button'
 import { useCreateCheckout } from '../hooks/useSubscription'
@@ -17,9 +18,11 @@ const FEATURES = [
 
 export default function PricingCards() {
   const checkoutMutation = useCreateCheckout()
+  const [loadingPlan, setLoadingPlan] = useState<string | null>(null)
 
   const handleSubscribe = (plan: PlanSlug) => {
-    checkoutMutation.mutate(plan)
+    setLoadingPlan(plan)
+    checkoutMutation.mutate(plan, { onSettled: () => setLoadingPlan(null) })
   }
 
   return (
@@ -55,7 +58,7 @@ export default function PricingCards() {
               disabled={checkoutMutation.isPending}
               className={`w-full h-11 rounded-lg text-white cursor-pointer ${isYearly ? 'bg-[#F97316] hover:bg-orange-600' : 'bg-[#1E40AF] hover:bg-blue-800'}`}
             >
-              {checkoutMutation.isPending ? 'Redirection...' : "S'abonner"}
+              {loadingPlan === slug ? 'Redirection...' : "S'abonner"}
             </Button>
           </div>
         )
