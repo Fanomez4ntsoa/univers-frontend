@@ -14,6 +14,7 @@ Phase 3 — Client Portal    █████████████████
 Phase 4 — Ecosystem        █████████████████████ 100% — terminé ✅
 Phase 5 — Matching         ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 Phase 6 — Stripe           ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
+Phase 7 — Front Public     ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 ```
 
 ---
@@ -54,11 +55,8 @@ Phase 6 — Stripe           ░░░░░░░░░░░░░░░░░
 
 ---
 
-## 📋 PHASE 4 — Ecosystem Social
+## ✅ PHASE 4 — Ecosystem Social
 
-> **Débloquer après** : Phase 3 complète ✅
-> Backend disponible : `/api/ecosystem/*`
->
 > ⚠️ L'Ecosystem est **public** — routes sans AuthGuard, fidèle à Emergent.
 > Layout séparé du CRM : `EcosystemLayout` avec sa propre navigation.
 
@@ -101,6 +99,23 @@ Phase 6 — Stripe           ░░░░░░░░░░░░░░░░░
 
 ---
 
+## 📋 PHASE 7 — Front Public (Landing + Pages marketing)
+
+> **Débloquer après** : Phase 6 complète
+> Pages publiques visibles sans compte — vitrine du produit
+
+| Page | Fichier Emergent de référence | Branche | État |
+|---|---|---|---|
+| Landing page | `src/pages/landing/LandingPage.jsx` | `feature/public-landing` | 📋 À faire |
+| Page artisans publique | `src/pages/AbracadaBatiPage.jsx` | `feature/public-landing` | 📋 À faire |
+| Page tarifs | `src/pages/PricingPage.jsx` | `feature/public-pricing` | 📋 À faire |
+| Page features | `src/pages/features/` | `feature/public-features` | 📋 À faire |
+| Page À propos | `src/pages/AboutPage.jsx` | `feature/public-about` | 📋 À faire |
+| Page contact | `src/pages/ContactPage.jsx` | `feature/public-contact` | 📋 À faire |
+| Page inscription | `src/pages/ecosystem/social/RegisterPage.jsx` | `feature/public-auth` | 📋 À faire |
+
+---
+
 ## 🎯 Règle de progression
 ```
 1. Terminer la page/feature sur sa branche feature/
@@ -124,5 +139,5 @@ Phase 6 — Stripe           ░░░░░░░░░░░░░░░░░
 
 ---
 
-*Dernière mise à jour : 2 Avril 2026 — Phase 4 Ecosystem terminée*
+*Dernière mise à jour : 3 Avril 2026 — Phase 7 Front Public planifiée*
 *Rédigé par : Fanomezantsoa + Claude*
