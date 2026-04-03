@@ -12,6 +12,7 @@ import {
   FileSearch,
   Search,
   FileCheck,
+  CreditCard,
   X,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
@@ -33,6 +34,7 @@ const navItems: NavItem[] = [
   { icon: FileSearch, label: 'Mes demandes', path: '/matching/requests' },
   { icon: Search, label: 'Disponibles', path: '/matching/available' },
   { icon: FileCheck, label: 'Mes devis matching', path: '/matching/my-quotes' },
+  { icon: CreditCard, label: 'Abonnement Pro', path: '/subscription' },
   { icon: Settings, label: 'Paramètres', path: '/settings' },
 ]
 
