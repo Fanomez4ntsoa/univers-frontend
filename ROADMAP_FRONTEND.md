@@ -11,7 +11,7 @@
 Phase 1 — Setup & Auth     █████████████████████ 100% — terminé ✅
 Phase 2 — CRM Dashboard    █████████████████████ 100% — terminé ✅
 Phase 3 — Client Portal    █████████████████████ 100% — terminé ✅
-Phase 4 — Ecosystem        ████████████████░░░░░  85% — Feed + Profile + Shops + Listings ✅
+Phase 4 — Ecosystem        █████████████████████ 100% — terminé ✅
 Phase 5 — Matching         ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 Phase 6 — Stripe           ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 ```
@@ -45,10 +45,7 @@ Phase 6 — Stripe           ░░░░░░░░░░░░░░░░░
 
 ---
 
-## 📋 PHASE 3 — Client Portal
-
-> **Débloquer après** : Phase 2 complète ✅
-> Backend disponible : `GET|POST /api/portal/{token}/*`
+## ✅ PHASE 3 — Client Portal
 
 | Page | Fichier Emergent de référence | Branche | État |
 |---|---|---|---|
@@ -73,7 +70,7 @@ Phase 6 — Stripe           ░░░░░░░░░░░░░░░░░
 | Découvrir artisans + follow | `src/pages/ecosystem/social/DiscoverPage.jsx` | `feature/ecosystem-profile` | ✅ Terminé + testé |
 | Boutique artisan | `src/pages/ecosystem/marketplace/ShopDetailPage.jsx` | `feature/ecosystem-shops` | ✅ Terminé + testé |
 | Listings / Petites annonces | `src/pages/ecosystem/listings/MarketplacePage.jsx` | `feature/ecosystem-listings` | ✅ Terminé + testé |
-| Jobs & Events | `src/pages/ecosystem/social/JobsPage.jsx` | `feature/ecosystem-jobs` | 📋 À faire |
+| Jobs & Events | `src/pages/ecosystem/social/JobsPage.jsx` | `feature/ecosystem-jobs` | ✅ Terminé + testé |
 
 ---
 
@@ -127,5 +124,5 @@ Phase 6 — Stripe           ░░░░░░░░░░░░░░░░░
 
 ---
 
-*Dernière mise à jour : 2 Avril 2026 — Ecosystem Listings terminé*
+*Dernière mise à jour : 2 Avril 2026 — Phase 4 Ecosystem terminée*
 *Rédigé par : Fanomezantsoa + Claude*
