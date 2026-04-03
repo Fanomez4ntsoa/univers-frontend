@@ -8,6 +8,7 @@ import {
   HardHat,
   Settings,
   Store,
+  ShoppingBag,
   X,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
@@ -25,6 +26,7 @@ const navItems: NavItem[] = [
   { icon: Receipt, label: 'Factures', path: '/invoices' },
   { icon: HardHat, label: 'Chantiers', path: '/chantiers' },
   { icon: Store, label: 'Ma boutique', path: '/my-shop' },
+  { icon: ShoppingBag, label: 'Mes annonces', path: '/my-listings' },
   { icon: Settings, label: 'Paramètres', path: '/settings' },
 ]
 
