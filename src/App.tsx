@@ -28,6 +28,12 @@ import RequestDetailPage from './pages/matching/RequestDetailPage'
 import AvailablePage from './pages/matching/AvailablePage'
 import MyQuotesPage from './pages/matching/MyQuotesPage'
 import SubscriptionPage from './pages/subscription/SubscriptionPage'
+import PublicLayout from './features/public/layout/PublicLayout'
+import LandingPage from './pages/public/LandingPage'
+import PublicPricingPage from './pages/public/PricingPage'
+import AboutPage from './pages/public/AboutPage'
+import ContactPage from './pages/public/ContactPage'
+import RegisterPage from './pages/public/RegisterPage'
 import PortalPage from './pages/portal/PortalPage'
 import PortalQuotePage from './pages/portal/PortalQuotePage'
 import PortalInvoicePage from './pages/portal/PortalInvoicePage'
@@ -39,13 +45,22 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
-          {/* Public */}
+          {/* Public — Marketing */}
+          <Route element={<PublicLayout />}>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/tarifs" element={<PublicPricingPage />} />
+            <Route path="/a-propos" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+          </Route>
+
+          {/* Public — Auth */}
           <Route path="/login" element={<LoginPage />} />
 
           {/* Protected — CRM */}
           <Route element={<AuthGuard />}>
             <Route element={<CRMLayout />}>
-              <Route index element={<Navigate to="/prospects" replace />} />
+              <Route path="/prospects" element={<ProspectsPage />} />
               <Route path="/prospects" element={<ProspectsPage />} />
               <Route path="/clients" element={<ClientsPage />} />
               <Route path="/quotes" element={<QuotesPage />} />
