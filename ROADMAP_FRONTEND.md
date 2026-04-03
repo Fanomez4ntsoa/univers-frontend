@@ -13,7 +13,7 @@ Phase 2 — CRM Dashboard    █████████████████
 Phase 3 — Client Portal    █████████████████████ 100% — terminé ✅
 Phase 4 — Ecosystem        █████████████████████ 100% — terminé ✅
 Phase 5 — Matching         █████████████████████ 100% — terminé ✅
-Phase 6 — Stripe           ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
+Phase 6 — Stripe           █████████████████████ 100% — terminé ✅
 Phase 7 — Front Public     ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 ```
 
@@ -72,7 +72,7 @@ Phase 7 — Front Public     ░░░░░░░░░░░░░░░░░
 
 ---
 
-## 📋 PHASE 5 — Matching
+## ✅ PHASE 5 — Matching
 
 > **Débloquer après** : Phase 4 complète
 > Backend disponible : `/api/matching/*`
@@ -93,9 +93,9 @@ Phase 7 — Front Public     ░░░░░░░░░░░░░░░░░
 
 | Page | Fichier Emergent de référence | Branche | État |
 |---|---|---|---|
-| Page abonnement Pro | `src/pages/client/BillingPage.jsx` | `feature/subscription` | 📋 À faire |
-| Checkout Stripe | — | `feature/subscription` | 📋 À faire |
-| Statut abonnement | — | `feature/subscription` | 📋 À faire |
+| Page abonnement Pro | `src/pages/client/BillingPage.jsx` | `feature/subscription` | ✅ Terminé + testé |
+| Checkout Stripe | — | `feature/subscription` | ✅ Terminé + testé |
+| Statut abonnement | — | `feature/subscription` | ✅ Terminé + testé |
 
 ---
 
@@ -139,5 +139,5 @@ Phase 7 — Front Public     ░░░░░░░░░░░░░░░░░
 
 ---
 
-*Dernière mise à jour : 3 Avril 2026 — Phase 5 Matching terminée*
+*Dernière mise à jour : 3 Avril 2026 — Phase 6 Stripe terminée*
 *Rédigé par : Fanomezantsoa + Claude*

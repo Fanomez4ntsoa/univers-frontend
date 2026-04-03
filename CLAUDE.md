@@ -343,9 +343,10 @@ GET  /api/me
 - ListingsPage + ListingDetailPage + MyListingsPage *(testé navigateur)*
 - JobsPage + JobDetailPage + EventDetailPage *(testé navigateur)*
 - MyRequestsPage + RequestDetailPage + AvailablePage + MyQuotesPage *(testé navigateur)*
+- SubscriptionPage — abonnement Pro + checkout Stripe *(testé navigateur)*
 
 ### 🔄 À faire
-- Phase 6 — Stripe / Abonnement
+- Phase 7 — Front Public (Landing + Pages marketing)
 
 ---
 
@@ -435,5 +436,5 @@ git commit -m "[FEAT]: description claire"
 
 ---
 
-*Dernière mise à jour : 3 Avril 2026 — Phase 5 Matching terminée*
+*Dernière mise à jour : 3 Avril 2026 — Phase 6 Stripe terminée*
 *Rédigé par : Fanomezantsoa + Claude*
