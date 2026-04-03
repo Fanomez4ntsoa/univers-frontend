@@ -10,13 +10,17 @@ interface ListingsListProps { listings: Listing[] }
 export default function ListingsList({ listings }: ListingsListProps) {
   const [search, setSearch] = useState('')
   const [priceFilter, setPriceFilter] = useState('')
+  const [categoryFilter, setCategoryFilter] = useState('')
+  const [cityFilter, setCityFilter] = useState('')
   const [visibleCount, setVisibleCount] = useState(12)
 
   const filtered = (listings ?? []).filter((l) => {
     const q = search.toLowerCase()
-    const matchesSearch = l.title.toLowerCase().includes(q) || l.city?.toLowerCase().includes(q) || l.category?.toLowerCase().includes(q)
+    const matchesSearch = l.title.toLowerCase().includes(q) || l.city?.toLowerCase().includes(q)
     const matchesPrice = !priceFilter || l.price_type === priceFilter
-    return matchesSearch && matchesPrice
+    const matchesCategory = !categoryFilter || l.category === categoryFilter
+    const matchesCity = !cityFilter || l.city?.toLowerCase().includes(cityFilter.toLowerCase())
+    return matchesSearch && matchesPrice && matchesCategory && matchesCity
   })
 
   const visible = filtered.slice(0, visibleCount)
@@ -34,6 +38,15 @@ export default function ListingsList({ listings }: ListingsListProps) {
             <option key={v} value={v}>{label}</option>
           ))}
         </select>
+        <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)} className="h-11 px-4 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#1E40AF]/20">
+          <option value="">Toutes catégories</option>
+          <option value="materiaux">Matériaux</option>
+          <option value="outils">Outils</option>
+          <option value="equipements">Équipements</option>
+          <option value="surplus_chantier">Surplus chantier</option>
+          <option value="occasion">Occasion</option>
+        </select>
+        <Input value={cityFilter} onChange={(e) => setCityFilter(e.target.value)} placeholder="Ville..." className="h-11 rounded-xl max-w-[160px]" />
       </div>
 
       {filtered.length === 0 ? (

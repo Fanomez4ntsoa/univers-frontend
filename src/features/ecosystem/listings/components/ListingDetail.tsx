@@ -61,20 +61,20 @@ export default function ListingDetail({ listing }: ListingDetailProps) {
             </div>
           </div>
 
-          {listing.seller && (
+          {listing.user && (
             <div className="bg-white rounded-xl border border-slate-200 p-5">
               <h3 className="text-sm font-semibold text-slate-700 mb-3">Vendeur</h3>
-              <Link to={`/profile/${listing.seller.id}`} className="flex items-center gap-3 hover:bg-slate-50 rounded-lg p-2 -m-2">
+              <Link to={`/profile/${listing.user.id}`} className="flex items-center gap-3 hover:bg-slate-50 rounded-lg p-2 -m-2">
                 <div className="w-10 h-10 rounded-full bg-[#1E40AF]/10 flex items-center justify-center">
-                  {listing.seller.avatar_url ? (
-                    <img src={listing.seller.avatar_url} alt="" className="w-full h-full rounded-full object-cover" />
+                  {listing.user.avatar_url ? (
+                    <img src={listing.user.avatar_url} alt="" className="w-full h-full rounded-full object-cover" />
                   ) : (
-                    <span className="text-[#1E40AF] font-semibold">{listing.seller.display_name.charAt(0).toUpperCase()}</span>
+                    <span className="text-[#1E40AF] font-semibold">{listing.user.display_name.charAt(0).toUpperCase()}</span>
                   )}
                 </div>
                 <div>
-                  <p className="font-medium text-slate-900 text-sm">{listing.seller.display_name}</p>
-                  <p className="text-xs text-slate-400">@{listing.seller.username}</p>
+                  <p className="font-medium text-slate-900 text-sm">{listing.user.display_name}</p>
+                  <p className="text-xs text-slate-400">@{listing.user.username}</p>
                 </div>
               </Link>
               <Button

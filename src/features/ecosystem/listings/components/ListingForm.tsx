@@ -72,7 +72,17 @@ export default function ListingForm({ open, onClose, listing }: ListingFormProps
                 {(Object.entries(CONDITION_CONFIG) as [Condition, { label: string }][]).map(([v, { label }]) => <option key={v} value={v}>{label}</option>)}
               </select>
             </div>
-            <div><label className="block text-sm font-medium text-slate-700 mb-1">Catégorie</label><Input value={category} onChange={(e) => setCategory(e.target.value)} placeholder="Outillage, Matériel..." className="h-11 rounded-xl" /></div>
+            <div>
+              <label className="block text-sm font-medium text-slate-700 mb-1">Catégorie</label>
+              <select value={category} onChange={(e) => setCategory(e.target.value)} className="w-full h-11 px-3 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#1E40AF]/20">
+                <option value="">Choisir une catégorie</option>
+                <option value="materiaux">Matériaux</option>
+                <option value="outils">Outils</option>
+                <option value="equipements">Équipements</option>
+                <option value="surplus_chantier">Surplus chantier</option>
+                <option value="occasion">Occasion</option>
+              </select>
+            </div>
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div><label className="block text-sm font-medium text-slate-700 mb-1">Ville</label><Input value={city} onChange={(e) => setCity(e.target.value)} placeholder="Paris" className="h-11 rounded-xl" /></div>

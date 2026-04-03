@@ -12,7 +12,7 @@ export interface Listing {
   image_urls: string[]
   views_count: number
   status: ListingStatus
-  seller?: { id: number; display_name: string; username: string; avatar_url: string | null }
+  user?: { id: number; display_name: string; username: string; avatar_url: string | null }
   created_at: string
   updated_at: string
 }
