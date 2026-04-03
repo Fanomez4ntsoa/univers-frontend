@@ -26,6 +26,15 @@ export interface ProjectQuote {
   created_at: string
 }
 
+export interface RequestDetailResponse {
+  request: ProjectRequest
+  quotes: ProjectQuote[]
+}
+
+export interface ProjectQuoteWithRequest extends ProjectQuote {
+  project_request: ProjectRequest
+}
+
 export type MatchingStatus = 'open' | 'matched' | 'closed' | 'cancelled'
 export type Urgency = 'normal' | 'urgent' | 'tres_urgent'
 

@@ -15,9 +15,9 @@ export default function RequestDetail({ requestId }: RequestDetailProps) {
   const acceptMutation = useAcceptQuote()
   const closeMutation = useCloseRequest()
 
-  if (isLoading || !data) return <PageSkeleton />
+  if (isLoading || !data?.request) return <PageSkeleton />
 
-  const request = data
+  const request = data.request
   const quotes = data.quotes ?? []
   const urgency = URGENCY_CONFIG[request.urgency]
   const status = STATUS_CONFIG[request.status]

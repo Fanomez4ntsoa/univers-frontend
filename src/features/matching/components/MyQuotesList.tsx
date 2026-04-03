@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 import { FileCheck, Euro, Clock } from 'lucide-react'
-import type { ProjectQuote, ProjectRequest } from '../types/matching'
+import type { ProjectQuoteWithRequest } from '../types/matching'
 import { STATUS_CONFIG } from '../types/matching'
 
-interface MyQuotesListProps { quotes: (ProjectQuote & { request: ProjectRequest })[] }
+interface MyQuotesListProps { quotes: ProjectQuoteWithRequest[] }
 
 const QUOTE_STATUS: Record<string, { label: string; color: string }> = {
   pending: { label: 'En attente', color: 'bg-yellow-100 text-yellow-700' },
@@ -29,17 +29,17 @@ export default function MyQuotesList({ quotes }: MyQuotesListProps) {
         <div className="space-y-3">
           {(quotes ?? []).map((q) => {
             const qStatus = QUOTE_STATUS[q.status] ?? QUOTE_STATUS.pending
-            const rStatus = STATUS_CONFIG[q.request.status]
+            const rStatus = q.project_request ? STATUS_CONFIG[q.project_request.status] : null
             return (
               <div key={q.id} className="bg-white rounded-xl border border-slate-200 p-5">
                 <div className="flex items-start justify-between mb-2">
                   <div>
-                    <h3 className="font-semibold text-slate-900">{q.request.title}</h3>
-                    <p className="text-xs text-slate-400">{q.request.category} · {q.request.city ?? 'Non précisé'}</p>
+                    <h3 className="font-semibold text-slate-900">{q.project_request?.title ?? 'Demande'}</h3>
+                    <p className="text-xs text-slate-400">{q.project_request?.category ?? ''} · {q.project_request?.city ?? 'Non précisé'}</p>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className={`text-xs px-2 py-0.5 rounded-full ${qStatus.color}`}>{qStatus.label}</span>
-                    <span className={`text-xs px-2 py-0.5 rounded-full ${rStatus.color}`}>{rStatus.label}</span>
+                    {rStatus && <span className={`text-xs px-2 py-0.5 rounded-full ${rStatus.color}`}>{rStatus.label}</span>}
                   </div>
                 </div>
                 <p className="text-sm text-slate-600 line-clamp-2 mb-2">{q.message}</p>

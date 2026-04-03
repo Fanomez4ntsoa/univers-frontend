@@ -1,6 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { batiAPI } from '../../../shared/lib/axios'
-import type { ProjectRequest, ProjectQuote } from '../types/matching'
+import type { ProjectRequest, RequestDetailResponse, ProjectQuoteWithRequest } from '../types/matching'
 
 // Particulier
 export const useMyRequests = () => {
@@ -14,7 +14,7 @@ export const useMyRequests = () => {
 }
 
 export const useRequest = (id: number | null) => {
-  return useQuery<ProjectRequest & { quotes: ProjectQuote[] }>({
+  return useQuery<RequestDetailResponse>({
     queryKey: ['request', id],
     queryFn: async () => {
       const { data } = await batiAPI.get(`/api/matching/requests/${id}`)
@@ -95,11 +95,11 @@ export const useSubmitQuote = () => {
 }
 
 export const useMyQuotes = () => {
-  return useQuery<(ProjectQuote & { request: ProjectRequest })[]>({
+  return useQuery<ProjectQuoteWithRequest[]>({
     queryKey: ['my-quotes'],
     queryFn: async () => {
       const { data } = await batiAPI.get('/api/matching/my-quotes')
-      return (data.data ?? data) as (ProjectQuote & { request: ProjectRequest })[]
+      return (data.data ?? data) as ProjectQuoteWithRequest[]
     },
   })
 }
