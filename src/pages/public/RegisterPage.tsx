@@ -38,6 +38,7 @@ export default function RegisterPage() {
     <div className="min-h-[80vh] flex items-center justify-center py-12 px-4">
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="w-full max-w-md">
         <div className="text-center mb-8">
+          <img src="https://customer-assets.emergentagent.com/job_organize-smart/artifacts/4450nlnf_abracadabait_logo_transparent.png" alt="AbracadaBati" className="h-12 w-auto mx-auto mb-4" />
           <h1 className="text-2xl font-bold text-slate-900 mb-2">Rejoins la communauté</h1>
           <p className="text-slate-600">Le premier centre commercial virtuel du bâtiment</p>
         </div>

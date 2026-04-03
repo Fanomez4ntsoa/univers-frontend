@@ -1,11 +1,16 @@
 import { motion } from 'framer-motion'
 import { Check, MapPin, Briefcase, Heart } from 'lucide-react'
 
+const FOUNDER_IMG = 'https://customer-assets.emergentagent.com/job_4e491698-f834-49a8-a1e5-8fd3efa88feb/artifacts/35vjb36h_FB_IMG_1772976275108.jpg'
+const TEAM_IMG = 'https://customer-assets.emergentagent.com/job_4e491698-f834-49a8-a1e5-8fd3efa88feb/artifacts/x1wh0gls_FB_IMG_1772976581762.jpg'
+
 const achievements = [
   'Créé et géré trois clubs de remise en forme',
-  'Dirigé le plus grand complexe de remise en forme d\'Afrique',
+  'Dirigé le plus grand complexe de remise en forme d\'Afrique et le second du monde',
+  'Créé un cabinet de conseil',
   'Créé une agence marketing',
-  'Créé une entreprise dans l\'univers de la piscine avec plus de 1500 piscines construites dans 7 pays',
+  'Créé un café concert',
+  'Créé une entreprise dans l\'univers de la piscine, avec plus de 1500 piscines construites dans 7 pays',
 ]
 
 export default function AboutPage() {
@@ -19,7 +24,7 @@ export default function AboutPage() {
 
         <div className="space-y-8">
           <div className="bg-white rounded-2xl border border-slate-200 p-8 flex flex-col sm:flex-row gap-6">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop" alt="Fondateur" className="w-32 h-32 rounded-xl object-cover flex-shrink-0" />
+            <img src={FOUNDER_IMG} alt="Fondateur" className="w-32 h-32 rounded-xl object-cover flex-shrink-0" />
             <div>
               <span className="inline-block bg-[#F97316]/10 text-[#F97316] text-xs font-medium px-3 py-1 rounded-full mb-3">27+ ans d'expérience</span>
               <p className="text-slate-600">Je suis entrepreneur depuis l'âge de 20 ans. Depuis plus de 27 ans, j'ai créé et développé plusieurs entreprises dans différents secteurs.</p>
@@ -44,7 +49,7 @@ export default function AboutPage() {
           </div>
 
           <div className="text-center">
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop" alt="Équipe" className="w-full max-w-2xl mx-auto rounded-2xl" />
+            <img src={TEAM_IMG} alt="Équipe Madagascar" className="w-full max-w-2xl mx-auto rounded-2xl" />
             <p className="text-sm text-slate-500 mt-3">Notre équipe entre l'Europe et Madagascar</p>
           </div>
         </div>

@@ -48,9 +48,14 @@ export default function ContactPage() {
             </form>
           </div>
           <div className="space-y-4">
-            <div className="bg-white rounded-xl border border-slate-200 p-5"><Mail className="w-5 h-5 text-[#1E40AF] mb-2" /><h3 className="font-medium text-slate-900 text-sm">Email</h3><p className="text-sm text-slate-600">hello@abracadabati.com</p></div>
-            <div className="bg-white rounded-xl border border-slate-200 p-5"><Calendar className="w-5 h-5 text-[#1E40AF] mb-2" /><h3 className="font-medium text-slate-900 text-sm">Téléphone</h3><p className="text-sm text-slate-600">Réserve un entretien</p></div>
+            <div className="bg-white rounded-xl border border-slate-200 p-5"><Mail className="w-5 h-5 text-[#1E40AF] mb-2" /><h3 className="font-medium text-slate-900 text-sm">Email</h3><p className="text-sm text-slate-600">hello@recrutermalin.com</p></div>
+            <div className="bg-white rounded-xl border border-slate-200 p-5"><Calendar className="w-5 h-5 text-[#1E40AF] mb-2" /><h3 className="font-medium text-slate-900 text-sm">Téléphone</h3><p className="text-sm text-slate-600">Réserve un entretien via Calendly</p></div>
             <div className="bg-white rounded-xl border border-slate-200 p-5"><MapPin className="w-5 h-5 text-[#1E40AF] mb-2" /><h3 className="font-medium text-slate-900 text-sm">Localisation</h3><p className="text-sm text-slate-600">Europe (France, Suisse) & Madagascar</p></div>
+            <div className="bg-gradient-to-br from-[#1E40AF] to-[#3B82F6] rounded-xl p-5 text-white">
+              <h3 className="font-semibold text-sm mb-2">Ou réserve directement un entretien</h3>
+              <p className="text-blue-200 text-xs mb-3">Préfère un échange direct ? Réserve un créneau avec Romain.</p>
+              <a href="https://calendly.com/romain-trallero/diagnostic-transition-digitale-60min" target="_blank" rel="noopener noreferrer" className="inline-block w-full text-center py-2.5 bg-white text-[#1E40AF] rounded-lg text-sm font-semibold hover:bg-white/90 transition-colors">Réserver un entretien</a>
+            </div>
           </div>
         </div>
       </div>
