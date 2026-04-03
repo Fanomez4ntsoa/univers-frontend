@@ -27,7 +27,7 @@ export default function EventForm({ open, onClose, event }: EventFormProps) {
   useEffect(() => {
     if (event) {
       setTitle(event.title); setDescription(event.description); setEventType(event.event_type)
-      setCity(event.city ?? ''); setDate(event.date?.split('T')[0] ?? ''); setPrice(event.price)
+      setCity(event.city ?? ''); setDate(event.start_date?.split('T')[0] ?? ''); setPrice(event.price)
       setIsOnline(event.is_online); setMaxAttendees(event.max_attendees ? String(event.max_attendees) : '')
     } else {
       setTitle(''); setDescription(''); setEventType('salon'); setCity(''); setDate(''); setPrice('0'); setIsOnline(false); setMaxAttendees('')
@@ -37,7 +37,7 @@ export default function EventForm({ open, onClose, event }: EventFormProps) {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
     if (!title.trim() || !date) { toast.error('Titre et date obligatoires'); return }
-    const payload = { title, description, event_type: eventType, city: city || null, date, price: price || '0', is_online: isOnline, max_attendees: maxAttendees ? Number(maxAttendees) : null }
+    const payload = { title, description, event_type: eventType, city: city || null, start_date: date, price: price || '0', is_online: isOnline, max_attendees: maxAttendees ? Number(maxAttendees) : null }
     if (isEdit) {
       updateMutation.mutate({ id: event.id, ...payload }, { onSuccess: () => { toast.success('Événement mis à jour'); onClose() }, onError: () => toast.error('Erreur') })
     } else {

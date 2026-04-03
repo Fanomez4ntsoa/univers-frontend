@@ -6,6 +6,7 @@ import { requireAuth } from '../../../../shared/lib/requireAuth'
 import { useEvent, useAttendEvent } from '../hooks/useEvents'
 import { EVENT_TYPE_CONFIG } from '../types/job'
 import PageSkeleton from '../../../../shared/components/PageSkeleton'
+import { formatDateTime } from '../../../../shared/lib/utils'
 
 interface EventDetailProps { eventId: number }
 
@@ -13,8 +14,6 @@ function fmt(v: string | number) {
   const n = typeof v === 'string' ? parseFloat(v) : v
   return n === 0 ? 'Gratuit' : new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', minimumFractionDigits: 0 }).format(n)
 }
-
-function fmtDate(d: string) { return new Date(d).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' }) }
 
 export default function EventDetail({ eventId }: EventDetailProps) {
   const { data: event, isLoading } = useEvent(eventId)
@@ -51,7 +50,7 @@ export default function EventDetail({ eventId }: EventDetailProps) {
         </div>
         <div className="space-y-4">
           <div className="bg-white rounded-xl border border-slate-200 p-5 space-y-3">
-            <p className="flex items-center gap-2 text-sm text-slate-600"><Calendar className="w-4 h-4" />{fmtDate(event.date)}</p>
+            <p className="flex items-center gap-2 text-sm text-slate-600"><Calendar className="w-4 h-4" />{formatDateTime(event.start_date)}</p>
             {event.is_online ? (
               <p className="flex items-center gap-2 text-sm text-[#1E40AF]"><Wifi className="w-4 h-4" />En ligne</p>
             ) : event.city && (

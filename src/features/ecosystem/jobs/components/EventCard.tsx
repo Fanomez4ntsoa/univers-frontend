@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { MapPin, Calendar, Users, Wifi } from 'lucide-react'
 import type { Event } from '../types/job'
 import { EVENT_TYPE_CONFIG } from '../types/job'
+import { formatDateTime } from '../../../../shared/lib/utils'
 
 interface EventCardProps { event: Event }
 
@@ -9,8 +10,6 @@ function fmt(v: string | number) {
   const n = typeof v === 'string' ? parseFloat(v) : v
   return n === 0 ? 'Gratuit' : new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', minimumFractionDigits: 0 }).format(n)
 }
-
-function fmtDate(d: string) { return new Date(d).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) }
 
 export default function EventCard({ event }: EventCardProps) {
   const type = EVENT_TYPE_CONFIG[event.event_type]
@@ -27,7 +26,7 @@ export default function EventCard({ event }: EventCardProps) {
           <span className={`text-xs px-2.5 py-1 rounded-full font-medium flex-shrink-0 ${type.color}`}>{type.label}</span>
         </div>
         <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500 mt-3">
-          <span className="flex items-center gap-1"><Calendar className="w-3 h-3" />{fmtDate(event.date)}</span>
+          <span className="flex items-center gap-1"><Calendar className="w-3 h-3" />{formatDateTime(event.start_date)}</span>
           {event.is_online ? (
             <span className="flex items-center gap-1 text-[#1E40AF]"><Wifi className="w-3 h-3" />En ligne</span>
           ) : event.city && (

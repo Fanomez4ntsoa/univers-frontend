@@ -37,7 +37,7 @@ export interface Event {
   event_type: EventType
   city: string | null
   address: string | null
-  date: string
+  start_date: string
   end_date: string | null
   price: string
   is_online: boolean
