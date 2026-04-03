@@ -23,6 +23,10 @@ import MyListingsPage from './pages/ecosystem/MyListingsPage'
 import JobsPage from './pages/ecosystem/JobsPage'
 import JobDetailPage from './pages/ecosystem/JobDetailPage'
 import EventDetailPage from './pages/ecosystem/EventDetailPage'
+import MyRequestsPage from './pages/matching/MyRequestsPage'
+import RequestDetailPage from './pages/matching/RequestDetailPage'
+import AvailablePage from './pages/matching/AvailablePage'
+import MyQuotesPage from './pages/matching/MyQuotesPage'
 import PortalPage from './pages/portal/PortalPage'
 import PortalQuotePage from './pages/portal/PortalQuotePage'
 import PortalInvoicePage from './pages/portal/PortalInvoicePage'
@@ -49,6 +53,10 @@ function App() {
               <Route path="/settings" element={<SettingsPage />} />
               <Route path="/my-shop" element={<MyShopPage />} />
               <Route path="/my-listings" element={<MyListingsPage />} />
+              <Route path="/matching/requests" element={<MyRequestsPage />} />
+              <Route path="/matching/requests/:id" element={<RequestDetailPage />} />
+              <Route path="/matching/available" element={<AvailablePage />} />
+              <Route path="/matching/my-quotes" element={<MyQuotesPage />} />
             </Route>
           </Route>
 

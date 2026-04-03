@@ -9,6 +9,9 @@ import {
   Settings,
   Store,
   ShoppingBag,
+  FileSearch,
+  Search,
+  FileCheck,
   X,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
@@ -27,6 +30,9 @@ const navItems: NavItem[] = [
   { icon: HardHat, label: 'Chantiers', path: '/chantiers' },
   { icon: Store, label: 'Ma boutique', path: '/my-shop' },
   { icon: ShoppingBag, label: 'Mes annonces', path: '/my-listings' },
+  { icon: FileSearch, label: 'Mes demandes', path: '/matching/requests' },
+  { icon: Search, label: 'Disponibles', path: '/matching/available' },
+  { icon: FileCheck, label: 'Mes devis matching', path: '/matching/my-quotes' },
   { icon: Settings, label: 'Paramètres', path: '/settings' },
 ]
 
