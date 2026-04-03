@@ -28,7 +28,8 @@ import RequestDetailPage from './pages/matching/RequestDetailPage'
 import AvailablePage from './pages/matching/AvailablePage'
 import MyQuotesPage from './pages/matching/MyQuotesPage'
 import SubscriptionPage from './pages/subscription/SubscriptionPage'
-import PublicLayout from './features/public/layout/PublicLayout'
+import PublicLayout from './features/public/components/layout/PublicLayout'
+import HomePage from './pages/public/HomePage'
 import LandingPage from './pages/public/LandingPage'
 import PublicPricingPage from './pages/public/PricingPage'
 import AboutPage from './pages/public/AboutPage'
@@ -47,7 +48,8 @@ function App() {
         <Routes>
           {/* Public — Marketing */}
           <Route element={<PublicLayout />}>
-            <Route path="/" element={<LandingPage />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/landing" element={<LandingPage />} />
             <Route path="/tarifs" element={<PublicPricingPage />} />
             <Route path="/a-propos" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
@@ -60,7 +62,6 @@ function App() {
           {/* Protected — CRM */}
           <Route element={<AuthGuard />}>
             <Route element={<CRMLayout />}>
-              <Route path="/prospects" element={<ProspectsPage />} />
               <Route path="/prospects" element={<ProspectsPage />} />
               <Route path="/clients" element={<ClientsPage />} />
               <Route path="/quotes" element={<QuotesPage />} />
@@ -97,7 +98,7 @@ function App() {
           <Route path="/portal/:token/invoices/:id" element={<PortalInvoicePage />} />
 
           {/* Fallback */}
-          <Route path="*" element={<Navigate to="/login" replace />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </BrowserRouter>
       <Toaster position="top-right" richColors />
