@@ -344,9 +344,12 @@ GET  /api/me
 - JobsPage + JobDetailPage + EventDetailPage *(testé navigateur)*
 - MyRequestsPage + RequestDetailPage + AvailablePage + MyQuotesPage *(testé navigateur)*
 - SubscriptionPage — abonnement Pro + checkout Stripe *(testé navigateur)*
+- HomePage — centre commercial 6 univers *(testé navigateur)*
+- LandingPage — BatiAssist 7 sections *(testé navigateur)*
+- PricingPage + AboutPage + ContactPage + RegisterPage *(testé navigateur)*
 
 ### 🔄 À faire
-- Phase 7 — Front Public (Landing + Pages marketing)
+- Aucune phase restante — toutes les phases terminées
 
 ---
 
@@ -436,5 +439,5 @@ git commit -m "[FEAT]: description claire"
 
 ---
 
-*Dernière mise à jour : 3 Avril 2026 — Phase 6 Stripe terminée*
+*Dernière mise à jour : 3 Avril 2026 — Phase 7 Front Public terminée — TOUTES LES PHASES TERMINÉES*
 *Rédigé par : Fanomezantsoa + Claude*
