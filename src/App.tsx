@@ -20,17 +20,14 @@ import MyShopPage from './pages/ecosystem/MyShopPage'
 import ListingsPage from './pages/ecosystem/ListingsPage'
 import ListingDetailPage from './pages/ecosystem/ListingDetailPage'
 import MyListingsPage from './pages/ecosystem/MyListingsPage'
+import JobsPage from './pages/ecosystem/JobsPage'
+import JobDetailPage from './pages/ecosystem/JobDetailPage'
+import EventDetailPage from './pages/ecosystem/EventDetailPage'
 import PortalPage from './pages/portal/PortalPage'
 import PortalQuotePage from './pages/portal/PortalQuotePage'
 import PortalInvoicePage from './pages/portal/PortalInvoicePage'
 
 const queryClient = new QueryClient()
-
-const Placeholder = ({ title }: { title: string }) => (
-  <div className="flex items-center justify-center h-64">
-    <h1 className="text-xl font-semibold text-slate-400">{title} — bientôt disponible</h1>
-  </div>
-)
 
 function App() {
   return (
@@ -64,7 +61,9 @@ function App() {
             <Route path="/shops/:slug" element={<ShopDetailPage />} />
             <Route path="/listings" element={<ListingsPage />} />
             <Route path="/listings/:id" element={<ListingDetailPage />} />
-            <Route path="/jobs" element={<Placeholder title="Emplois" />} />
+            <Route path="/jobs" element={<JobsPage />} />
+            <Route path="/jobs/:id" element={<JobDetailPage />} />
+            <Route path="/events/:id" element={<EventDetailPage />} />
           </Route>
 
           {/* Public — Client Portal */}
