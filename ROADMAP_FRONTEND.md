@@ -12,7 +12,7 @@ Phase 1 — Setup & Auth     █████████████████
 Phase 2 — CRM Dashboard    █████████████████████ 100% — terminé ✅
 Phase 3 — Client Portal    █████████████████████ 100% — terminé ✅
 Phase 4 — Ecosystem        █████████████████████ 100% — terminé ✅
-Phase 5 — Matching         ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
+Phase 5 — Matching         █████████████████████ 100% — terminé ✅
 Phase 6 — Stripe           ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 Phase 7 — Front Public     ░░░░░░░░░░░░░░░░░░░░░   0% — pas commencé
 ```
@@ -79,10 +79,10 @@ Phase 7 — Front Public     ░░░░░░░░░░░░░░░░░
 
 | Page | Fichier Emergent de référence | Branche | État |
 |---|---|---|---|
-| Mes demandes (particulier) | `src/pages/features/CRMBatimentPage.jsx` | `feature/matching-requests` | 📋 À faire |
-| Créer une demande | — | `feature/matching-requests` | 📋 À faire |
-| Demandes disponibles (artisan) | — | `feature/matching-available` | 📋 À faire |
-| Soumettre un devis artisan | — | `feature/matching-available` | 📋 À faire |
+| Mes demandes (particulier) | `src/pages/features/CRMBatimentPage.jsx` | `feature/matching-requests` | ✅ Terminé + testé |
+| Créer une demande | — | `feature/matching-requests` | ✅ Terminé + testé |
+| Demandes disponibles (artisan) | — | `feature/matching-requests` | ✅ Terminé + testé |
+| Soumettre un devis artisan | — | `feature/matching-requests` | ✅ Terminé + testé |
 
 ---
 
@@ -139,5 +139,5 @@ Phase 7 — Front Public     ░░░░░░░░░░░░░░░░░
 
 ---
 
-*Dernière mise à jour : 3 Avril 2026 — Phase 7 Front Public planifiée*
+*Dernière mise à jour : 3 Avril 2026 — Phase 5 Matching terminée*
 *Rédigé par : Fanomezantsoa + Claude*

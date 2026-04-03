@@ -342,9 +342,9 @@ GET  /api/me
 - ShopsPage + ShopDetailPage + MyShopPage *(testé navigateur)*
 - ListingsPage + ListingDetailPage + MyListingsPage *(testé navigateur)*
 - JobsPage + JobDetailPage + EventDetailPage *(testé navigateur)*
+- MyRequestsPage + RequestDetailPage + AvailablePage + MyQuotesPage *(testé navigateur)*
 
 ### 🔄 À faire
-- Phase 5 — Matching
 - Phase 6 — Stripe / Abonnement
 
 ---
@@ -435,5 +435,5 @@ git commit -m "[FEAT]: description claire"
 
 ---
 
-*Dernière mise à jour : 2 Avril 2026 — Phase 4 Ecosystem terminée*
+*Dernière mise à jour : 3 Avril 2026 — Phase 5 Matching terminée*
 *Rédigé par : Fanomezantsoa + Claude*
