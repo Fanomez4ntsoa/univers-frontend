@@ -41,7 +41,7 @@ const MENU_NAV_ITEMS = [
 const PRO_SECTION = [
   { path: '/register', label: 'Ouvrir ma boutique', icon: Store, desc: 'Vente de produits' },
   { path: '/login', label: 'Recevoir mon Cockpit + agents IA', icon: Bot, desc: 'Automatisation complète' },
-  { path: '/discover', label: 'Gagner en visibilité', icon: Eye, desc: 'Référencement gratuit' },
+  { path: '/artisans', label: 'Gagner en visibilité', icon: Eye, desc: 'Référencement gratuit' },
   { path: '/contact', label: 'Trouver des chantiers', icon: Target, desc: 'Leads qualifiés' },
   { path: '/discover', label: 'Accéder au réseau pro', icon: Handshake, desc: 'Networking & entraide' },
   { path: '/discover', label: "Centrale d'achat", icon: Package, desc: 'Achats groupés -30%' },
@@ -50,7 +50,7 @@ const PRO_SECTION = [
 
 const EXPLORE_SECTION = [
   { path: '/shops', label: 'Tendances', icon: TrendingUp },
-  { path: '/discover', label: 'Près de chez moi', icon: MapPin },
+  { path: '/artisans', label: 'Près de chez moi', icon: MapPin },
   { path: '/shops', label: 'Populaire', icon: Star },
   { path: '/shops', label: 'Nouveaux', icon: Clock },
 ]

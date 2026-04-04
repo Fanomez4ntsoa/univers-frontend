@@ -17,7 +17,7 @@ interface Univers {
 }
 
 const UNIVERS: Univers[] = [
-  { title: 'Artisans', description: 'Trouve des professionnels certifiés près de chez toi', icon: Wrench, path: '/discover', gradient: 'linear-gradient(135deg, #10B981, #059669)', count: 'Artisans vérifiés' },
+  { title: 'Artisans', description: 'Trouve des professionnels certifiés près de chez toi', icon: Wrench, path: '/artisans', gradient: 'linear-gradient(135deg, #10B981, #059669)', count: 'Artisans vérifiés' },
   { title: 'Marketplace', description: 'Matériaux et outillage sans commission', icon: Store, path: '/shops', gradient: 'linear-gradient(135deg, #14285A, #1E40AF)', count: '0% commission' },
   { title: 'Entre Particuliers', description: 'Petites annonces matériaux et outillage', icon: ShoppingBag, path: '/listings', gradient: 'linear-gradient(135deg, #F97316, #FB923C)', count: 'Annonces gratuites' },
   { title: 'Réseau Social', description: 'La communauté des pros du bâtiment', icon: Users, path: '/feed', gradient: 'linear-gradient(135deg, #8B5CF6, #A78BFA)', count: 'Réseau pro' },

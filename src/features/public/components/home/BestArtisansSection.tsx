@@ -58,7 +58,7 @@ export default function BestArtisansSection() {
           icon={Award}
           title="Meilleurs Artisans de la Semaine"
           subtitle="Les professionnels les mieux notes par nos clients"
-          link="/discover"
+          link="/artisans"
           color="#10B981"
         />
 

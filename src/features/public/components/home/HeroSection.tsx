@@ -11,7 +11,7 @@ const HERO_IMG_DESKTOP = 'https://customer-assets.emergentagent.com/job_organize
 
 const TABS = [
   { id: 'projet', label: 'projet', icon: FileText, color: '#F97316', desc: 'Décris ton projet — Reçois jusqu\'à 5 devis\nd\'artisans certifiés en 24h', placeholder: 'Ex: Rénovation salle de bain, installation électrique...', btn: 'Obtenir mes devis gratuits', path: '/contact' },
-  { id: 'artisan', label: 'artisan', icon: Wrench, color: '#10B981', desc: 'Trouve un artisan certifié près de chez toi', placeholder: 'Quel métier ? (plombier, électricien...)', btn: 'Trouver un artisan', path: '/discover' },
+  { id: 'artisan', label: 'artisan', icon: Wrench, color: '#10B981', desc: 'Trouve un artisan certifié près de chez toi', placeholder: 'Quel métier ? (plombier, électricien...)', btn: 'Trouver un artisan', path: '/artisans' },
   { id: 'acheter', label: 'Acheter', icon: ShoppingCart, color: '#1E40AF', desc: 'Matériaux et outillage au meilleur prix', placeholder: 'Ex: Carrelage, perceuse, peinture...', btn: 'Voir le marketplace', path: '/shops' },
 ]
 
