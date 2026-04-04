@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, Plus, Rocket, Search, Home, Users, Store, Megaphone, Globe, Briefcase, Building2, LayoutDashboard } from 'lucide-react'
 import { getStoredProfile } from '../../../auth/hooks/useAuth'
+import TopBanner from '../home/TopBanner'
 
 const LOGO_URL = 'https://customer-assets.emergentagent.com/job_organize-smart/artifacts/4450nlnf_abracadabait_logo_transparent.png'
 
@@ -23,13 +24,11 @@ export default function PublicHeader() {
 
   return (
     <>
-      {/* Banner */}
-      <div className="bg-[#F97316] text-white text-center text-xs py-1.5 px-4 font-medium">
-        Site en démonstration – Réservé aux pros – Ouverture au public le 1er Juillet 2026
-      </div>
+      {/* Banner — 3 versions responsive fidèle Emergent */}
+      <TopBanner />
 
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
+      {/* Header — sticky sous le banner fixed (40px desktop, 36px tablette, 0 mobile) */}
+      <header className="bg-white border-b border-gray-200 sticky top-0 md:top-[36px] lg:top-[40px] z-50">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="flex items-center justify-between h-14">
             <Link to="/" className="flex items-center gap-2 flex-shrink-0">
