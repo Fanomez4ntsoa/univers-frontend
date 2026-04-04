@@ -106,7 +106,7 @@ Phase 7 — Front Public     █████████████████
 
 | Page | Fichier Emergent de référence | Branche | État |
 |---|---|---|---|
-| HomePage (centre commercial 6 univers) | `src/pages/HomePage.jsx` | `feature/public-landing` | ✅ Terminé + testé |
+| HomePage (centre commercial 6 univers) | `src/pages/HomePage.jsx` | `feature/public-landing` + `fix/homepage-design` | ✅ Terminé + testé + design fidèle Emergent (12 corrections) |
 | Landing page (BatiAssist 7 sections) | `src/pages/landing/LandingPage.jsx` | `feature/public-landing` | ✅ Terminé + testé |
 | Page tarifs | `src/pages/PricingPage.jsx` | `feature/public-landing` | ✅ Terminé + testé |
 | Page À propos | `src/pages/AboutPage.jsx` | `feature/public-landing` | ✅ Terminé + testé |
@@ -138,5 +138,5 @@ Phase 7 — Front Public     █████████████████
 
 ---
 
-*Dernière mise à jour : 3 Avril 2026 — TOUTES LES PHASES TERMINÉES*
+*Dernière mise à jour : 4 Avril 2026 — HomePage design fidèle à Emergent (12 corrections)*
 *Rédigé par : Fanomezantsoa + Claude*

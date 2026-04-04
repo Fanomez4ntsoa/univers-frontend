@@ -133,6 +133,11 @@ const stagger = {
 
 Transitions hover : `duration-200 ease-out`
 
+### ⚠️ Règles CSS — Tailwind v4
+- Tous les styles globaux doivent être dans `@layer base` pour être écrasables par les classes utilitaires
+- Ne jamais mettre de `display: flex/block` en style inline sur un élément avec des classes responsive `md:hidden` / `hidden md:block`
+- Pour les classes CSS custom — toujours vérifier `~/project/AbracadaBati/frontend/src/index.css` d'Emergent
+
 ### Responsive — Breakpoints
 | Breakpoint | Largeur | Préfixe |
 |---|---|---|
@@ -439,5 +444,5 @@ git commit -m "[FEAT]: description claire"
 
 ---
 
-*Dernière mise à jour : 3 Avril 2026 — Phase 7 Front Public terminée — TOUTES LES PHASES TERMINÉES*
+*Dernière mise à jour : 4 Avril 2026 — HomePage design fidèle à Emergent (12 corrections appliquées)*
 *Rédigé par : Fanomezantsoa + Claude*
