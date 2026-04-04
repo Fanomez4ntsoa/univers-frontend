@@ -53,11 +53,11 @@ function App() {
             <Route path="/tarifs" element={<PublicPricingPage />} />
             <Route path="/a-propos" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
-            <Route path="/register" element={<RegisterPage />} />
           </Route>
 
           {/* Public — Auth */}
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
 
           {/* Protected — CRM */}
           <Route element={<AuthGuard />}>
