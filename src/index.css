@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -16,11 +17,116 @@
   --color-warning: #F59E0B;
 }
 
+:root {
+  --font-titre: 'Plus Jakarta Sans', sans-serif;
+  --font-corps: 'DM Sans', sans-serif;
+}
+
 body {
   margin: 0;
-  font-family: var(--font-sans);
+  font-family: var(--font-corps);
+  font-size: 16px;
+  line-height: 1.6;
+  color: #111827;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-titre);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+@media (min-width: 640px) {
+  p { font-size: 16px; line-height: 1.65; }
+}
+
+@media (min-width: 1024px) {
+  p { font-size: 16px; line-height: 1.7; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   HERO MOBILE — Classes fidèles à Emergent index.css
+═══════════════════════════════════════════════════════════════════ */
+
+/* Masquer le bloc texte social proof — remplacé par hero-slogan */
+.mobile-social-zone {
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+/* SLOGAN "Bienvenue chez toi." */
+.hero-slogan {
+  display: block !important;
+  text-align: center !important;
+  padding: 16px 24px 16px 24px !important;
+  margin: 0 !important;
+  margin-top: 0 !important;
+  background: transparent !important;
+  background-color: #1a2a4a !important;
+  overflow: visible !important;
+}
+
+.hero-slogan p {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  color: #FFFFFF !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.3 !important;
+  margin: 0 !important;
+}
+
+.hero-slogan span {
+  color: #E8650A !important;
+}
+
+/* Conteneur de la carte — espaces équilibrés */
+.hero-card-container {
+  background-color: #1a2a4a !important;
+  padding-top: 0 !important;
+  padding-bottom: 20px !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  margin: 0 !important;
+}
+
+/* Carte blanche flottante — ombre premium, border-radius via inline */
+.hero-card-container > .bg-white {
+  background-color: #FFFFFF !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25) !important;
+  position: relative !important;
+  z-index: 10 !important;
+  overflow: hidden !important;
+}
+
+/* Image hero mobile — hauteur et position */
+section.md\:hidden img.mobile-hero-img,
+section.md\:hidden .mobile-hero-img {
+  height: 190px !important;
+  min-height: 190px !important;
+  max-height: 190px !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  display: block !important;
+  width: 100% !important;
+  background-color: transparent !important;
+}
+
+/* Dégradé sur l'image — fondre vers #1a2a4a */
+section.md\:hidden .absolute.pointer-events-none {
+  background: linear-gradient(to bottom, transparent 0%, rgba(26, 42, 74, 0.65) 45%, #1a2a4a 100%) !important;
 }
 
 @theme inline {
