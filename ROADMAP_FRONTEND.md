@@ -130,9 +130,10 @@ Phase 7 — Front Public     █████████████████
 ### 7.3 Pages depuis Header
 | Page | Route | Branche | État |
 |---|---|---|---|
-| Page Publier (modal ou page) | `/publier` | | 📋 À faire |
-| Page Devenir Fondateur | `/offre-fondateur` | | 📋 À faire |
-| Page Connexion | `/login` | | 📋 À vérifier |
+| Page Publier (modal multi-étapes) | `/publier` | | ⏭️ Complexe — reporté |
+| Page Devenir Fondateur (marketing) | `/offre-fondateur` | | ⏭️ 618 lignes — reporté |
+| Page Espace Pro Fondateur (Stripe) | `/espace-pro/fondateur` | | ⏭️ 986 lignes — reporté |
+| Page Connexion | `/login` | `fix/login-page` | ✅ Terminé + testé |
 | Page Inscription | `/register` | | 📋 À vérifier |
 
 ### 7.4 Pages depuis Navigation principale
