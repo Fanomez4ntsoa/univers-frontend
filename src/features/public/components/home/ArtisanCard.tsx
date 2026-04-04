@@ -11,6 +11,7 @@ interface Artisan {
   is_verified: boolean
   cover_image: string
   logo: string
+  description?: string
 }
 
 export default function ArtisanCard({ shop, index }: { shop: Artisan; index: number }) {
@@ -34,7 +35,7 @@ export default function ArtisanCard({ shop, index }: { shop: Artisan; index: num
         {shop.is_verified && (
           <div className="absolute top-2 right-2 px-1.5 py-0.5 bg-emerald-500 rounded-full flex items-center gap-1">
             <BadgeCheck size={10} className="text-white" />
-            <span className="text-[9px] font-semibold text-white">Verifie</span>
+            <span className="text-[9px] font-semibold text-white">Vérifié</span>
           </div>
         )}
 
@@ -66,6 +67,8 @@ export default function ArtisanCard({ shop, index }: { shop: Artisan; index: num
             <p className="text-xs sm:text-sm text-[#F97316] font-medium truncate">{shop.metier}</p>
           </div>
         </div>
+
+        <p className="text-[11px] sm:text-xs text-gray-500 line-clamp-1 sm:line-clamp-2 mb-2 sm:mb-3">{shop.description}</p>
 
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-1 text-gray-400">
