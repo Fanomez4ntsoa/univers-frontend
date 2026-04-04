@@ -13,7 +13,7 @@ export default function ShopCard({ shop }: ShopCardProps) {
         {/* Cover */}
         <div className="h-32 bg-gradient-to-r from-[#1E40AF] to-[#3B82F6] relative">
           {shop.cover_url && <img src={shop.cover_url} alt="" className="w-full h-full object-cover" />}
-          {shop.is_verified && (
+          {shop.verified_at !== null && (
             <span className="absolute top-2 right-2 bg-green-500 text-white rounded-full p-1"><CheckCircle className="w-3 h-3" /></span>
           )}
         </div>

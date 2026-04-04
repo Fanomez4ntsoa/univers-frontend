@@ -1,19 +1,7 @@
-export interface Artisan {
-  id: string
-  slug?: string
-  shop_name: string
-  metier: string
-  description?: string
-  city: string
-  postal_code?: string
-  phone?: string
-  is_verified: boolean
-  rating_average: number
-  reviews_count: number
-  cover_image?: string
-  logo?: string
-  services?: string[]
-}
+import type { Shop } from '../../../ecosystem/shops/types/shop'
+
+// ArtisanShop = Shop de l'API — les cards affichent ces champs
+export type ArtisanShop = Shop
 
 export interface ArtisanFilters {
   metier: string

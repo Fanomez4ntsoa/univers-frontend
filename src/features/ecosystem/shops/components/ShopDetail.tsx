@@ -18,7 +18,7 @@ export default function ShopDetail({ shop, products }: ShopDetailProps) {
         <div className="flex-1">
           <div className="flex items-center gap-2">
             <h1 className="text-2xl font-bold text-slate-900">{shop.name}</h1>
-            {shop.is_verified && <CheckCircle className="w-5 h-5 text-green-500" />}
+            {shop.verified_at !== null && <CheckCircle className="w-5 h-5 text-green-500" />}
           </div>
           {shop.category && <p className="text-sm text-[#1E40AF] font-medium">{shop.category}</p>}
         </div>

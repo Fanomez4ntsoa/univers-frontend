@@ -1,3 +1,11 @@
+export interface ShopUser {
+  id: number
+  display_name: string
+  avatar_url: string | null
+  metier: string | null
+  phone?: string | null
+}
+
 export interface Shop {
   id: number
   user_id: number
@@ -12,9 +20,12 @@ export interface Shop {
   phone: string | null
   email: string | null
   is_active: boolean
-  is_verified: boolean
+  verified_at: string | null
   products_count: number
   created_at: string
+  updated_at?: string
+  deleted_at?: string | null
+  user?: ShopUser
 }
 
 export interface ShopProduct {
