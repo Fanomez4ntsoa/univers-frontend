@@ -45,7 +45,7 @@ export default function VentesFlashSection() {
         <SectionHeader
           icon={Zap}
           title="Ventes Flash"
-          subtitle="Offres limitees dans le temps"
+          subtitle="Offres limitées dans le temps"
           link="/shops"
           color="#EF4444"
         />
