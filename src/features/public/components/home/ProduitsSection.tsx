@@ -22,10 +22,10 @@ const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-3',
-    title: 'Cable Electrique 100m',
+    title: 'Câble Électrique 100m',
     price: 89,
     image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400',
-    category: 'Electricite',
+    category: 'Électricité',
     shop_name: 'ElecDistrib',
   },
   {
@@ -38,10 +38,10 @@ const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-5',
-    title: 'Parquet Chene Massif',
+    title: 'Parquet Chêne Massif',
     price: 65,
     image: 'https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=400',
-    category: 'Revetement',
+    category: 'Revêtement',
     shop_name: 'BoisPremium',
   },
 ]
@@ -53,7 +53,7 @@ export default function ProduitsSection() {
         <SectionHeader
           icon={Award}
           title="Produits du Mois"
-          subtitle="Selection de nos meilleures offres"
+          subtitle="Sélection de nos meilleures offres"
           link="/shops"
           color="#F97316"
         />
