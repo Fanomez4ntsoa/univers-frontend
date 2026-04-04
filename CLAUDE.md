@@ -306,6 +306,10 @@ export const requireAuth = (action: () => void): void => {
 
 ## 🔌 API consommée
 
+### Mode démo
+- `IS_DEMO = true` dans `src/shared/lib/config.ts` — affiche les badges "TEST" sur les cards
+- **Mettre à `false` en production** avant le déploiement
+
 ### Core (port 8000)
 ```
 POST /api/auth/login    → { token, user, profile }
@@ -444,5 +448,5 @@ git commit -m "[FEAT]: description claire"
 
 ---
 
-*Dernière mise à jour : 4 Avril 2026 — HomePage design fidèle à Emergent (12 corrections appliquées)*
+*Dernière mise à jour : 4 Avril 2026 — ArtisansPage + LoginPage + RegisterPage terminées*
 *Rédigé par : Fanomezantsoa + Claude*

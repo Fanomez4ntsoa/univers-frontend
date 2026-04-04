@@ -144,7 +144,7 @@ Phase 7 — Front Public     █████████████████
 
 | Page | Route | Branche | État |
 |---|---|---|---|
-| Page Artisans | `/artisans` | `fix/page-artisans` | ✅ Terminé + testé |
+| Page Artisans | `/artisans` | `fix/page-artisans` | ✅ Terminé + testé + données API réelles |
 | Page Marketplace | `/produits` | | 📋 À faire |
 | Page Particuliers/Annonces | `/annonces` | | 📋 À faire |
 | Page Réseau Social (Feed) | `/reseau` | | 📋 À vérifier |
