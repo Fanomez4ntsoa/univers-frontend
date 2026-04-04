@@ -1,22 +1,28 @@
+// LoginForm.tsx — Fidèle à Emergent ConnexionAcheteurPage.jsx
+// Bouton orange, icône LogIn, lien mot de passe oublié
+
 import { useState, type FormEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Mail, Lock, Eye, EyeOff, ArrowRight } from 'lucide-react'
+import { Mail, Lock, Eye, EyeOff, LogIn, AlertCircle } from 'lucide-react'
 import { Button } from '../../../shared/ui/button'
 import { Input } from '../../../shared/ui/input'
 import { toast } from 'sonner'
 import { useLogin } from '../hooks/useAuth'
 import type { AxiosError } from 'axios'
+import { motion } from 'framer-motion'
 
 export default function LoginForm() {
   const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
+  const [error, setError] = useState('')
 
   const loginMutation = useLogin()
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
+    setError('')
 
     if (!email || !password) {
       toast.error('Remplis tous les champs')
@@ -30,9 +36,10 @@ export default function LoginForm() {
           toast.success(`Bienvenue ${data.profile.display_name} !`)
           navigate('/prospects')
         },
-        onError: (error) => {
-          const axiosError = error as AxiosError<{ message?: string }>
+        onError: (err) => {
+          const axiosError = err as AxiosError<{ message?: string }>
           const message = axiosError.response?.data?.message || 'Email ou mot de passe incorrect'
+          setError(message)
           toast.error(message)
         },
       }
@@ -40,61 +47,82 @@ export default function LoginForm() {
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl p-8">
+    <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8">
       <form onSubmit={handleSubmit} className="space-y-5">
+        {/* Erreur */}
+        {error && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            className="bg-red-50 border border-red-200 rounded-xl p-3 flex items-center gap-2 text-red-700 text-sm"
+          >
+            <AlertCircle size={16} />
+            {error}
+          </motion.div>
+        )}
+
         {/* Email */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Email
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Adresse email
           </label>
           <div className="relative">
-            <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+            <Mail size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
             <Input
               type="email"
-              placeholder="ton@email.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="pl-10 h-11 rounded-xl"
+              placeholder="ton@email.com"
+              className="pl-10 rounded-xl"
+              required
             />
           </div>
         </div>
 
-        {/* Password */}
+        {/* Mot de passe */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium text-gray-700 mb-2">
             Mot de passe
           </label>
           <div className="relative">
-            <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+            <Lock size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
             <Input
               type={showPassword ? 'text' : 'password'}
-              placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="pl-10 pr-10 h-11 rounded-xl"
+              placeholder="••••••••"
+              className="pl-10 pr-10 rounded-xl"
+              required
             />
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors duration-200"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
             >
               {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
             </button>
           </div>
         </div>
 
-        {/* Submit */}
+        {/* Mot de passe oublié */}
+        <div className="text-right">
+          <a href="#" className="text-sm text-orange-600 hover:text-orange-700">
+            Mot de passe oublié ?
+          </a>
+        </div>
+
+        {/* Bouton connexion */}
         <Button
           type="submit"
           disabled={loginMutation.isPending}
-          className="w-full h-11 bg-[#1E40AF] hover:bg-blue-800 rounded-lg text-white cursor-pointer"
+          className="w-full bg-orange-500 hover:bg-orange-600 rounded-xl h-12 text-base font-semibold cursor-pointer"
         >
           {loginMutation.isPending ? (
-            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white" />
+            <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
           ) : (
             <>
+              <LogIn size={18} className="mr-2" />
               Se connecter
-              <ArrowRight size={18} className="ml-2" />
             </>
           )}
         </Button>
