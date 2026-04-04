@@ -7,7 +7,7 @@ import { useArtisans } from '../../features/ecosystem/artisans/hooks/useArtisans
 import ArtisanShopCard from '../../features/ecosystem/artisans/components/ArtisanShopCard'
 import ArtisanFiltersBar from '../../features/ecosystem/artisans/components/ArtisanFilters'
 import ConversionBanner from '../../features/ecosystem/artisans/components/ConversionBanner'
-import BetaBanner from '../../features/ecosystem/artisans/components/BetaBanner'
+import BetaBanner from '../../shared/components/BetaBanner'
 import TrustSection from '../../features/ecosystem/artisans/components/TrustSection'
 import ArtisansCTASection from '../../features/ecosystem/artisans/components/ArtisansCTASection'
 import type { ArtisanFilters } from '../../features/ecosystem/artisans/types/artisan'
