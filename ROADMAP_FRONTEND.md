@@ -137,9 +137,14 @@ Phase 7 — Front Public     █████████████████
 | Page Inscription | `/register` | `fix/register-page` | ✅ Terminé + testé |
 
 ### 7.4 Pages depuis Navigation principale
+
+> ⚠️ **Note architecture** : toutes les pages publiques (`/artisans`, `/produits`, `/annonces`...)
+> doivent être sous `PublicLayout` — pas `EcosystemLayout`.
+> `EcosystemLayout` est réservé au réseau social (`/feed`, `/discover`, `/shops`, `/listings`, `/jobs`)
+
 | Page | Route | Branche | État |
 |---|---|---|---|
-| Page Artisans | `/artisans` | | 📋 À faire |
+| Page Artisans | `/artisans` | `fix/page-artisans` | ✅ Terminé + testé |
 | Page Marketplace | `/produits` | | 📋 À faire |
 | Page Particuliers/Annonces | `/annonces` | | 📋 À faire |
 | Page Réseau Social (Feed) | `/reseau` | | 📋 À vérifier |
