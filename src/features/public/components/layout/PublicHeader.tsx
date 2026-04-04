@@ -17,25 +17,25 @@ const LOGO_URL = 'https://customer-assets.emergentagent.com/job_organize-smart/a
 
 const NAV_ITEMS = [
   { path: '/', label: '', icon: Home, iconOnly: true },
-  { path: '/discover', label: 'Artisans', icon: Users, iconOnly: false },
-  { path: '/shops', label: 'Marketplace', icon: Store, iconOnly: false },
-  { path: '/listings', label: 'Particuliers', icon: Megaphone, iconOnly: false },
-  { path: '/feed', label: 'Réseau', icon: Network, iconOnly: false },
-  { path: '/jobs', label: 'Emploi', icon: Briefcase, iconOnly: false },
-  { path: '/discover', label: 'Réseau Pro', icon: Building2, iconOnly: false },
-  { path: '/login', label: 'Espace Pro', icon: LayoutDashboard, iconOnly: false },
+  { path: '/artisans', label: 'Artisans', icon: Users, iconOnly: false },
+  { path: '/produits', label: 'Marketplace', icon: Store, iconOnly: false },
+  { path: '/annonces', label: 'Particuliers', icon: Megaphone, iconOnly: false },
+  { path: '/reseau', label: 'Réseau', icon: Network, iconOnly: false },
+  { path: '/emploi', label: 'Emploi', icon: Briefcase, iconOnly: false },
+  { path: '/reseau-pros', label: 'Réseau Pro', icon: Building2, iconOnly: false },
+  { path: '/espace-pro', label: 'Espace Pro', icon: LayoutDashboard, iconOnly: false },
 ]
 
 // Items du menu hamburger — ordre exact Emergent
 const MENU_NAV_ITEMS = [
   { path: '/', label: 'Accueil', icon: Home },
-  { path: '/discover', label: 'Artisans', icon: Users },
-  { path: '/shops', label: 'Marketplace', icon: Store },
-  { path: '/listings', label: 'Entre particuliers', icon: Megaphone },
-  { path: '/feed', label: 'Réseau social', icon: Network },
-  { path: '/jobs', label: 'Emploi', icon: Briefcase },
-  { path: '/discover', label: 'Réseau Pros', icon: Building2 },
-  { path: '/login', label: 'Espace Pro', icon: Crown },
+  { path: '/artisans', label: 'Artisans', icon: Users },
+  { path: '/produits', label: 'Marketplace', icon: Store },
+  { path: '/annonces', label: 'Entre particuliers', icon: Megaphone },
+  { path: '/reseau', label: 'Réseau social', icon: Network },
+  { path: '/emploi', label: 'Emploi', icon: Briefcase },
+  { path: '/reseau-pros', label: 'Réseau Pros', icon: Building2 },
+  { path: '/espace-pro', label: 'Espace Pro', icon: Crown },
 ]
 
 const PRO_SECTION = [

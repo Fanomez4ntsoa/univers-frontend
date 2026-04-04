@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Toaster } from 'sonner'
 import LoginPage from './pages/auth/LoginPage'
+import ArtisansPage from './pages/ecosystem/ArtisansPage'
 import AuthGuard from './features/auth/components/AuthGuard'
 import CRMLayout from './features/crm/layout/components/CRMLayout'
 import EcosystemLayout from './features/ecosystem/layout/components/EcosystemLayout'
@@ -53,6 +54,7 @@ function App() {
             <Route path="/tarifs" element={<PublicPricingPage />} />
             <Route path="/a-propos" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/artisans" element={<ArtisansPage />} />
           </Route>
 
           {/* Public — Auth */}

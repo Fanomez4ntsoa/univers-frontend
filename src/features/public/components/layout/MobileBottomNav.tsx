@@ -8,10 +8,10 @@ import { Globe, Flame, Plus, Film, LayoutGrid } from 'lucide-react'
 
 const NAV_ITEMS = [
   { id: 'univers', label: 'Univers', icon: Globe, path: '/' },
-  { id: 'actu', label: 'Actu', icon: Flame, path: '/feed' },
-  { id: 'publier', label: 'Publier', icon: Plus, path: '/listings', isMain: true },
-  { id: 'cinema', label: 'Cinéma', icon: Film, path: '/feed' },
-  { id: 'cockpit', label: 'Cockpit', icon: LayoutGrid, path: '/prospects' },
+  { id: 'actu', label: 'Actu', icon: Flame, path: '/reseau' },
+  { id: 'publier', label: 'Publier', icon: Plus, path: '/annonces', isMain: true },
+  { id: 'cinema', label: 'Cinéma', icon: Film, path: '/reseau' },
+  { id: 'cockpit', label: 'Cockpit', icon: LayoutGrid, path: '/espace-pro' },
 ]
 
 export default function MobileBottomNav() {
