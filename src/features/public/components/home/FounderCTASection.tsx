@@ -28,8 +28,8 @@ export default function FounderCTASection() {
           </h2>
 
           <p className="text-base sm:text-lg text-slate-300 mb-6 sm:mb-8 px-4">
-            Profite de <span className="text-white font-semibold">1 an offert</span> et participe a la construction
-            de la premiere plateforme 100% dediee aux pros du batiment
+            Profite de <span className="text-white font-semibold">1 an offert</span> et participe à la construction
+            de la première plateforme 100% dédiée aux pros du bâtiment
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
