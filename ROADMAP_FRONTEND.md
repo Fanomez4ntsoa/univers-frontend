@@ -134,7 +134,7 @@ Phase 7 — Front Public     █████████████████
 | Page Devenir Fondateur (marketing) | `/offre-fondateur` | | ⏭️ 618 lignes — reporté |
 | Page Espace Pro Fondateur (Stripe) | `/espace-pro/fondateur` | | ⏭️ 986 lignes — reporté |
 | Page Connexion | `/login` | `fix/login-page` | ✅ Terminé + testé |
-| Page Inscription | `/register` | | 📋 À vérifier |
+| Page Inscription | `/register` | `fix/register-page` | ✅ Terminé + testé |
 
 ### 7.4 Pages depuis Navigation principale
 | Page | Route | Branche | État |
