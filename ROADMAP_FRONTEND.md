@@ -99,19 +99,77 @@ Phase 7 — Front Public     █████████████████
 
 ---
 
-## 📋 PHASE 7 — Front Public (Landing + Pages marketing)
+## 📋 PHASE 7 — Front Public (Design fidèle à Emergent)
 
-> **Débloquer après** : Phase 6 complète
-> Pages publiques visibles sans compte — vitrine du produit
+> Protocole : pour chaque page/composant →
+> lire Emergent JSX + index.css → comparer → corriger → valider 3 breakpoints → commiter
 
-| Page | Fichier Emergent de référence | Branche | État |
+### 7.1 Layout Public
+| Composant | Branche | État |
+|---|---|---|
+| TopBanner | `fix/homepage-design` | ✅ Terminé |
+| PublicHeader (desktop/tablet/mobile) | `fix/homepage-design` | ✅ Terminé |
+| Nav secondaire responsive | `fix/homepage-design` | ✅ Terminé |
+| Hamburger menu mobile | `fix/homepage-design` | ✅ Terminé |
+| MobileBottomNav (tabbar) | `fix/homepage-design` | ✅ Terminé |
+| PublicFooter (dark theme) | `fix/homepage-design` | ✅ Terminé |
+
+### 7.2 HomePage — Sections
+| Section | Branche | État |
+|---|---|---|
+| HeroSection (3 versions responsive) | `fix/homepage-design` | ✅ Terminé |
+| UniversSection (grille 2x3 mobile) | `fix/homepage-design` | ✅ Terminé |
+| BestArtisansSection | `fix/homepage-design` | ✅ Terminé |
+| WhySellSection | `fix/homepage-design` | ✅ Terminé |
+| FounderCTASection (mobile only) | `fix/homepage-design` | ✅ Terminé |
+| VentesFlashSection | `fix/homepage-design` | ✅ Terminé |
+| ProduitsSection | `fix/homepage-design` | ✅ Terminé |
+| WhyBuySection | `fix/homepage-design` | ✅ Terminé |
+| NewsletterSection | `fix/homepage-design` | ✅ Terminé |
+
+### 7.3 Pages depuis Header
+| Page | Route | Branche | État |
 |---|---|---|---|
-| HomePage (centre commercial 6 univers) | `src/pages/HomePage.jsx` | `feature/public-landing` + `fix/homepage-design` | ✅ Terminé + testé + design fidèle Emergent (12 corrections) |
-| Landing page (BatiAssist 7 sections) | `src/pages/landing/LandingPage.jsx` | `feature/public-landing` | ✅ Terminé + testé |
-| Page tarifs | `src/pages/PricingPage.jsx` | `feature/public-landing` | ✅ Terminé + testé |
-| Page À propos | `src/pages/AboutPage.jsx` | `feature/public-landing` | ✅ Terminé + testé |
-| Page contact | `src/pages/ContactPage.jsx` | `feature/public-landing` | ✅ Terminé + testé |
-| Page inscription | `src/pages/ecosystem/social/RegisterPage.jsx` | `feature/public-landing` | ✅ Terminé + testé |
+| Page Publier (modal ou page) | `/publier` | | 📋 À faire |
+| Page Devenir Fondateur | `/offre-fondateur` | | 📋 À faire |
+| Page Connexion | `/login` | | 📋 À vérifier |
+| Page Inscription | `/register` | | 📋 À vérifier |
+
+### 7.4 Pages depuis Navigation principale
+| Page | Route | Branche | État |
+|---|---|---|---|
+| Page Artisans | `/artisans` | | 📋 À faire |
+| Page Marketplace | `/produits` | | 📋 À faire |
+| Page Particuliers/Annonces | `/annonces` | | 📋 À faire |
+| Page Réseau Social (Feed) | `/reseau` | | 📋 À vérifier |
+| Page Emploi | `/emploi` | | 📋 À vérifier |
+| Page Réseau Pros | `/reseau-pros` | | 📋 À faire |
+| Page Espace Pro | `/espace-pro` | | 📋 À vérifier |
+
+### 7.5 Pages depuis Univers (HomePage cards)
+| Page | Route | Branche | État |
+|---|---|---|---|
+| Page Artisans (univers) | `/artisans` | | 📋 Même que 7.4 |
+| Page Marketplace (univers) | `/produits` | | 📋 Même que 7.4 |
+| Page Particuliers (univers) | `/annonces` | | 📋 Même que 7.4 |
+| Page Réseau Social (univers) | `/reseau` | | 📋 Même que 7.4 |
+| Page Emploi (univers) | `/emploi` | | 📋 Même que 7.4 |
+| Page Réseau Pros (univers) | `/reseau-pros` | | 📋 Même que 7.4 |
+
+### 7.6 Pages depuis CTA Hero
+| Page | Route | Branche | État |
+|---|---|---|---|
+| Page décrire un projet | `/matching/requests` | | 📋 À vérifier |
+| Page trouver un artisan | `/artisans` | | 📋 Même que 7.4 |
+| Page Marketplace acheter | `/produits` | | 📋 Même que 7.4 |
+
+### 7.7 Pages publiques marketing
+| Page | Route | Branche | État |
+|---|---|---|---|
+| LandingPage BatiAssist | `/landing` | | 📋 À vérifier |
+| PricingPage | `/tarifs` | | 📋 À vérifier |
+| AboutPage | `/a-propos` | | 📋 À vérifier |
+| ContactPage | `/contact` | | 📋 À vérifier |
 
 ---
 
