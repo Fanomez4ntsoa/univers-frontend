@@ -18,8 +18,8 @@ interface Univers {
 
 const UNIVERS: Univers[] = [
   { title: 'Artisans', description: 'Trouve des professionnels certifiés près de chez toi', icon: Wrench, path: '/artisans', gradient: 'linear-gradient(135deg, #10B981, #059669)', count: 'Artisans vérifiés' },
-  { title: 'Marketplace', description: 'Matériaux et outillage sans commission', icon: Store, path: '/shops', gradient: 'linear-gradient(135deg, #14285A, #1E40AF)', count: '0% commission' },
-  { title: 'Entre Particuliers', description: 'Petites annonces matériaux et outillage', icon: ShoppingBag, path: '/listings', gradient: 'linear-gradient(135deg, #F97316, #FB923C)', count: 'Annonces gratuites' },
+  { title: 'Marketplace', description: 'Matériaux et outillage sans commission', icon: Store, path: '/produits', gradient: 'linear-gradient(135deg, #14285A, #1E40AF)', count: '0% commission' },
+  { title: 'Entre Particuliers', description: 'Petites annonces matériaux et outillage', icon: ShoppingBag, path: '/annonces', gradient: 'linear-gradient(135deg, #F97316, #FB923C)', count: 'Annonces gratuites' },
   { title: 'Réseau Social', description: 'La communauté des pros du bâtiment', icon: Users, path: '/feed', gradient: 'linear-gradient(135deg, #8B5CF6, #A78BFA)', count: 'Réseau pro' },
   { title: 'Emploi', description: 'Offres d\'emploi du secteur BTP', icon: Briefcase, path: '/jobs', gradient: 'linear-gradient(135deg, #EC4899, #F472B6)', count: 'Offres BTP' },
   { title: 'Réseau Pros', description: 'Centrale d\'achat dédiée aux professionnels du bâtiment', icon: Building2, path: '/discover', gradient: 'linear-gradient(135deg, #0891B2, #06B6D4)', count: 'Centrale d\'achat' },
