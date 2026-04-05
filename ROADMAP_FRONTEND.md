@@ -147,7 +147,7 @@ Phase 7 — Front Public     █████████████████
 | Page Artisans | `/artisans` | `fix/page-artisans` | ✅ Terminé + testé + données API réelles |
 | Page Marketplace | `/produits` | `fix/page-marketplace` | ✅ Terminé + testé (v1 — évolution prévue) |
 | Page Particuliers/Annonces | `/annonces` | `fix/page-annonces` | ✅ Terminé + testé |
-| Page Réseau Social (Feed) | `/reseau` | | 📋 À vérifier |
+| Page Réseau Social (Feed) | `/reseau` | `fix/page-reseau` | ✅ Terminé + testé |
 | Page Emploi | `/emploi` | | 📋 À vérifier |
 | Page Réseau Pros | `/reseau-pros` | | 📋 À faire |
 | Page Espace Pro | `/espace-pro` | | 📋 À vérifier |
