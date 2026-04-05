@@ -5,6 +5,7 @@ import LoginPage from './pages/auth/LoginPage'
 import ArtisansPage from './pages/ecosystem/ArtisansPage'
 import MarketplacePage from './pages/ecosystem/MarketplacePage'
 import AnnoncesPage from './pages/ecosystem/AnnoncesPage'
+import ReseauPage from './pages/ecosystem/ReseauPage'
 import AuthGuard from './features/auth/components/AuthGuard'
 import CRMLayout from './features/crm/layout/components/CRMLayout'
 import EcosystemLayout from './features/ecosystem/layout/components/EcosystemLayout'
@@ -59,6 +60,7 @@ function App() {
             <Route path="/artisans" element={<ArtisansPage />} />
             <Route path="/produits" element={<MarketplacePage />} />
             <Route path="/annonces" element={<AnnoncesPage />} />
+            <Route path="/reseau" element={<ReseauPage />} />
           </Route>
 
           {/* Public — Auth */}
