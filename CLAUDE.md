@@ -307,7 +307,7 @@ export const requireAuth = (action: () => void): void => {
 ## 🔌 API consommée
 
 ### Mode démo
-- `IS_DEMO = true` dans `src/shared/lib/config.ts` — affiche les badges "TEST" sur les cards
+- `IS_DEMO = false ✅` dans `src/shared/lib/config.ts` — badges "TEST" désactivés
 - **Mettre à `false` en production** avant le déploiement
 
 ### Core (port 8000)
@@ -448,5 +448,5 @@ git commit -m "[FEAT]: description claire"
 
 ---
 
-*Dernière mise à jour : 4 Avril 2026 — ArtisansPage + LoginPage + RegisterPage terminées*
+*Dernière mise à jour : 25 Avril 2026 — IS_DEMO passé à false*
 *Rédigé par : Fanomezantsoa + Claude*
