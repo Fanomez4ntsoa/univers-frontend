@@ -234,10 +234,23 @@ src/
 │   │   ├── components/
 │   │   ├── hooks/
 │   │   └── types/
-│   └── subscription/
+│   ├── subscription/
+│   │   ├── components/
+│   │   ├── hooks/
+│   │   └── types/
+│   └── public/
 │       ├── components/
-│       ├── hooks/
-│       └── types/
+│       │   ├── home/
+│       │   ├── landing/
+│       │   ├── layout/
+│       │   └── register/         # RegisterPage décomposée
+│       │       ├── RegisterForm.tsx       (orchestrateur, 195 l.)
+│       │       ├── VerificationBanner.tsx (banner + popup, 99 l.)
+│       │       ├── UserTypeToggle.tsx     (toggle Particulier/Pro, 57 l.)
+│       │       ├── PasswordField.tsx      (input + œil, 43 l.)
+│       │       ├── FormField.tsx          (input générique, 34 l.)
+│       │       └── ProCTA.tsx             (CTA Pro, 16 l.)
+│       └── hooks/
 ├── shared/
 │   ├── components/
 │   ├── lib/
@@ -355,7 +368,8 @@ GET  /api/me             → objet plat (User & Profile)  ✅ implémenté (useM
 - SubscriptionPage — abonnement Pro + checkout Stripe *(testé navigateur)*
 - HomePage — centre commercial 6 univers *(testé navigateur)*
 - LandingPage — BatiAssist 7 sections *(testé navigateur)*
-- PricingPage + AboutPage + ContactPage + RegisterPage *(testé navigateur)*
+- PricingPage + AboutPage + ContactPage *(testé navigateur)*
+- RegisterPage *(testé navigateur)* — refactorisée FSD : shell 16 lignes + 6 composants enfants (`features/public/components/register/`)
 
 ### 🔄 À faire
 - Aucune phase restante — toutes les phases terminées
@@ -448,5 +462,5 @@ git commit -m "[FEAT]: description claire"
 
 ---
 
-*Dernière mise à jour : 25 Avril 2026 — useMe + logout réel implémentés*
+*Dernière mise à jour : 25 Avril 2026 — RegisterPage refactorisée FSD*
 *Rédigé par : Fanomezantsoa + Claude*
