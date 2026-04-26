@@ -1,5 +1,6 @@
 import { useMutation } from '@tanstack/react-query'
 import { coreAPI } from '../../../shared/lib/axios'
+import { clearAuthStorage } from '../../../shared/lib/auth-storage'
 import type { User, Profile, LoginResponse } from '../types/auth'
 
 interface LoginPayload {
@@ -52,8 +53,6 @@ export const isAuthenticated = (): boolean => {
 }
 
 export const logout = () => {
-  localStorage.removeItem('token')
-  localStorage.removeItem('user')
-  localStorage.removeItem('profile')
+  clearAuthStorage()
   window.location.href = '/login'
 }
