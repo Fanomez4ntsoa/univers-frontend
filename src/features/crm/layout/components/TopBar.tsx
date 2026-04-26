@@ -1,13 +1,14 @@
 import { Menu, LogOut } from 'lucide-react'
 import { Button } from '../../../../shared/ui/button'
-import { getStoredProfile, logout } from '../../../auth/hooks/useAuth'
+import { logout } from '../../../auth/hooks/useAuth'
+import { useMe } from '../../../auth/hooks/useMe'
 
 interface TopBarProps {
   onMenuClick: () => void
 }
 
 export default function TopBar({ onMenuClick }: TopBarProps) {
-  const profile = getStoredProfile()
+  const { data: profile } = useMe()
 
   return (
     <header className="bg-white border-b border-slate-200 px-4 lg:px-6 py-3 flex items-center justify-between sticky top-0 z-30">

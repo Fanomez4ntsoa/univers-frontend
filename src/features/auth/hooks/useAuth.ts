@@ -72,7 +72,13 @@ export const isAuthenticated = (): boolean => {
   return true
 }
 
-export const logout = () => {
+export const logout = async () => {
+  try {
+    await coreAPI.post('/api/auth/logout')
+  } catch {
+    // best-effort: server logout may fail (offline, expired token...)
+    // we always clean local state regardless
+  }
   clearAuthStorage()
   window.location.href = '/login'
 }
