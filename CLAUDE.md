@@ -163,13 +163,24 @@ Transitions hover : `duration-200 ease-out`
 ```
 1. POST http://localhost:8000/api/auth/login
    ← reçoit { token, user, profile }
-2. localStorage.setItem('token', token)
-3. Chaque requête vers abracadabativ2 :
+2. localStorage.setItem('token' / 'user' / 'profile')
+3. AuthGuard appelle GET /api/me au montage
+   → rehydrate user/profile depuis le serveur
+4. Chaque requête vers abracadabativ2 :
    Authorization: Bearer <token>
-4. Si 401 → vider localStorage → rediriger /login
+5. Si 401 → clearAuthStorage() (token + user + profile) → rediriger /login
+6. Logout : POST /api/auth/logout (best-effort) → clearAuthStorage() → /login
 ```
 
-### src/lib/axios.ts
+### Hooks et helpers (`src/features/auth/hooks/`)
+- `useLogin()` — mutation TanStack Query, persiste `token`/`user`/`profile` au succès
+- `useMe()` — query TanStack Query sur `GET /api/me` ; rehydrate localStorage à chaque fetch ; `staleTime: 5min` ; clé `meQueryKey = ['me']` (utile pour invalidation après update profil)
+- `logout()` — async, fait `POST /api/auth/logout` puis `clearAuthStorage()` + redirect
+- `isAuthenticated()` — sync ; vérifie présence du token **et** son `exp` JWT (rejette les tokens expirés et nettoie le storage)
+- `getStoredUser/Profile/Token()` — lecture sync depuis localStorage (pour les contextes hors-React)
+- `clearAuthStorage()` partagé dans `src/shared/lib/auth-storage.ts`
+
+### `src/shared/lib/axios.ts`
 ```typescript
 import axios from 'axios'
 
@@ -181,22 +192,10 @@ export const batiAPI = axios.create({
   baseURL: import.meta.env.VITE_BATI_API_URL,
 })
 
-batiAPI.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token')
-  if (token) config.headers.Authorization = `Bearer ${token}`
-  return config
-})
-
-batiAPI.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    if (error.response?.status === 401) {
-      localStorage.removeItem('token')
-      window.location.href = '/login'
-    }
-    return Promise.reject(error)
-  }
-)
+// 4 instances : coreAPI, batiAPI, ecosystemAPI, portalAPI
+// Bearer injection : coreAPI, batiAPI, ecosystemAPI (portalAPI = public par token)
+// 401 handler : coreAPI + batiAPI → clearAuthStorage() + redirect /login
+//   (filtré sur présence d'un token pour ne pas casser un échec de login)
 ```
 
 ---
@@ -312,9 +311,10 @@ export const requireAuth = (action: () => void): void => {
 
 ### Core (port 8000)
 ```
-POST /api/auth/login    → { token, user, profile }
-POST /api/auth/logout
-GET  /api/me
+POST /api/auth/login     → { token, user, profile }     ✅ implémenté (useLogin)
+POST /api/auth/register  → { token, user, profile }     ✅ implémenté (RegisterPage)
+POST /api/auth/logout                                   ✅ implémenté (logout)
+GET  /api/me             → objet plat (User & Profile)  ✅ implémenté (useMe)
 ```
 
 ### Bati (port 8001) — Bearer token obligatoire
@@ -448,5 +448,5 @@ git commit -m "[FEAT]: description claire"
 
 ---
 
-*Dernière mise à jour : 25 Avril 2026 — IS_DEMO passé à false*
+*Dernière mise à jour : 25 Avril 2026 — useMe + logout réel implémentés*
 *Rédigé par : Fanomezantsoa + Claude*
