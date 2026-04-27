@@ -192,10 +192,12 @@ export const batiAPI = axios.create({
   baseURL: import.meta.env.VITE_BATI_API_URL,
 })
 
-// 4 instances : coreAPI, batiAPI, ecosystemAPI, portalAPI
-// Bearer injection : coreAPI, batiAPI, ecosystemAPI (portalAPI = public par token)
-// 401 handler : coreAPI + batiAPI → clearAuthStorage() + redirect /login
-//   (filtré sur présence d'un token pour ne pas casser un échec de login)
+// 4 instances :
+//   coreAPI       → endpoints d'auth (port 8000)            — Bearer + 401 handler
+//   batiAPI       → endpoints CRM/abonnement (port 8001)    — Bearer + 401 handler
+//   ecosystemAPI  → endpoints sociaux (port 8001)           — Bearer si token présent (token optionnel)
+//   portalAPI     → endpoints client portal (port 8001)     — public, authentifié par token d'URL
+// 401 handler : filtré sur présence d'un token (pour ne pas casser un échec de login)
 ```
 
 ---
@@ -229,7 +231,13 @@ src/
 │   │   ├── shops/
 │   │   ├── listings/
 │   │   ├── jobs/
-│   │   └── social/
+│   │   ├── social/
+│   │   ├── annonces/
+│   │   ├── artisans/
+│   │   ├── emploi/
+│   │   ├── marketplace/
+│   │   ├── reseau/
+│   │   └── layout/         # EcosystemLayout
 │   ├── matching/
 │   │   ├── components/
 │   │   ├── hooks/
@@ -242,8 +250,8 @@ src/
 │       ├── components/
 │       │   ├── home/
 │       │   ├── landing/
-│       │   ├── layout/
-│       │   └── register/         # RegisterPage décomposée
+│       │   ├── layout/             # Header, Footer, MobileNav, PublicLayout
+│       │   └── register/           # RegisterPage décomposée
 │       │       ├── RegisterForm.tsx       (orchestrateur, 195 l.)
 │       │       ├── VerificationBanner.tsx (banner + popup, 99 l.)
 │       │       ├── UserTypeToggle.tsx     (toggle Particulier/Pro, 57 l.)
@@ -256,12 +264,13 @@ src/
 │   ├── lib/
 │   └── ui/
 ├── pages/
-│   ├── auth/
+│   ├── auth/                       # LoginPage
 │   ├── crm/
 │   ├── portal/
 │   ├── ecosystem/
 │   ├── matching/
-│   └── subscription/
+│   ├── subscription/
+│   └── public/                     # HomePage, LandingPage, RegisterPage, Pricing, About, Contact
 └── App.tsx
 ```
 
@@ -364,6 +373,11 @@ GET  /api/me             → objet plat (User & Profile)  ✅ implémenté (useM
 - ShopsPage + ShopDetailPage + MyShopPage *(testé navigateur)*
 - ListingsPage + ListingDetailPage + MyListingsPage *(testé navigateur)*
 - JobsPage + JobDetailPage + EventDetailPage *(testé navigateur)*
+- ArtisansPage — `/artisans` *(testé navigateur)*
+- MarketplacePage — `/produits` *(testé navigateur)*
+- AnnoncesPage — `/annonces` *(testé navigateur)*
+- ReseauPage — `/reseau` *(testé navigateur)*
+- EmploiPage — `/emploi` *(testé navigateur)*
 - MyRequestsPage + RequestDetailPage + AvailablePage + MyQuotesPage *(testé navigateur)*
 - SubscriptionPage — abonnement Pro + checkout Stripe *(testé navigateur)*
 - HomePage — centre commercial 6 univers *(testé navigateur)*
@@ -462,5 +476,5 @@ git commit -m "[FEAT]: description claire"
 
 ---
 
-*Dernière mise à jour : 25 Avril 2026 — RegisterPage refactorisée FSD*
+*Dernière mise à jour : 25 Avril 2026 — pages, features et chemins mis à jour*
 *Rédigé par : Fanomezantsoa + Claude*
