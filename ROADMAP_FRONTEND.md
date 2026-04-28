@@ -179,6 +179,60 @@ Phase 7 — Front Public     █████████████████
 
 ---
 
+## 🔄 PHASE SUIVANTE — Pages manquantes (rapport 2026-04-28)
+
+### 🔴 Tier 1 — CRM core manquant (priorité absolue)
+| Page | Référence Emergent | État | Priorité |
+|---|---|---|---|
+| CRMDashboard | pages/client/crm-batiment/CRMDashboard.jsx | 📋 À faire | 🔴 |
+| CommercialPipeline (kanban) | pages/client/crm-batiment/CommercialPipeline.jsx | 📋 À faire | 🔴 |
+| ProduitsPage (catalogue) | pages/client/crm-batiment/ProduitsPage.jsx | 📋 À faire | 🔴 |
+| PrestationsPage | pages/client/crm-batiment/PrestationsPage.jsx | 📋 À faire | 🔴 |
+| PlanningPage (calendrier chantiers) | pages/client/crm-batiment/PlanningPage.jsx | 📋 À faire | 🔴 |
+
+⚠️ Restructurer la Sidebar en groupes (CRM / Boutique / Matching / Compte)
+AVANT d'ajouter ces pages — sinon la nav déborde.
+
+### 🔴 Tier 2 — Boutique Pro éclatée
+| Page | Référence Emergent | État | Priorité |
+|---|---|---|---|
+| BoutiqueDashboard | pages/client/boutique/BoutiqueDashboard.jsx | 📋 À faire | 🔴 |
+| BoutiqueDesignPage | pages/client/boutique/BoutiqueDesignPage.jsx | 📋 À faire | 🔴 |
+| BoutiqueMediasPage | pages/client/boutique/BoutiqueMediasPage.jsx | 📋 À faire | 🔴 |
+| BoutiqueAvisPage | pages/client/boutique/BoutiqueAvisPage.jsx | 📋 À faire | 🔴 |
+
+### 🟠 Tier 3 — Intégration pages Romain (AbracadaBati)
+| Page | Référence | État | Note |
+|---|---|---|---|
+| BoutiquePage espacepro | pages/espacepro/BoutiquePage.jsx | 📋 À faire | Pose bases sidebar restructurée |
+| MembresFondateursPage | pages/espacepro/MembresFondateursPage.jsx | 📋 À faire | Page commerciale clé |
+| FounderBadge + TrustBadge | components/badges/ | 📋 À faire | À afficher sur ProfilePage, ShopDetailPage |
+| VerificationAppointmentPage | pages/ecosystem/social/VerificationAppointmentPage.jsx | 📋 À faire | Couplé à /subscription |
+
+### 🟡 Tier 4 — CRM périphérique
+| Page | Référence Emergent | État |
+|---|---|---|
+| RentabilitePage + Dashboard | crm-batiment/RentabilitePage.jsx | 📋 À faire |
+| DocumentsPage (GED) | crm-batiment/DocumentsPage.jsx | 📋 À faire |
+| TicketsSAVPage | crm-batiment/TicketsSAVPage.jsx | 📋 À faire |
+| CompteRenduChantierPage | crm-batiment/CompteRenduChantierPage.jsx | 📋 À faire |
+| BatiAssistHomePage | crm-batiment/BatiAssistHomePage.jsx | 📋 À faire |
+
+### ⚪ Hors scope pour l'instant
+- MonCercleConfiancePage (cockpit-particulier — pas dans la mission)
+- Marketing Pro + AI Vendor (après CRM complet)
+- Pages publiques marketing (FAQ, Blog, BatiAssist*)
+
+---
+
+## ▶️ Reprise
+Prochain chantier : Restructurer la Sidebar en groupes
+(CRM / Boutique / Matching / Compte) AVANT toute nouvelle page.
+Référence : BoutiquePage.jsx + EspaceProSectionsNav.jsx dans AbracadaBati.
+Ensuite : CRMDashboard → CommercialPipeline → ProduitsPage → PrestationsPage → PlanningPage
+
+---
+
 ## 🎯 Règle de progression
 ```
 1. Terminer la page/feature sur sa branche feature/
@@ -202,5 +256,5 @@ Phase 7 — Front Public     █████████████████
 
 ---
 
-*Dernière mise à jour : 4 Avril 2026 — HomePage design fidèle à Emergent (12 corrections)*
+*Dernière mise à jour : 2026-04-28 — pages manquantes priorisées Tier 1→4 (rapport comparaison Emergent)*
 *Rédigé par : Fanomezantsoa + Claude*
