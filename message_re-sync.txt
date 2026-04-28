@@ -1,0 +1,23 @@
+Lis CLAUDE.md entièrement pour comprendre le contexte.
+
+Je veux un rapport de comparaison entre notre frontend 
+et le projet Emergent de référence.
+
+Référence Emergent : ~/project/AbracadaBati/frontend/src/
+Notre frontend : ~/project/abracadabati-frontend/src/
+
+Analyse :
+1. Ce qui existe dans Emergent mais pas chez nous — 
+   par ordre de priorité métier Bati (ignore Stories, 
+   Cinema, AbracaCoins, Marketplace B2B2C, etc.)
+
+2. Ce qui existe des deux côtés mais avec des divergences 
+   UX importantes à noter
+
+3. Les nouvelles pages de Romain sur origin/main 
+   d'AbracadaBati (founders, trust_circle, boutique pro, 
+   verification appointments, cercle de confiance) — 
+   est-ce pertinent pour notre frontend à nous ?
+
+Rapport uniquement, ne touche à rien.
+Ne crée pas de worktree.
